@@ -26,6 +26,14 @@
   border-image-slice: 1;
   border-image-source: linear-gradient(to right ,#F4442C  , #F69C08 );
 }
+.gradient-t-border {
+  border-top: 2px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right ,#F4442C  , #F69C08 );
+}
+.gradient-bg {
+  background-image: linear-gradient(to right ,#F4442C  , #F69C08 );
+}
 
 
 .global-padding{
