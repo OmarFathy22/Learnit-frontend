@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Success from './components/success'
-import Master from "./components/master";
-import Recommended from "./components/recommended";
+import Success from './components/sections/success'
+import Master from "./components/sections/master";
+import Recommended from "./components/sections/recommended";
 export default function Home() {
   return <main className="">
     <Success />

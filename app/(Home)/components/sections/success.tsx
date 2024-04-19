@@ -1,7 +1,7 @@
 'use client';
 import * as React from 'react';
-import Slider from './Slider'
-import CourseCard from './CourseCard';
+import Slider from '../shared/Slider'
+import CourseCard from '../shared/CourseCard';
 export interface IAppProps {
 
 }

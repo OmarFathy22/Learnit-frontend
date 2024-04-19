@@ -1,8 +1,8 @@
 "use client";
 import * as React from "react";
-import Slider from "./Slider";
+import Slider from "../shared/Slider";
 import { GoArrowRight } from "react-icons/go";
-import CourseCard from "./CourseCard";
+import CourseCard from "../shared/CourseCard";
 
 export interface IAppProps {}
 const categories = [
