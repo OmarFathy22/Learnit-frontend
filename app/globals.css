@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* #F69C08 #F4442C */
+/* I want to make the 2 colors above as a graiant orange and assign it to text-primary*/
+
+:root {
+  --bg-primary: #1B1B1E;
+  --bg-secondary: #26262C;
+  --bg-tertiary: #2c2c31;
+  --text-primary: linear-gradient(to right,#F4442C, #51f369 100%);
+  --sub-text: #A0A0A0;
+}
+.gradient-text {
+  background-image: linear-gradient(to right ,#F4442C  , #F69C08 );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  width: fit-content;
+  font-weight: bold;
+}
+.gradient-border {
+  border-bottom: 2px solid;
+  border-top: 2px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right ,#F4442C  , #F69C08 );
+}
+
+
+.global-padding{
+  padding-right: 70px;
+  padding-left: 70px;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+.borderr{
+  border: 2px solid red;
+}
+
