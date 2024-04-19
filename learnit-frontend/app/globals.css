@@ -8,7 +8,9 @@
 :root {
   --bg-primary: #1B1B1E;
   --bg-secondary: #26262C;
+  --bg-tertiary: #2c2c31;
   --text-primary: linear-gradient(to right,#F4442C, #51f369 100%);
+  --sub-text: #A0A0A0;
 }
 .gradient-text {
   background-image: linear-gradient(to right ,#F4442C  , #F69C08 );
@@ -17,6 +19,18 @@
   color: transparent;
   width: fit-content;
   font-weight: bold;
+}
+.gradient-border {
+  border-bottom: 2px solid;
+  border-top: 2px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right ,#F4442C  , #F69C08 );
+}
+
+
+.global-padding{
+  padding-right: 70px;
+  padding-left: 70px;
 }
 
 
@@ -43,3 +57,7 @@ body {
     text-wrap: balance;
   }
 }
+.borderr{
+  border: 2px solid red;
+}
+
