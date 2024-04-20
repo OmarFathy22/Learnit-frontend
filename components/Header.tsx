@@ -35,9 +35,9 @@ export default function App(props: IAppProps) {
     <div
       className={`bg-[--bg-primary] h-[100px] w-full  flex items-center justify-between px-[70px] ${montserrat_Alternates.className}`}
     >
-      <div className="cursor-pointer ">
-        <Image src="/logo.png"  alt="logo" width={1000} height={1000} className="!w-[120px] min-w-[120px]" />
-      </div>
+      <Link href={'/'}>
+        <Image src="/logo.png"  alt="logo" width={1000} height={1000} className="!w-[150px] min-w-[150px]" />
+      </Link>
       <div className="search flex items-center gap-3 bg-[#46464C1A] px-3 py-2 rounded-full">
         <CiSearch size={20} />
         <input

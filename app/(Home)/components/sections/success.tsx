@@ -14,14 +14,14 @@ export default function App (props: IAppProps) {
         <span className='font-bold'>Learnit, </span>
         <span className='gradient-text'>UserName</span>
       </div>
-      <h1 className='gradient-text text-[30px]  mb-[30px]'>
+      <h1 className='gradient-text text-[30px] mb-[30px] font-bold'>
       Success Starts Here
       </h1>
       {/* react slider Here */}
       <Slider >
       {Array(10).fill(0).map((_, i) => (
           <div key={i}>
-           <CourseCard />  
+           <CourseCard id={i} />  
           </div>
         ))}
       </Slider>
