@@ -14,7 +14,7 @@ export default function App(props: IAppProps) {
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
       }}
-          className="global-padding   w-[70%] h-[400px] ">
+          className="global-padding   w-[70%] h-[430px] ">
       
       </div>
     <div className="flex flex-col gap-3 justify-start items-center mt-[30px]  w-[70%]">

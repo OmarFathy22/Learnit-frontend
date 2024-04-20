@@ -23,7 +23,7 @@ function Responsive({children}:ISliderProps) {
           slidesToShow: 4,
           slidesToScroll: 4,
           infinite: true,
-          dots: true
+        
         }
       },
       {
@@ -32,7 +32,7 @@ function Responsive({children}:ISliderProps) {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: true
+        
         }
       },
       {

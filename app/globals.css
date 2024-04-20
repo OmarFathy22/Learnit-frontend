@@ -12,6 +12,40 @@
   --text-primary: linear-gradient(to right,#F4442C, #51f369 100%);
   --sub-text: #A0A0A0;
 }
+
+
+
+.gradient-border-left-green::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 15px; /* Adjust this value to change the border width */
+  background: linear-gradient(270deg, #1FDB00 21.01%, #107500 99.99%);
+  opacity: 0.4;
+}
+.gradient-border-left-blue::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 15px; /* Adjust this value to change the border width */
+  background: var(--adfdafd, linear-gradient(270deg, #0016DB 21%, #000575 100%));
+  opacity: 0.4;
+}
+.gradient-border-left-red::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 15px; /* Adjust this value to change the border width */
+  background: linear-gradient(270deg, #DB0000 21%, #750000 100%);
+
+  opacity: 0.4;
+}
 .gradient-text {
   background-image: linear-gradient(to right ,#F4442C  , #F69C08 );
   -webkit-background-clip: text;
