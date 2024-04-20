@@ -54,6 +54,22 @@
   width: fit-content;
   font-weight: bold;
 }
+.gradient-text-green {
+  background: var(--lol, linear-gradient(180deg, #1FDB00 21%, #107500 100%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  width: fit-content;
+  font-weight: bold;
+}
+.gradient-text-red {
+  background: var(--lol-r, linear-gradient(180deg, #DB0000 55.6%, #750000 100%, #9B0000 100.01%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  width: fit-content;
+  font-weight: bold;
+}
 .gradient-border {
   border-bottom: 2px solid;
   border-top: 2px solid;

@@ -21,9 +21,9 @@ export default function App(props: IAppProps) {
           <Image
             src="/girl2.png"
             alt="course instructor"
-            width={50}
-            height={50}
-            className="rounded-full"
+            width={1000}
+            height={1000}
+            className="rounded-full w-[35px] h-[35px]"
           />
         </div>
         <div className="truncate">

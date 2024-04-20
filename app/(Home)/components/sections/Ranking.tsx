@@ -36,13 +36,13 @@ export default function App(props: IAppProps) {
             .map((_, index) => (
               <li key={index} className="flex justify-between items-center ">
                 <div className="flex items-center gap-[30px]">
-                  <h2>4</h2>
+                  <h2>{index + 4}</h2>
                   <Image
                     src={"/girl1.png"}
                     alt="girl"
                     width={1000}
                     height={1000}
-                    className="rounded-full w-[75px] h-[75px] border-[5px] border-[#FB6BFE] "
+                    className="rounded-full w-[65px] h-[65px] border-[5px] border-[#FB6BFE] "
                   />
                   <h1 className="">Liam Davis</h1>
                 </div>
@@ -51,7 +51,7 @@ export default function App(props: IAppProps) {
             ))}
         </ul>
         <Link href="/ranking">
-          <div className="text-[#FFF] bg-[--bg-secondary] text-center mt-[10px] py-4 flex justify-center items-center gap-2">
+          <div className="text-[#FFF] text-[18px] bg-[--bg-secondary] text-center mt-[5px] py-4 flex justify-center items-center gap-2">
             <h1>View Full List </h1>
             <h1><GoArrowRight size={20}/></h1>
           </div>

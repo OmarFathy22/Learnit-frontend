@@ -5,7 +5,7 @@ import { Montserrat_Alternates } from "next/font/google";
 import { CgProfile } from "react-icons/cg";
 import { CiSearch } from "react-icons/ci";
 import Link from "next/link";
-import ProfileIcon from "../public/svgs/profileIcon";
+import ProfileIcon from "./svgs/profileIcon";
 import Image from "next/image";
 
 export interface IAppProps {}
