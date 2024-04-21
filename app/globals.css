@@ -10,6 +10,7 @@
   --bg-secondary: #26262C;
   --bg-tertiary: #2c2c31;
   --text-primary: linear-gradient(to right, #F4442C, #51f369 100%);
+  --links: #ADD5F2;
   --sub-text: #A0A0A0;
 }
 /* css for the collapisble */
@@ -83,6 +84,12 @@
 .gradient-border {
   border-bottom: 1px solid;
   border-top: 1px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right, #F4442C, #F69C08);
+}
+.gradient-border-full {
+  border: 1px solid;
+  border-radius: 20px;
   border-image-slice: 1;
   border-image-source: linear-gradient(to right, #F4442C, #F69C08);
 }

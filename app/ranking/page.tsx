@@ -14,7 +14,7 @@ export default function App(props: IAppProps) {
     setActive(!active);
   };
   return (
-    <div className=" mx-auto rounded-md w-[70%] ">
+    <div className=" mx-auto rounded-md w-[70%] pb-[40px] ">
       <div className="w-full flex justify-center items-center gap-[200px] py-5">
         <h1
           onClick={onClick}
@@ -29,7 +29,7 @@ export default function App(props: IAppProps) {
           All Time
         </h1>
       </div>
-      
+
       {active ? <Monthly /> : <AllTime />}
     </div>
   );
