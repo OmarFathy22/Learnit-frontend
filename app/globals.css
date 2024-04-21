@@ -9,51 +9,59 @@
   --bg-primary: #1B1B1E;
   --bg-secondary: #26262C;
   --bg-tertiary: #2c2c31;
-  --text-primary: linear-gradient(to right,#F4442C, #51f369 100%);
+  --text-primary: linear-gradient(to right, #F4442C, #51f369 100%);
   --sub-text: #A0A0A0;
 }
-
-
-
+/* css for the collapisble */
+.custom-collapse {
+  transition: height 0.3s ease;
+}
 .gradient-border-left-green::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
-  width: 15px; /* Adjust this value to change the border width */
+  width: 15px;
+  /* Adjust this value to change the border width */
   background: linear-gradient(270deg, #1FDB00 21.01%, #107500 99.99%);
   opacity: 0.4;
 }
+
 .gradient-border-left-blue::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
-  width: 15px; /* Adjust this value to change the border width */
+  width: 15px;
+  /* Adjust this value to change the border width */
   background: var(--adfdafd, linear-gradient(270deg, #0016DB 21%, #000575 100%));
   opacity: 0.4;
 }
+
 .gradient-border-left-red::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
-  width: 15px; /* Adjust this value to change the border width */
+  width: 15px;
+  /* Adjust this value to change the border width */
   background: linear-gradient(270deg, #DB0000 21%, #750000 100%);
 
   opacity: 0.4;
 }
+
 .gradient-text {
-  background-image: linear-gradient(to right ,#F4442C  , #F69C08 );
+  background-image: linear-gradient(to right, #F4442C, #F69C08);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   width: fit-content;
   font-weight: bold;
 }
+
 .gradient-text-green {
   background: var(--lol, linear-gradient(180deg, #1FDB00 21%, #107500 100%));
   -webkit-background-clip: text;
@@ -62,6 +70,7 @@
   width: fit-content;
   font-weight: bold;
 }
+
 .gradient-text-red {
   background: var(--lol-r, linear-gradient(180deg, #DB0000 55.6%, #750000 100%, #9B0000 100.01%));
   -webkit-background-clip: text;
@@ -70,26 +79,35 @@
   width: fit-content;
   font-weight: bold;
 }
+
 .gradient-border {
-  border-bottom: 2px solid;
-  border-top: 2px solid;
+  border-bottom: 1px solid;
+  border-top: 1px solid;
   border-image-slice: 1;
-  border-image-source: linear-gradient(to right ,#F4442C  , #F69C08 );
+  border-image-source: linear-gradient(to right, #F4442C, #F69C08);
 }
+
 .gradient-t-border {
-  border-top: 2px solid;
+  border-top: 1px solid;
   border-image-slice: 1;
-  border-image-source: linear-gradient(to right ,#F4442C  , #F69C08 );
+  border-image-source: linear-gradient(to right, #F4442C, #F69C08);
 }
+.gradient-b-border {
+  border-bottom: 1px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right, #F4442C, #F69C08);
+}
+
 .gradient-bg {
-  background-image: linear-gradient(to right ,#F4442C  , #F69C08 );
+  background-image: linear-gradient(to right, #F4442C, #F69C08);
 }
 
 
-.global-padding{
+.global-padding {
   padding-right: 70px;
   padding-left: 70px;
 }
+
 
 
 @media (prefers-color-scheme: dark) {
@@ -102,12 +120,9 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
@@ -115,7 +130,7 @@ body {
     text-wrap: balance;
   }
 }
-.borderr{
+
+.borderr {
   border: 2px solid red;
 }
-

@@ -8,13 +8,13 @@ export interface IAppProps {
 
 export default function App (props: IAppProps) {
   return (
-    <div className='global-padding  mb-[70px]'>
+    <div className='global-padding  mb-[70px] py-[30px]'>
       <div>
         <span>Welcome to </span>
         <span className='font-bold'>Learnit, </span>
         <span className='gradient-text'>UserName</span>
       </div>
-      <h1 className='gradient-text text-[30px] mb-[30px] font-bold'>
+      <h1 className='gradient-text text-[30px] mb-[30px]'>
       Success Starts Here
       </h1>
       {/* react slider Here */}
