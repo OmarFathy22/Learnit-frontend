@@ -15,9 +15,8 @@ export default function App(props: IAppProps) {
       <div className="global-padding">
         <Slider>
         {Array(10).fill(0).map((_, i) => (
-          <div key={i}>
-           <FeedBackCard />  
-          </div>
+    
+           <FeedBackCard key={i} />  
         ))}
         </Slider>
       </div>

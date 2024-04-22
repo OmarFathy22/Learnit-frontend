@@ -7,12 +7,12 @@ export interface IAppProps {}
 
 export default function App(props: IAppProps) {
   return (
-    <div className="gradient-bg  m-2 mx-[10px] rounded-md p-[1px] ">
+    <div className="gradient-bg  m-2   rounded-md pl-[2px] pr-[1px] py-[2px] ">
       <div className="bg-[--bg-primary]   p-3 !rounded-md ">
         <h1>
           <FaQuoteLeft size={20} />
         </h1>
-        <h1 className=" text-center">
+        <h1 className="">
           I am proud to say that after a few months of taking this course i passed
           my exam and am now an AWS certified cloud practitioner! this content was
           exactly what i needed
@@ -28,7 +28,7 @@ export default function App(props: IAppProps) {
             />
           </div>
           <div className="truncate">
-            <h1 className="gradient-text">Isabella Rodriguez</h1>
+            <h1 className="text-[13px]">Isabella Rodriguez</h1>
           </div>
         </div>
       

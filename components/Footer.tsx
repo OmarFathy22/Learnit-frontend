@@ -5,7 +5,7 @@ export interface IAppProps {}
 
 export default function App(props: IAppProps) {
   return (
-    <div className="bg-[--bg-secondary] min-h-[120px]">
+    <div className="bg-[--bg-secondary] min-h-[120px] border-t-[1px] border-t-[#474747]">
       <div className="  w-full flex justify-around  items-start p-7">
         <div>
           <h1 className="gradient-text text-[20px]">Contact Us</h1>
@@ -44,7 +44,7 @@ export default function App(props: IAppProps) {
               placeholder="Enter your email"
               className="w-[220px] outline-none  rounded-md bg-[--bg-tertiary] p-2 mr-2 "
             />
-            <button className="gradient-bg p-2 px-5 font-bold rounded-md">Subscribe</button>
+            <button className="gradient-bg p-2 px-5 font-bold rounded-md hover:opacity-[0.95] transition-all">Subscribe</button>
           </div>
         </div>
       </div>

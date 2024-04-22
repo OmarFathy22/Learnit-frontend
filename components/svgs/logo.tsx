@@ -10,8 +10,8 @@ export default function App (props: IAppProps) {
     <path d="M4.30145 0.353027L8.26096 4.31253H13.7603V19.8206L17.9398 24.0001V4.31253H22.5592L18.5997 0.353027H4.30145Z" fill="white"/>
     <defs>
       <linearGradient id="paint0_linear_381_689" x1="0" y1="11.5486" x2="12.8684" y2="11.5486" gradientUnits="userSpaceOnUse">
-        <stop stop-color="#F4442C"/>
-        <stop offset="1" stop-color="#F69C08"/>
+        <stop stopColor="#F4442C"/>
+        <stop offset="1" stopColor="#F69C08"/>
       </linearGradient>
     </defs>
   </svg>
