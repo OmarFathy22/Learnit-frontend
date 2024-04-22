@@ -28,7 +28,7 @@ export default function App({title}: IAppProps) {
               isOpened ? "rotate-180" : ""
             }`}
           >
-            {isOpened ? <DownArrowGrad /> :<DownArrow />}
+            {isOpened ? <DownArrowGrad /> :<DownArrow width="20" height="20" />}
           </div>
         </div>
       </div>
