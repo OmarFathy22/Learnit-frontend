@@ -2,8 +2,8 @@
 import { useState } from "react";
 import * as React from "react";
 import { TiVideo } from "react-icons/ti";
-import DownArrow from "../../../../../components/svgs/down-arrow";
 import DownArrowGrad from "../../../../../components/svgs/down-arrow-gradient";
+import DownArrow from "../../../../../components/svgs/down-arrow";
 import { Collapse } from "react-collapse";
 
 export interface IAppProps {

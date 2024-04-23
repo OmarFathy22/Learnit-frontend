@@ -38,7 +38,7 @@ export default function App(props: IAppProps) {
   return (
     <div className="flex-1 ">
       <div className="py-3">
-        <h1 className="font-bold gradient-text text-[25px] mb-3">Add a Post</h1>
+        <h1 className="font-bold gradient-text text-[25px] mb-3">Feed</h1>
         <Post
           title={post.title}
           content={post.content}

@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import DownArrow from "../../../components/svgs/down-arrow";
+import Categories from "./dialog/Categories";
 
 export interface IAppProps {}
 const dialogs = [
@@ -8,95 +9,46 @@ const dialogs = [
   "Node js",
   ".Net",
   "python",
-  "machine learning",
+  // "machine learning",
   "AI",
 
 ];
 export default function App(props: IAppProps) {
-  const [postType, setPostType] = useState(0);
   const [chooseDialog, setChooseDialog] = useState(0);
-  const handlePostType = (index: number) => (
-    event: React.MouseEvent<HTMLDivElement>
-  ) => {
-    setPostType(index);
-  };
   const handleChooseDialog = (index: number) => (
-    event: React.MouseEvent<HTMLDivElement>
+    event: React.MouseEvent<HTMLButtonElement>
   ) => {
     setChooseDialog(index);
   };
   return (
     <div className="max-w-[350px] relative  ">
     <div className="py-3 sticky left-0 top-0">
-        <h1 className="font-bold gradient-text text-[25px] mb-3">Add a Post</h1>
-        <div className="bg-[--bg-secondary] rounded-lg ">
-          <h1 className="font-bold text-[20px] px-4 py-1">Post Type</h1>
-          <div className="flex items-center border-b-[2px] border-b-[#323238] px-3 gap-2 pb-2">
-            <div className="flex items-center py-1 px-3 gap-2  bg-[#323238] rounded-lg">
-              <h1>Text</h1>
-              <div
-                onClick={handlePostType(0)}
-                className="rounded-full p-[6px] bg-[--bg-primary] cursor-pointer "
-              >
-                <div
-                  className={`${
-                    postType === 0 && "gradient-bg"
-                  } rounded-full p-2  `}
-                />
-              </div>
-            </div>
-            <div className="flex items-center py-1 px-3 gap-2  bg-[#323238] rounded-lg">
-              <h1>Poll</h1>
-              <div
-                onClick={handlePostType(1)}
-                className="rounded-full p-[6px] bg-[--bg-primary] cursor-pointer "
-              >
-                <div
-                  className={`${
-                    postType === 1 && "gradient-bg"
-                  } rounded-full p-2  `}
-                />
-              </div>
-            </div>
-          </div>
-          <h1 className="font-bold text-[20px] px-4 py-1">Dialog</h1>
-          <ul className="flex flex-wrap gap-1 items-center   px-4 max-h-[150px] overflow-auto">
+        <h1 className="font-bold gradient-text text-[25px] mb-3">join a Dialog</h1>
+        <div className="bg-[--bg-secondary] rounded-lg p-4">        
+          <h1 className="font-bold text-[20px] ">Top Dialogs</h1>
+          <ul className="flex flex-wrap gap-1 items-center  bg-[--bg-primary] rounded-md mt-1  p-3 max-h-[150px] overflow-auto">
             {dialogs.map((dialog, i) => (
               <li
                 key={i}
                 className="flex items-center py-1 px-3 gap-1  bg-[#323238] rounded-lg"
               >
                 <h1 className="text-[13px]">D/{dialog}</h1>
-                <div
+                <button
                   onClick={handleChooseDialog(i)}
-                  className="rounded-full p-[6px] bg-[--bg-primary] cursor-pointer "
+                  className={`p-1 px-3 text-[12px] rounded-full bg-[--bg-primary] ${i == 2 && "gradient-bg"} cursor-pointer` }
                 >
-                  <div
-                    className={`${
-                      chooseDialog === i && "gradient-bg"
-                    } rounded-full p-2  `}
-                  />
-                </div>
+                  {i === 2 ? "Join" : "Joined"}
+                  
+                </button>
               </li>
             ))}
           </ul>
-          <div className="border-t-[2px] border-t-[#323238] mt-2">
-            <div className="px-4 py-2">
-              <h1 className="font-bold text-[20px]">Title</h1>
-              <div>
-                <input className="bg-[--bg-primary] rounded-md p-2 w-full mt-1" />
-              </div>
-            </div>
-            <div className="px-4">
-              <h1 className="font-bold text-[20px]">Content</h1>
-              <div>
-                <textarea className="bg-[--bg-primary] rounded-md p-3 w-full min-h-[120px] mt-2 resize-none " />
-              </div>
-            </div>
-            <button className="gradient-bg mx-4 mt-3 mb-5 py-1  px-5 rounded-md text-[17px] font-bold text-[#222]">
-              Post
-            </button>
-          </div>
+         <h1 className="text-[20px] font-bold mt-3">Categories</h1>
+        <ul className="flex flex-col gap-2 mt-2">
+           {["Development" , "Network" , "Music" , "Cyper Security"].map((item, i) => (
+            <Categories title={item} key={i}/>
+           ))}
+        </ul>
         </div>
     </div>
     </div>

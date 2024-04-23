@@ -30,7 +30,7 @@ export default function App(props: IAppProps) {
     <div className="py-3 sticky left-0 top-0">
         <h1 className="font-bold gradient-text text-[25px] mb-3">Add a Post</h1>
         <div className="bg-[--bg-secondary] rounded-lg ">
-          <h1 className="font-bold text-[20px] px-4 py-1">Post Type</h1>
+          <h1 className="font-bold text-[20px] px-4 pb-1 py-4">Post Type</h1>
           <div className="flex items-center border-b-[2px] border-b-[#323238] px-3 gap-2 pb-2">
             <div className="flex items-center py-1 px-3 gap-2  bg-[#323238] rounded-lg">
               <h1>Text</h1>
@@ -82,18 +82,18 @@ export default function App(props: IAppProps) {
           </ul>
           <div className="border-t-[2px] border-t-[#323238] mt-2">
             <div className="px-4 py-2">
-              <h1 className="font-bold text-[20px]">Title</h1>
+              <h1 className="font-bold text-[15px]">Title</h1>
               <div>
                 <input className="bg-[--bg-primary] rounded-md p-2 w-full mt-1" />
               </div>
             </div>
             <div className="px-4">
-              <h1 className="font-bold text-[20px]">Content</h1>
+              <h1 className="font-bold text-[15px]">Content</h1>
               <div>
-                <textarea className="bg-[--bg-primary] rounded-md p-3 w-full min-h-[120px] mt-2 resize-none " />
+                <textarea className="bg-[--bg-primary] rounded-md p-3 w-full min-h-[120px] mt-1 resize-none " />
               </div>
             </div>
-            <button className="gradient-bg mx-4 mt-3 mb-5 py-1  px-5 rounded-md text-[17px] font-bold text-[#222]">
+            <button className="gradient-bg mx-4 mt-3 mb-4 py-1  px-5 rounded-md text-[17px] font-bold text-[#222]">
               Post
             </button>
           </div>
