@@ -51,7 +51,7 @@ export default function App(props: IAppProps) {
             ))}
         </ul>
         <Link href="/ranking">
-          <div className="text-[#FFF] text-[18px] bg-[--bg-secondary] text-center mt-[5px] py-4 flex justify-center items-center gap-2">
+          <div className="text-[#FFF] text-[18px] bg-[--bg-secondary] text-center mt-[3px] py-4 flex justify-center items-center gap-2 rounded-md">
             <h1>View Full List </h1>
             <h1><GoArrowRight size={20}/></h1>
           </div>

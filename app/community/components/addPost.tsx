@@ -9,6 +9,8 @@ const dialogs = [
   ".Net",
   "python",
   "machine learning",
+  "machine learning",
+  "machine learning",
   "AI",
 
 ];
@@ -60,7 +62,7 @@ export default function App(props: IAppProps) {
             </div>
           </div>
           <h1 className="font-bold text-[20px] px-4 py-1">Dialog</h1>
-          <ul className="flex flex-wrap gap-1 items-center   px-4 max-h-[150px] overflow-auto">
+          <ul className="custom-scrollbar flex flex-wrap gap-1 items-center   px-4 max-h-[150px] overflow-auto">
             {dialogs.map((dialog, i) => (
               <li
                 key={i}

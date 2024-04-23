@@ -13,6 +13,30 @@
   --links: #ADD5F2;
   --sub-text: #A0A0A0;
 }
+ /* global scrollbar srtyles */
+::-webkit-scrollbar {
+  width: 0px; /* Set the width of the scrollbar */
+  border-radius: 5px; /* Set the border radius */
+}
+
+/* Define a custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 12px; /* Set the width of the scrollbar */
+  border-radius: 5px; /* Set the border radius */
+}
+
+/* Track styles */
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: #2C2C32; /* Set the track color to black */
+  border-radius: 5px; /* Set the border radius */
+}
+
+/* Handle styles */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--gradiant-orange, linear-gradient(90deg, #F4442C 0%, #F69C08 100%));
+  border-radius: 5px; /* Set the border radius */
+}
+
 /* css for the collapisble */
 .custom-collapse {
   transition: height 0.3s ease;
