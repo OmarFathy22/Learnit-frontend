@@ -11,10 +11,10 @@ export default function App({title , Icon}:IAppProps) {
   return (
     <div>
       <div className="flex items-center gap-2  mt-5 mb-2">
-        <div className=" -translate-y-[1px]">
+        <div className=" -translate-y-[1px] ">
           {Icon && <Icon/>}
         </div>
-        <h1 className="gradient-text text-[22px] ">{title}</h1>
+        <h1 className=" text-[22px] gradient-text">{title}</h1>
       </div>
       {/* <ul className="flex flex-wrap gap-3"></ul> */}
       <div className="">

@@ -55,7 +55,7 @@ export default function App(props: IAppProps) {
             <Link
               href={route.path}
               className={`${
-                pathname === route.path ? "gradient-text" : "!text-[white]"
+                pathname === route.path  ? "gradient-text" : "!text-[white]"
               }`}
             >
               {route.name}
@@ -65,7 +65,7 @@ export default function App(props: IAppProps) {
         {/* profile Icon */}
         <li>
           <Link href={"/profile"}>
-            <ProfileIcon active={pathname === "/profile"} />
+            <ProfileIcon active={pathname.startsWith("/profile")} />
           </Link>
         </li>
       </ul>

@@ -20,7 +20,7 @@ const dialogs = [
 export default function App({title}: IAppProps) {
   return (
     <div>
-      <h1 className="mb-2">{title}</h1>
+      <h1 className="mb-2 font-bold text-[18px] ">{title}</h1>
       <Slider>
         {dialogs.map((dialog, i) => (
           <div
