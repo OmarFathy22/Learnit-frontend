@@ -3,7 +3,7 @@ export interface IAppProps {
 }
 
 export default function App(props: IAppProps) {
- const titles = ['Overview', 'Curriculum', 'Reviews', 'Q&A', 'Projects', 'Resources', 'Announcements', 'Instructors', 'FAQs', 'Stats']
+ const titles = ['Overview', 'Curriculum', 'Curriculum','Curriculum','Reviews', 'Q&A', 'Projects', 'Resources', 'Announcements', 'Instructors', 'FAQs', 'Stats']
   return (
     <ul>
       {titles.map((title, i) => (

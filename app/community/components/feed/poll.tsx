@@ -6,9 +6,20 @@ import Image from "next/image";
 export interface IAppProps {
   title: string;
   options: { title: string; count: number }[];
+
 }
 
 export default function App({ title, options }: IAppProps) {
+  const MaxPercent = () => {
+    let maxi = 0 , idx = 0;
+    for (let i = 0; i < options.length; i++) {
+      if (options[i].count > maxi) {
+        maxi = options[i].count;
+        idx = i;
+      }
+    }
+    return idx;
+   }
   const [chooseOption, setChooseOption] = useState(-1);
   const [votedOption, setVotedOption] = useState(-1);
 
@@ -17,7 +28,6 @@ export default function App({ title, options }: IAppProps) {
       return (event: React.MouseEvent<HTMLLIElement>) => {
         event.preventDefault();
       };
-    console.log(chooseOption);
     return (event: React.MouseEvent<HTMLLIElement>) => {
       setChooseOption(option);
     };
@@ -53,7 +63,7 @@ export default function App({ title, options }: IAppProps) {
               className={` cursor-pointer bg-[--bg-primary] relative ${
                 chooseOption === index &&
                 votedOption < 0 &&
-                "border-2 border-[#737374]"
+                "border-[2px] border-[orange]"
               }  rounded-lg  mb-2`}
             >
               <div
@@ -68,7 +78,14 @@ export default function App({ title, options }: IAppProps) {
                   {item.count}%
                 </h1>
               </div>
-              { votedOption >= 0 && <div style={{width:`${item.count}%` }} className={`rounded-l-md ${item.count === 100 && "rounded-r-md"}  gradient-bg  z-[1] w-full h-full absolute top-0  bottom-0 left-0`}/>}
+              {votedOption >= 0 && (
+                <div
+                  style={{ width: `${item.count}%` }}
+                  className={`rounded-l-md ${
+                    item.count === 100 && "rounded-r-md"
+                  }  ${MaxPercent() === index ? "gradient-bg" : 'gradient-bg-opacity'} z-[1] w-full h-full absolute top-0  bottom-0 left-0`}
+                />
+              )}
             </li>
           ))}
         </ul>

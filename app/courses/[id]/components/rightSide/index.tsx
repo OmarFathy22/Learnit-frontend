@@ -15,7 +15,7 @@ export default function App (props: IAppProps) {
     setActiveColor('gradient-text')
   };
   return (
-    <div className='w-[500px] h-[calc(100vh-200px)] overflow-auto relative custom-scrollbar'>
+    <div className='w-[500px] h-[calc(100vh-80px)] !overflow-auto relative custom-scrollbar'>
       <div className='bg-[--bg-secondary] flex justify-around items-center text-[16px] py-2 border-b-[1px] sticky z-10 right-0 left-0 top-0  border-b-[#474747]'>
       <h1 onClick={handleTab('description')} className={`cursor-pointer ${activeTab == "description" ? "gradient-text": ""}`}>Description</h1>
       <h1 onClick={handleTab('reviews')} className={`cursor-pointer ${activeTab == "reviews" ? "gradient-text": ""}`}>Reviews</h1>

@@ -1,11 +1,14 @@
+'use client'
 import * as React from "react";
 import Logo from "./svgs/logo";
+import { usePathname } from "next/navigation";
 
 export interface IAppProps {}
 
 export default function App(props: IAppProps) {
+  const pathname = usePathname();
   return (
-    <div className="bg-[--bg-secondary] min-h-[120px] border-t-[1px] border-t-[#474747]">
+    <div className={`${pathname.includes('/courses') && "hidden"} bg-[--bg-secondary] min-h-[120px] border-t-[1px] border-t-[#474747]`}>
       <div className="  w-full flex justify-around  items-start p-7">
         <div>
           <h1 className="gradient-text text-[20px]">Contact Us</h1>

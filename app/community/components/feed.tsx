@@ -2,6 +2,7 @@ import Poll from "./feed/poll";
 import Post from "./feed/post";
 
 export interface IAppProps {}
+
 export default function App(props: IAppProps) {
   const post = {
     title: "python app with cpanel hosting in godaddy",
@@ -19,26 +20,48 @@ export default function App(props: IAppProps) {
     options: [
       {
         title: "React",
-        count: 100,
+        count: 10,
       },
       {
         title: "Node js",
-        count: 0,
+        count: 50,
       },
       {
         title: ".Net",
-        count: 0,
+        count: 20,
       },
       {
         title: "python",
-        count: 0,
+        count: 20,
       },
     ],
   }
+  let maxi = -1;
+
   return (
     <div className="flex-1 ">
       <div className="py-3">
-        <h1 className="font-bold gradient-text text-[25px] mb-3">Feed</h1>
+        <h1 className="font-bold gradient-text text-[25px] mb-3 ">Feed</h1>
+        <Post
+          title={post.title}
+          content={post.content}
+        />
+        <Poll title={poll.title} options={poll.options} />
+        <Post
+          title={post.title}
+          content={post.content}
+        />
+        <Poll title={poll.title} options={poll.options} />
+        <Post
+          title={post.title}
+          content={post.content}
+        />
+        <Poll title={poll.title} options={poll.options} />
+        <Post
+          title={post.title}
+          content={post.content}
+        />
+        <Poll title={poll.title} options={poll.options} />
         <Post
           title={post.title}
           content={post.content}

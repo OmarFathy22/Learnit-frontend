@@ -7,7 +7,7 @@ export interface IAppProps {
 
 export default function App (props: IAppProps) {
   return (
-    <div className='px-[30px] flex gap-[20px] justify-between py-10 pt-5 '>
+    <div className='px-[40px] flex gap-[20px] justify-between py-10 pt-5 '>
       <AddPost />
       <Feed />
       <Dialog />

@@ -11,8 +11,18 @@ const dialogs = [
   "machine learning",
   "machine learning",
   "machine learning",
+  "machine learning",
+  "machine learning",
+  "machine learning",
+  "machine learning",
+  "machine learning",
+  "machine learning",
+  "machine learning",
+  "machine learning",
+  "machine learning",
+  "machine learning",
+  "machine learning",
   "AI",
-
 ];
 export default function App(props: IAppProps) {
   const [postType, setPostType] = useState(0);
@@ -29,7 +39,7 @@ export default function App(props: IAppProps) {
   };
   return (
     <div className="max-w-[350px] relative  ">
-    <div className="py-3 sticky left-0 top-0">
+      <div className="py-3 sticky left-0 top-0">
         <h1 className="font-bold gradient-text text-[25px] mb-3">Add a Post</h1>
         <div className="bg-[--bg-secondary] rounded-lg ">
           <h1 className="font-bold text-[20px] px-4 pb-1 py-4">Post Type</h1>
@@ -100,7 +110,7 @@ export default function App(props: IAppProps) {
             </button>
           </div>
         </div>
-    </div>
+      </div>
     </div>
   );
 }

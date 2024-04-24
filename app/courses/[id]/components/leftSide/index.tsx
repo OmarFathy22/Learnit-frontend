@@ -6,9 +6,9 @@ export interface IAppProps {
 
 export default function App (props: IAppProps) {
   return (
-    <div className='flex-1 flex flex-col h-[calc(100vh-200px)] overflow-auto'>
+    <div className='flex-1 flex flex-col h-[calc(100vh-80px)] overflow-auto'>
       <Video url='https://www.youtube.com/embed/9zmwGT7DEsM?si=EnSMofLzFd2rXfqK'/>
-      <Enroll/>
+      {/* <Enroll/> */}
     </div>
   );
 }

@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={lato.className + " "}>
         <Header />
-        <main className="bg-[--bg-primary] min-h-[calc(100vh-200px)]">{children}</main>
+        <main className="bg-[--bg-primary] min-h-[calc(100vh-200px)] ">{children}</main>
         <Footer />
       </body>
     </html>
