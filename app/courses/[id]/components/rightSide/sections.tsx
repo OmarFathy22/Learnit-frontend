@@ -65,7 +65,7 @@ export default function App({title , refreshVideo}: IAppProps) {
                 <button onClick={()=> handleOpenQuiz()} className="px-3 py-[2px] rounded-md border-[1px] cursor-pointer">
                   Quiz
                 </button>
-                <Quiz openQuiz={openQuiz}/>
+                <Quiz openQuiz={openQuiz} handleOpenQuiz={handleOpenQuiz}/>
               </li>
             ))}
         </ul>
