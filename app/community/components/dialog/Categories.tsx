@@ -20,9 +20,7 @@ export default function App({title}: IAppProps) {
   const handleOpen = () => {
     setIsOpened(!isOpened);
   };
-  const handleChooseDialog = (index: number) => (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
+  const handleChooseDialog = (index: number) =>  {
     setChooseDialog(index);
   };
   return (
@@ -51,7 +49,7 @@ export default function App({title}: IAppProps) {
                 >
                   <h1 className="text-[13px]">D/{dialog}</h1>
                   <button
-                    onClick={handleChooseDialog(i)}
+                    onClick={()=>handleChooseDialog(i)}
                     className={`p-1 px-3 text-[12px] rounded-full bg-[--bg-primary] ${i == 2 && "gradient-bg"} cursor-pointer` }
                   >
                     {i === 2 ? "Join" : "Joined"}

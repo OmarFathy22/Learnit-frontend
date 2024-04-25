@@ -5,23 +5,30 @@ import { TiVideo } from "react-icons/ti";
 import DownArrowGrad from "../../../../../components/svgs/down-arrow-gradient";
 import DownArrow from "../../../../../components/svgs/down-arrow";
 import { Collapse } from "react-collapse";
+import { useRouter } from "next/navigation";
+import Quiz from './Quiz'
 
 export interface IAppProps {
   title: string;
+  refreshVideo: () => void;
 }
 
-export default function App({title}: IAppProps) {
+export default function App({title , refreshVideo}: IAppProps) {
+   const router = useRouter()
+  const [openQuiz, setOpenQuiz] = useState(false)
   const [isOpened, setIsOpened] = useState(false);
+  const handleOpenQuiz = () => {
+    setOpenQuiz(!openQuiz);
+  }
   const handleOpen = () => {
     setIsOpened(!isOpened);
   };
   return (
     <div>
       <div onClick={handleOpen} className="px-10 py-3 cursor-pointer flex items-center justify-between border-b-[1px] border-b-[#474747]">
-        <h1 className="gradient-text font-bold text-[20px]">{title}</h1>
+        <h1 className={`${isOpened?"gradient-text":"text-[#FFF]"} font-bold text-[20px]`}>{title}</h1>
         <div
-          
-          className="gradient-text font-bold text-[22px] cursor-pointer"
+          className={`font-bold text-[22px] cursor-pointer`}
         >
           <div
             className={`transition-transform duration-500 ease-in-out transform ${
@@ -51,11 +58,14 @@ export default function App({title}: IAppProps) {
                       <TiVideo />
                     </h1>
                     <h1 className="text-[12px] text-gray-300">2 Min</h1>
+                    <h1 onClick={()=>refreshVideo()}  className="text-[12px] text-gray-300 underline cursor-pointer">Start: 2.11</h1>
+                    <h1  className="text-[12px] text-gray-300 underline cursor-pointer">End: 3.54</h1>
                   </div>
                 </div>
-                <h1 className="px-3 py-[2px] rounded-md border-[1px] cursor-pointer">
+                <button onClick={()=> handleOpenQuiz()} className="px-3 py-[2px] rounded-md border-[1px] cursor-pointer">
                   Quiz
-                </h1>
+                </button>
+                <Quiz openQuiz={openQuiz}/>
               </li>
             ))}
         </ul>

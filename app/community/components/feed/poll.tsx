@@ -25,15 +25,13 @@ export default function App({ title, options }: IAppProps) {
 
   const handleOption = (option: number) => {
     if (votedOption >= 0)
-      return (event: React.MouseEvent<HTMLLIElement>) => {
-        event.preventDefault();
-      };
-    return (event: React.MouseEvent<HTMLLIElement>) => {
+      return;
+    return () => {
       setChooseOption(option);
     };
   };
   const handleVotedOption = (option: number) => {
-    return (event: React.MouseEvent<HTMLButtonElement>) => {
+    return () => {
       setVotedOption(option);
     };
   };
@@ -58,7 +56,7 @@ export default function App({ title, options }: IAppProps) {
         <ul>
           {options.map((item, index) => (
             <li
-              onClick={handleOption(index)}
+              onClick={()=>handleOption(index)}
               key={index}
               className={` cursor-pointer bg-[--bg-primary] relative ${
                 chooseOption === index &&
@@ -71,10 +69,10 @@ export default function App({ title, options }: IAppProps) {
                   votedOption === index && ` `
                 }`}
               >
-                <h1 className="w-full z-[1000]">
+                <h1 className="w-full z-[2]">
                   {index + 1}. {item.title}
                 </h1>
-                <h1 className={`z-[1000] ${votedOption < 0 && "hidden"}`}>
+                <h1 className={`z-[2] ${votedOption < 0 && "hidden"}`}>
                   {item.count}%
                 </h1>
               </div>

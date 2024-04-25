@@ -2,11 +2,13 @@
 import Link from "next/link";
 import { useState } from "react";
 import { MdKeyboardArrowRight } from "react-icons/md";
+import { useRouter } from "next/navigation";
 
 
 export interface IAppProps {}
 
 export default function App(props: IAppProps) {
+  const router = useRouter()
   const [links, setLinks] = useState([
     {
       name: "Github",
@@ -40,17 +42,21 @@ export default function App(props: IAppProps) {
     newLinks[index].link = event.target.value;
     setLinks(newLinks);
   };
-
+  
+ const handleGoBack = ()=>{
+  
+    router.back( )
+ }
 
   return (
     <div>
       <div>
         <div className="flex justify-between">
           <h1 className="text-[20px] font-bold mb-5">Edit Info</h1>
-          <Link href={'/profile'} className=" font-bold text-[#ADD5F2] flex items-center   mb-5">
+          <button onClick={()=>handleGoBack()} className=" font-bold text-[#ADD5F2] flex items-center   mb-5">
             <h1>Profile</h1>
             <h1 className=" translate-y-[2px]"><MdKeyboardArrowRight/></h1>
-          </Link>
+          </button>
         </div>
         <div className="flex items-center gap-3 mb-3">
           <label htmlFor="name" className="text-[--sub-text]">
@@ -101,7 +107,7 @@ export default function App(props: IAppProps) {
                 placeholder={item.link}
                 className=" bg-[--bg-primary] rounded-full px-2 py-1 outline-none"
               />
-              <button onClick={(event) => handleRemoveLink(item)} className="font-bold text-red-500">Remove</button>
+              <button onClick={() => handleRemoveLink(item)} className="font-bold text-red-500">Remove</button>
             </li>
           ))}
         </ul>

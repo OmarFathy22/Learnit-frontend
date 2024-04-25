@@ -132,6 +132,9 @@
 .gradient-bg {
   background-image: linear-gradient(to right, #F4442C, #F69C08);
 }
+.gradient-bg-black {
+  background-image: linear-gradient(to right, #26262C,#2c2c31);
+}
 .gradient-bg-opacity {
   background-image: linear-gradient(to right, rgba(244, 68, 44, 0.5), rgba(246, 156, 8, 0.5));
 }

@@ -27,14 +27,10 @@ const dialogs = [
 export default function App(props: IAppProps) {
   const [postType, setPostType] = useState(0);
   const [chooseDialog, setChooseDialog] = useState(0);
-  const handlePostType = (index: number) => (
-    event: React.MouseEvent<HTMLDivElement>
-  ) => {
+  const handlePostType = (index: number) =>  {
     setPostType(index);
   };
-  const handleChooseDialog = (index: number) => (
-    event: React.MouseEvent<HTMLDivElement>
-  ) => {
+  const handleChooseDialog = (index: number) =>  {
     setChooseDialog(index);
   };
   return (
@@ -47,7 +43,7 @@ export default function App(props: IAppProps) {
             <div className="flex items-center py-1 px-3 gap-2  bg-[#323238] rounded-lg">
               <h1>Text</h1>
               <div
-                onClick={handlePostType(0)}
+                onClick={() =>handlePostType(0)}
                 className="rounded-full p-[6px] bg-[--bg-primary] cursor-pointer "
               >
                 <div
@@ -60,7 +56,7 @@ export default function App(props: IAppProps) {
             <div className="flex items-center py-1 px-3 gap-2  bg-[#323238] rounded-lg">
               <h1>Poll</h1>
               <div
-                onClick={handlePostType(1)}
+                onClick={()=>handlePostType(1)}
                 className="rounded-full p-[6px] bg-[--bg-primary] cursor-pointer "
               >
                 <div
@@ -80,7 +76,7 @@ export default function App(props: IAppProps) {
               >
                 <h1 className="text-[13px]">D/{dialog}</h1>
                 <div
-                  onClick={handleChooseDialog(i)}
+                  onClick={()=>handleChooseDialog(i)}
                   className="rounded-full p-[6px] bg-[--bg-primary] cursor-pointer "
                 >
                   <div
