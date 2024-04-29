@@ -8,7 +8,7 @@ export interface IAppProps {
 
 export default function App (props: IAppProps) {
   return (
-    <div className='global-padding h-[100vh] py-[5%]'>
+    <div className='global-padding h-[100vh] py-[5%] gradient-b-border'>
       <div className=' h-full'>
         <div>
           <span>Welcome to </span>

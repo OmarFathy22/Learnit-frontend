@@ -13,7 +13,7 @@ export interface IAppProps {}
 export default function App(props: IAppProps) {
   return (
     <div
-      className={`h-[calc(100vh-80px)] bg-[--bg-secondary] overflow-hidden px-[70px] ${montserrat.className}`}
+      className={`h-[calc(100vh-80px)] gradient-b-border bg-[--bg-secondary] overflow-hidden px-[70px] ${montserrat.className}`}
     >
       <HeroSlider>
         <li className=" h-[calc(100vh-80px)] overflow-hidden">

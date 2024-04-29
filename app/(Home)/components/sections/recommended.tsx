@@ -8,7 +8,7 @@ export interface IAppProps {}
 
 export default function App(props: IAppProps) {
   return (
-    <div className="bg-[--bg-secondary] h-[101vh] py-[5%]  ">
+    <div className="bg-[--bg-secondary] h-[101vh] py-[5%] gradient-b-border  ">
       <h1 className="gradient-text text-[30px] pt-[30px] global-padding mb-[30px] ">
         Recommended for you
       </h1>

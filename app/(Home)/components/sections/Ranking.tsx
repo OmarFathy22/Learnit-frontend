@@ -9,8 +9,8 @@ export interface IAppProps {}
 
 export default function App(props: IAppProps) {
   return (
-    <div className="bg-[--bg-primary] pb-[30px] flex flex-col items-center  ">
-      <h1 className={`gradient-text text-[40px] pt-[30px]  `}>Top rankings</h1>
+    <div className="bg-[--bg-primary]    py-[100px] flex flex-col items-center gradient-b-border  ">
+      <h1 className={`gradient-text text-[50px]   `}>Top rankings</h1>
       {/* react slider Here */}
       <div>
         <div
