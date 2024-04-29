@@ -34,7 +34,7 @@ export default function App({
         wrongAnswers && "hidden"
       }`}
     >
-      <h1 className="gradient-text text-[25px]">It's Quiz Time</h1>
+      <h1 className="gradient-text text-[25px]">{`It's Quiz Time`}</h1>
       <div className="w-full relative bg-white h-[2px] rounded-md  my-5">
         <div
           style={{ width: `${percentage}%`, transition: "width 0.5s" }}

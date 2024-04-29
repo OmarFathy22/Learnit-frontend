@@ -1,6 +1,7 @@
 import { IoMdClose } from "react-icons/io";
-import {  useState } from "react";
-import WrongAnswersScreen from "./WrongAnswers";
+import { useState } from "react";
+import WrongAnswersScreen from "./quizComponents/Success";
+import SuccessScreen from "./quizComponents/Success";
 import { Questions } from "./quizComponents/questions";
 import QuizScreen from "./quizComponents/QuizScreen";
 
@@ -16,6 +17,7 @@ export default function App({ openQuiz, handleOpenQuiz }: IAppProps) {
   const [percentage, setPercentage] = useState(0);
   const [loading, setLoading] = useState(false);
   const [wrongAnswers, setWrongAnswers] = useState(0);
+  const [success, setSuccess] = useState(false);
 
   const handleSelectAnswer = (index: number) => {
     setSelectedAnswerIndex(index);
@@ -30,8 +32,7 @@ export default function App({ openQuiz, handleOpenQuiz }: IAppProps) {
       }
     });
     if (Wrong_Answers === 0) {
-      alert("All Answers are correct");
-      handleOpenQuiz();
+      setSuccess(true);
     }
   };
   const handleSubmit = async () => {
@@ -65,6 +66,7 @@ export default function App({ openQuiz, handleOpenQuiz }: IAppProps) {
     if (questionIndex > 0) {
       setQuestionIndex(questionIndex - 1);
     }
+    setSelectedAnswerIndex(-1);
     return;
   };
   const handleRetry = () => {
@@ -76,6 +78,7 @@ export default function App({ openQuiz, handleOpenQuiz }: IAppProps) {
   const handleLeave = () => {
     handleRetry();
     handleOpenQuiz();
+    setSuccess(false);
   };
 
   // logic ends here
@@ -96,19 +99,29 @@ export default function App({ openQuiz, handleOpenQuiz }: IAppProps) {
             numberOfQuestions={questions.length}
           />
         </div>
+        <div className={`${!success && "hidden"}`}>
+          <SuccessScreen
+            handleLeave={handleLeave}
+            handleRetry={handleRetry}
+            wrongAnswers={wrongAnswers}
+            numberOfQuestions={questions.length}
+          />
+        </div>
 
-        <QuizScreen
-          handleBack={handleBack}
-          handleNext={handleNext}
-          handleSelectAnswer={handleSelectAnswer}
-          handleSubmit={handleSubmit}
-          loading={loading}
-          percentage={percentage}
-          questionIndex={questionIndex}
-          questions={questions}
-          selectedAnswerIndex={selectedAnswerIndex}
-          wrongAnswers={wrongAnswers}
-        />
+        <div className={`${wrongAnswers || (success && "hidden")}`}>
+          <QuizScreen
+            handleBack={handleBack}
+            handleNext={handleNext}
+            handleSelectAnswer={handleSelectAnswer}
+            handleSubmit={handleSubmit}
+            loading={loading}
+            percentage={percentage}
+            questionIndex={questionIndex}
+            questions={questions}
+            selectedAnswerIndex={selectedAnswerIndex}
+            wrongAnswers={wrongAnswers}
+          />
+        </div>
       </div>
     </div>
   );

@@ -26,7 +26,7 @@ export default function App({
       <div className="text-[20px] font-bold  text-center">
         <h1>Your got {numberOfQuestions - wrongAnswers} out of <span className="gradient-text ml-[1px]">{numberOfQuestions}</span></h1>
         <h1 className="text-[16px] font-normal">Remember, every mistake is a stepping stone to success. Keep going,
-        you're doing great!</h1>
+      {`you're doing great!`}</h1>
       </div>
       <div className="flex justify-center items-center">
         <Image
