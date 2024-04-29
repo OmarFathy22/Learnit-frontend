@@ -8,23 +8,25 @@ export interface IAppProps {
 
 export default function App (props: IAppProps) {
   return (
-    <div className='global-padding  mb-[70px] py-[30px]'>
-      <div>
-        <span>Welcome to </span>
-        <span className='font-bold'>Learnit, </span>
-        <span className='gradient-text'>UserName</span>
+    <div className='global-padding h-[100vh] py-[5%]'>
+      <div className=' h-full'>
+        <div>
+          <span>Welcome to </span>
+          <span className='font-bold'>Learnit, </span>
+          <span className='gradient-text'>UserName</span>
+        </div>
+        <h1 className='gradient-text text-[30px] mb-[30px]'>
+        Success Starts Here
+        </h1>
+        {/* react slider Here */}
+        <Slider >
+        {Array(10).fill(0).map((_, i) => (
+            <div key={i}>
+             <CourseCard id={i} />  
+            </div>
+          ))}
+        </Slider>
       </div>
-      <h1 className='gradient-text text-[30px] mb-[30px]'>
-      Success Starts Here
-      </h1>
-      {/* react slider Here */}
-      <Slider >
-      {Array(10).fill(0).map((_, i) => (
-          <div key={i}>
-           <CourseCard id={i} />  
-          </div>
-        ))}
-      </Slider>
     </div>
   );
 }

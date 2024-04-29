@@ -13,30 +13,29 @@ function Responsive({ children }: ISliderProps) {
     dots: false,
     infinite: false,
     speed: 1000,
-    slidesToShow: 5 ,
-    slidesToScroll: 5,
+    slidesToShow: 4 ,
+    slidesToScroll: 4,
     initialSlide: 0,
     responsive: [
       {
         breakpoint: 1500,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 4,
-        },
-      },
-      {
-        breakpoint: 1300,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
         },
       },
       {
-        breakpoint: 950,
+        breakpoint: 1300,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 950,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll:1,
         },
       },
       {
@@ -51,7 +50,7 @@ function Responsive({ children }: ISliderProps) {
     ],
   };
   return (
-    <div className="border-[1px] border-transparent">
+    <div className="border-[1px] border-transparent ">
       <Slider {...settings} className="">{children}</Slider>
     </div>
   );

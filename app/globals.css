@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 
-
+*:focus {
+  outline: none;
+}
 :root {
   --bg-primary: #1B1B1E;
   --bg-secondary: #26262C;

@@ -16,11 +16,11 @@ const categories = [
 ];
 export default function App(props: IAppProps) {
   return (
-    <div className="bg-[--bg-tertiary]  pb-[70px] ">
-      <h1 className="gradient-text text-[30px] pt-[30px] global-padding ">
+    <div className="bg-[--bg-tertiary] h-[101vh] py-[5%]   ">
+      <h1 className="gradient-text text-[30px]  global-padding ">
         Master your career
       </h1>
-      <ul className="flex justify-between gradient-border global-padding py-3 mt-[30px] mb-[40px] ">
+      <ul className="flex justify-between gradient-border global-padding py-3 mt-[30px] mb-[80px] ">
         {categories.map((category, i) => (
           <li key={i} className={`cursor-pointer text-[--sub-text] font-medium text-[20px] ${!i && "gradient-text"}`}>
             {category}
