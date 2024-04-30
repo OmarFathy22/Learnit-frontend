@@ -51,8 +51,8 @@ export default function App({
             key={index}
             className={`bg-[--bg-primary] p-2 rounded-md  cursor-pointer ${
               (selectedAnswerIndex == index ||
-                questions[questionIndex].choosenAnswer == index) &&
-              "border-[1px] border-orange-500"
+                questions[questionIndex].choosenAnswer == index)?
+              "border-[1px] border-orange-500":"border-[1px] border-transparent"
             }`}
           >
             {answer}

@@ -2,16 +2,17 @@
 import { useState } from "react";
 import * as React from "react";
 import Image from "next/image";
+import AnimatedBar from "./AnimatedBar";
 
 export interface IAppProps {
   title: string;
   options: { title: string; count: number }[];
-
 }
 
 export default function App({ title, options }: IAppProps) {
   const MaxPercent = () => {
-    let maxi = 0 , idx = 0;
+    let maxi = 0,
+      idx = 0;
     for (let i = 0; i < options.length; i++) {
       if (options[i].count > maxi) {
         maxi = options[i].count;
@@ -19,16 +20,15 @@ export default function App({ title, options }: IAppProps) {
       }
     }
     return idx;
-   }
+  };
   const [chooseOption, setChooseOption] = useState(-1);
   const [votedOption, setVotedOption] = useState(-1);
 
   const handleOption = (option: number) => {
-    if (votedOption >= 0)
+    if (votedOption >= 0) {
       return;
-    return () => {
-      setChooseOption(option);
-    };
+    }
+    setChooseOption(option);
   };
   const handleVotedOption = (option: number) => {
     return () => {
@@ -56,16 +56,16 @@ export default function App({ title, options }: IAppProps) {
         <ul>
           {options.map((item, index) => (
             <li
-              onClick={()=>handleOption(index)}
+              onClick={() => handleOption(index)}
               key={index}
               className={` cursor-pointer bg-[--bg-primary] relative ${
-                chooseOption === index &&
-                votedOption < 0 &&
-                "border-[2px] border-[orange]"
+                chooseOption === index && votedOption < 0
+                  ? "border-[2px] border-orange-500"
+                  : "border-[2px] border-transparent"
               }  rounded-lg  mb-2`}
             >
               <div
-                className={`p-2 flex  justify-between rounded-md bg-[--bg-primary] ${
+                className={`p-2 flex  justify-between rounded-lg bg-[--bg-primary] ${
                   votedOption === index && ` `
                 }`}
               >
@@ -76,14 +76,7 @@ export default function App({ title, options }: IAppProps) {
                   {item.count}%
                 </h1>
               </div>
-              {votedOption >= 0 && (
-                <div
-                  style={{ width: `${item.count}%` }}
-                  className={`rounded-l-md ${
-                    item.count === 100 && "rounded-r-md"
-                  }  ${MaxPercent() === index ? "gradient-bg" : 'gradient-bg-opacity'} z-[1] w-full h-full absolute top-0  bottom-0 left-0`}
-                />
-              )}
+              <AnimatedBar MaxPercent={MaxPercent} index={index} votedOption={votedOption} item={item}/>
             </li>
           ))}
         </ul>
