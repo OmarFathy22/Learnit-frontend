@@ -1,6 +1,6 @@
 import { IoMdClose } from "react-icons/io";
 import { useState } from "react";
-import WrongAnswersScreen from "./quizComponents/Success";
+import WrongAnswersScreen from "./quizComponents/WrongAnswers";
 import SuccessScreen from "./quizComponents/Success";
 import { Questions } from "./quizComponents/questions";
 import QuizScreen from "./quizComponents/QuizScreen";

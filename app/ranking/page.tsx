@@ -1,8 +1,5 @@
 "use client";
-import Link from "next/link";
-import Image from "next/image";
 import * as React from "react";
-import { GoArrowRight } from "react-icons/go";
 import { useState } from "react";
 import AllTime from "./components/alltime";
 import Monthly from "./components/monthly";
@@ -14,17 +11,17 @@ export default function App(props: IAppProps) {
     setActive(!active);
   };
   return (
-    <div className=" mx-auto rounded-md w-[70%] pb-[40px] ">
+    <div className=" mx-auto rounded-md w-[70%] py-[50px] pb-[100px] ">
       <div className="w-full flex justify-center items-center gap-[200px] py-5">
         <h1
           onClick={onClick}
-          className={`cursor-pointer ${active ? "gradient-text" : ""}`}
+          className={`cursor-pointer text-[20px] ${active ? "gradient-text" : ""}`}
         >
           Monthly
         </h1>
         <h1
           onClick={onClick}
-          className={`cursor-pointer ${!active ? "gradient-text" : ""}`}
+          className={`cursor-pointer text-[20px] ${!active ? "gradient-text" : ""}`}
         >
           All Time
         </h1>

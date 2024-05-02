@@ -24,7 +24,7 @@ export default function App(props: IAppProps) {
       },
       {
         title: "Node js",
-        count: 50,
+        count: 40,
       },
       {
         title: ".Net",
@@ -32,7 +32,7 @@ export default function App(props: IAppProps) {
       },
       {
         title: "python",
-        count: 20,
+        count: 30,
       },
     ],
   }

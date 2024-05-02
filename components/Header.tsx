@@ -33,7 +33,7 @@ export default function App(props: IAppProps) {
 
   return (
     <div
-      className={`${pathname == '/' ? "bg-[--bg-primary]": "bg-[--bg-secondary] border-b-[1px] border-b-[#474747]"} h-[80px] w-full   flex items-center justify-between px-[70px] ${montserrat_Alternates.className}`}
+      className={`${pathname == '/' ? "bg-[--bg-secondary]": "bg-[--bg-secondary] border-b-[1px] border-b-[#474747]"} h-[80px] w-full   flex items-center justify-between px-[70px] ${montserrat_Alternates.className}`}
     >
       <Link href={'/'}>
         <Image src="/logo.png"  alt="logo" width={1000} height={1000} className="!w-[150px] min-w-[150px]" />

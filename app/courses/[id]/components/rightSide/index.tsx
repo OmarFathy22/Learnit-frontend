@@ -25,13 +25,13 @@ export default function App({refreshVideo}: IAppProps) {
           <div className="flex gap-3 items-center">
             <h1 className="text-[15px] font-bold ">points to unlock</h1>
             <div className="bg-[--bg-tertiary] py-2 px-2 rounded-md flex gap-1">
-              <h1>250</h1>
+              <h1>180</h1>
               <h1>/</h1>
               <h1 className="gradient-text">250</h1>
             </div>
           </div>
         </div>
-        <div style={{width:`${250*100/250}%`}} className={`gradient-bg-opacity  absolute top-0 bottom-0 left-0 right-0 `} />
+        <div style={{width:`${180*100/250}%`}} className={`gradient-bg-opacity  absolute top-0 bottom-0 left-0 right-0 `} />
       </div>
       <div className="bg-[--bg-secondary] flex justify-between px-10 items-center text-[16px] py-2 border-b-[1px] sticky z-10 right-0 left-0 top-0  border-b-[#474747]">
         <h1
