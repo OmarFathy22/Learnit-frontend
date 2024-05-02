@@ -15,7 +15,7 @@ export default function App(props: IAppProps) {
     setOpen(!open)
   }
   return (
-    <div className="col-span-1  h-[100vh] sticky left-0 top-0  bottom-0 right-0 z-[100]  gradient-bg-black ">
+    <div className="col-span-1  h-[100vh] sticky left-0 top-0  bottom-0 right-0 z-[100]  gradient-bg-black border-r-[1px] border-[#474747]  ">
       <div className="p-5 flex items-center justify-between">
         <Link href={'/profile/edit-info'} className="rounded-md">
           <Edit />
@@ -71,7 +71,7 @@ export default function App(props: IAppProps) {
         {["Github", "Linkedin"].map((item, index) => (
           <li
             key={index}
-            className="flex items-center justify-between px-[50px] py-3 border-b-[1px] border-[#474747]"
+            className="flex items-center justify-between px-[50px] py-3 "
           >
             <h1>{item}</h1>
             <h1 className="text-[#ADD5F2]">Connect</h1>

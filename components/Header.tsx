@@ -69,7 +69,7 @@ export default function App(props: IAppProps) {
           </Link>
         </li>
       </ul>
-        
+
       <ul className={`flex gap-[30px] items-center text-[16px] ${pathname !== '/' && "hidden"}`}>
       <li>
           <Link href={"/login"}>
@@ -78,7 +78,7 @@ export default function App(props: IAppProps) {
         </li>
         <li>
           <Link href={"/signup"}>
-            <h1 className="text-[16px] gradient-bg px-5 py-2 rounded-md">Sign Up</h1>
+            <h1 className="text-[16px] gradient-bg px-5 py-2 rounded-md font-bold">Sign Up</h1>
           </Link>
         </li>
       </ul>

@@ -88,7 +88,6 @@ export default function App(props: IAppProps) {
         <ul className="flex flex-col gap-5">
           {links.map((item, index) => (
             <li key={index + 1} className="flex items-center gap-3">
-              <h1>{index}</h1>
               <label htmlFor={item.name}>Title</label>
               <input
                 onChange={handleChangeNames(index)}
