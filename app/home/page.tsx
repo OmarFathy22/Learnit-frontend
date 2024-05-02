@@ -9,7 +9,7 @@ import Instructor from "./components/sections/instructor";
 
 export default function Home() {
   return <main className="">
-    <GetToKnowUs />
+    {/* <GetToKnowUs /> */}
     <Success />
     <Master/>
     <Recommended/>

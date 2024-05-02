@@ -19,7 +19,7 @@ export default function App(props: IAppProps) {
   const routes = [
     {
       name: "Home",
-      path: "/",
+      path: "/home",
     },
     {
       name: "Community",
@@ -46,15 +46,15 @@ export default function App(props: IAppProps) {
           placeholder="Search for courses..."
         />
       </div>
-      <ul className={`flex gap-[30px] items-center text-[16px] cursor-pointer`}>
+      <ul className={`flex gap-[30px] items-center text-[16px] ${pathname === '/' && "hidden"}`}>
         {routes.map((route, i) => (
           <li
             key={i}
-            className={`${pathname === route.path ? "gradient-text" : ""}`}
+            className={`text-[16px] ${pathname === route.path ? "gradient-text" : ""}`}
           >
             <Link
               href={route.path}
-              className={`${
+              className={`text-[16px] ${
                 pathname === route.path  ? "gradient-text" : "!text-[white]"
               }`}
             >
@@ -63,9 +63,22 @@ export default function App(props: IAppProps) {
           </li>
         ))}
         {/* profile Icon */}
-        <li>
+        <li  >
           <Link href={"/profile"}>
             <ProfileIcon active={pathname.startsWith("/profile")} />
+          </Link>
+        </li>
+      </ul>
+        
+      <ul className={`flex gap-[30px] items-center text-[16px] ${pathname !== '/' && "hidden"}`}>
+      <li>
+          <Link href={"/login"}>
+            <h1 className="text-[16px] font-bold">Login</h1>
+          </Link>
+        </li>
+        <li>
+          <Link href={"/signup"}>
+            <h1 className="text-[16px] gradient-bg px-5 py-2 rounded-md">Sign Up</h1>
           </Link>
         </li>
       </ul>
