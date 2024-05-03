@@ -3,11 +3,12 @@ import Image from "next/image";
 import Voting from './Voting'
 
 export interface IAppProps {
+  content: string;
 }
 
-export default function App (props: IAppProps) {
+export default function App ({content}: IAppProps) {
   return (
-  <div className='py-3 px-4 bg-[--bg-secondary] rounded-md'>
+  <div className='py-3 w-[calc(100vw-800px)] px-4 bg-[--bg-secondary] rounded-md'>
       <div  className="flex gap-3  ">
       <div>
         <Image
@@ -28,9 +29,12 @@ export default function App (props: IAppProps) {
       </div>
       
     </div>
-    <h1 className='text-[17px] my-3'>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur odio earum incidunt, repudiandae asperiores fugiat quidem, nam provident excepturi voluptatum enim distinctio, tempora sed doloribus ex numquam nostrum totam ad!
-    </h1>
+    {/* how to force this h1 if it is too long to go to the next line */}
+    <h1 className='text-[#ADD5F2] text-[16px] font-bold py-2' style={{ maxWidth: '100%', wordWrap: 'break-word' }}>
+  {`${content}`}
+</h1>
+
+
 
     <Voting/>
 

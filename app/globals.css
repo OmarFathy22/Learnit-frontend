@@ -16,7 +16,7 @@
   --sub-text: #A0A0A0;
 }
  /* global scrollbar srtyles */
-::-webkit-scrollbar {
+ .global_scrollbar::-webkit-scrollbar {
   width: 0px; /* Set the width of the scrollbar */
   border-radius: 5px; /* Set the border radius */
 }

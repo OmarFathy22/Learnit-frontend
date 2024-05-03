@@ -23,13 +23,13 @@ export default function App (props: IAppProps) {
       <button onClick={()=>handleUpVote()} className="rotate-180">
         {upVote ? <Voted/> : <Vote/>}
       </button>
-      <h1>24</h1>
+      <h1>{24 + (upVote ? 1 : 0 )}</h1>
     </div>
     <div className="flex items-center gap-1">
       <button onClick={()=>handleDownVote()} >
         {downVote ? <Voted/> : <Vote/>}
       </button>
-      <h1>2</h1>
+      <h1>{2 + (downVote ? 1 : 0 )}</h1>
     </div>
   </div>
   
