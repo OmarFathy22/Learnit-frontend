@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import Select from "react-select";
-import {selectStyles} from '@/app/become-instructor/page'
+import {selectStyles} from '@/utils/SelectStyles'
 import UploadCourseImage from "./UploadCourseImage";
 export interface IAppProps {
 }

@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Select from "react-select";
-import { selectStyles } from "@/app/become-instructor/page";
+import { selectStyles } from "@/utils/SelectStyles";
 import { FaPlus } from "react-icons/fa";
 
 export interface IAppProps {}
