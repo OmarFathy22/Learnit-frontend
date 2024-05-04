@@ -26,7 +26,7 @@ export const selectStyles = {
   }),
   menu: (provided: any) => ({
     ...provided,
-    backgroundColor: 'var(--bg-primary)', // This line changes the background color of the dropdown menu
+    backgroundColor: '#222', // This line changes the background color of the dropdown menu
   }),
 };
 
@@ -37,7 +37,7 @@ export default function App(props: IAppProps) {
 
 
   return (
-    <div className="flex justify-center py-10 px-[270px] bg-[--bg-primary]">
+    <div className="flex justify-center py-10 px-[270px] bg-[--bg-primary] ">
       <div className=" w-full ">
         <h1 className="gradient-text text-[25px] text-center mx-auto mb-3">
           Become Instructor

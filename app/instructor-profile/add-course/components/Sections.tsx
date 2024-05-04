@@ -77,7 +77,7 @@ export default function App(props: IAppProps) {
               value === "add New Section" ? (
                 <button
                   onClick={handleAddSection}
-                  className="text-white rounded"
+                  className="text-white rounded bg-[--bg-secondary] w-full h-full p-2 active:scale[.95] transition-all"
                 >
                   {label}
                   <FaPlus size={10} className="inline ml-1" />
@@ -109,7 +109,7 @@ export default function App(props: IAppProps) {
               value === "add New Lecture" ? (
                 <button
                   onClick={handleAddLecture}
-                  className="text-white rounded"
+                  className="text-white rounded bg-[--bg-secondary] w-full h-full p-2 active:scale[.95] transition-all"
                 >
                   {label}
                   <FaPlus size={10} className="inline ml-1" />
@@ -152,7 +152,7 @@ export default function App(props: IAppProps) {
               value === "add New Question" ? (
                 <button
                   onClick={handleAddQuestion}
-                  className="text-white rounded"
+                  className="text-white rounded bg-[--bg-secondary] w-full h-full p-2 active:scale[.95] transition-all"
                 >
                   {label}
                   <FaPlus size={10} className="inline ml-1" />
