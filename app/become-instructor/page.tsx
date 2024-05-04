@@ -21,8 +21,12 @@ const selectStyles = {
   }),
   option: (provided: any, state: any) => ({
     ...provided,
-    color: state.isFocused ? "white" : "black",
+    color:"white" ,
     backgroundColor: state.isFocused ? "grey" : "provided.backgroundColor",
+  }),
+  menu: (provided: any) => ({
+    ...provided,
+    backgroundColor: 'var(--bg-primary)', // This line changes the background color of the dropdown menu
   }),
 };
 
