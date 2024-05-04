@@ -22,7 +22,7 @@ export default function App(props: IAppProps) {
         Become an instructor
         </h1>
         <h1 className="mb-3 text-center text-[18px]">Join instructors globally in educating millions on LearnIt. Empower your teaching passion with our tools and expertise.</h1>
-        <Link href="/instructor" className="gradient-bg p-2 px-[50px] rounded-md font-bold text-[18px]">Start teaching today </Link>
+        <Link href="/become-instructor" className="gradient-bg p-2 px-[50px] rounded-md font-bold text-[18px]">Start teaching today </Link>
     </div>
     </div>
   );
