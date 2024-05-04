@@ -4,11 +4,11 @@ import SecondSection from "./components/secondSection";
 import ThirdSection from "./components/thirdSection";
 export interface IAppProps {}
 
-const selectStyles = {
+export const selectStyles = {
   control: (provided: any, state: any) => ({
     ...provided,
     backgroundColor: "transparent",
-    padding: "8px",
+    padding: "6px",
     border:
       state.isFocused || state.isHover
         ? "1px solid white"
@@ -22,7 +22,7 @@ const selectStyles = {
   option: (provided: any, state: any) => ({
     ...provided,
     color:"white" ,
-    backgroundColor: state.isFocused ? "grey" : "provided.backgroundColor",
+    backgroundColor: state.isFocused ? "var(--bg-tertiary)" : "provided.backgroundColor",
   }),
   menu: (provided: any) => ({
     ...provided,

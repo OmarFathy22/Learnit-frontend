@@ -12,7 +12,7 @@ export default function App(props: IAppProps) {
         <h1>
           <FaQuoteLeft size={20} />
         </h1>
-        <h1 className="text-[22px]">
+        <h1 className="text-[20px]">
           I am proud to say that after a few months of taking this course i passed
           my exam and am now an AWS certified cloud practitioner! this content was
           exactly what i needed

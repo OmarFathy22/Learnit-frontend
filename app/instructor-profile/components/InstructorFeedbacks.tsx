@@ -1,15 +1,15 @@
 'use client'
 import * as React from "react";
-import Slider from "../shared/Slider";
-import FeedBackCard from "../shared/FeedBackCard";
+import Slider from "@/app/home/components/shared/Slider";
+import FeedBackCard from '../../home/components/shared/FeedBackCard'
 
 export interface IAppProps {}
 let settings = {
   dots: false,
   infinite: false,
   speed: 1000,
-  slidesToShow: 4 ,
-  slidesToScroll: 4,
+  slidesToShow: 3 ,
+  slidesToScroll: 3,
   initialSlide: 0,
   responsive: [
     {
@@ -46,12 +46,12 @@ let settings = {
 };
 export default function App(props: IAppProps) {
   return (
-    <div className="bg-[--bg-secondary] h-[101vh] py-[5%] gradient-b-border   ">
-      <h1 className="gradient-text text-[30px]  global-padding mb-[30px] ">
-      See what other learners like you are saying about their courses 
+    <div className="mt-5">
+      <h1 className="gradient-text text-[22px]  ">
+      See what other learners say about these courses 
       </h1>
       {/* react slider Here */}
-      <div className="global-padding">
+      <div className="">
         <Slider settings={settings}>
         {Array(10).fill(0).map((_, i) => (
     

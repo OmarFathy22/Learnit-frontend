@@ -2,13 +2,14 @@
 import Image from "next/image";
 import { useState } from "react";
 import Select from "react-select";
+import {selectStyles} from '@/app/become-instructor/page'
+import UploadCourseImage from "./UploadCourseImage";
 export interface IAppProps {
-  selectStyles: any;
 }
 const countryOptions = [
-  { value: "Egypt", label: "Egypt" },
-  { value: "Saudi Arabia", label: "Saudi Arabia" },
-  { value: "United Arab Emirates", label: "United Arab Emirates" },
+  { value: "Beginner", label: "Beginner" },
+  { value: "Intermediate", label: "Intermediate" },
+  { value: "Advanced", label: "Advanced" },
 ];
 const fieldOptions = [
   { value: "Software Development", label: "Software Development" },
@@ -19,12 +20,12 @@ const fieldOptions = [
 
 export interface IAppProps {}
 
-export default function App({ selectStyles }: IAppProps) {
+export default function App(props: IAppProps) {
   return (
-    <div className="bg-[--bg-secondary] rounded-md  p-[30px] mt-2  flex flex-col items-center gap-5">
+    <div className="bg-[--bg-primary] rounded-md  p-[30px] mt-2  flex flex-col items-center gap-5">
       <div className="w-full">
         <label htmlFor="displayName" className="mb-1 block">
-          Diplay Name
+          Course Name
         </label>
         <input
           id="displayName"
@@ -34,22 +35,12 @@ export default function App({ selectStyles }: IAppProps) {
         />
       </div>
 
-      <div className="w-full">
-        <label htmlFor="instructor-email" className="mb-1 block">
-          Email Address
-        </label>
-        <input
-          id="instructor-email"
-          placeholder="ex. example@email.com"
-          type="email"
-          className="w-full bg-transparent border border-[#46464C] rounded-sm p-3 mt-1 "
-        />
-      </div>
+    
 
       <div className="flex items-center gap-3 w-full ">
         <div className="flex-1">
-          <label htmlFor="instructor-country" className="mb-1 block">
-            Country
+          <label className="mb-1 block">
+            Course Level
           </label>
           <Select options={countryOptions} styles={selectStyles} />
         </div>
@@ -61,20 +52,24 @@ export default function App({ selectStyles }: IAppProps) {
         </div>
       </div>
 
+      {/* upload course image */}
+       <UploadCourseImage />
+      {/* upload course image */}
+
       <div className="w-full">
-        <label htmlFor="instructor-experience" className="mb-1 block">
-          Experience
+        <label htmlFor="Description" className="mb-1 block">
+        Description
         </label>
         <textarea
-          id="instructor-experience"
-          placeholder="give us a Brief summary of teaching or relevant experience"
+          id="Description"
+          placeholder="give us a Brief summary of this course"
           className="min-h-[150px] w-full bg-transparent border border-[#46464C] rounded-sm p-3 mt-1 "
         />
       </div>
 
-      <button className="w-full gradient-bg px-10 py-3 rounded-md font-bold hover:opacity-[0.95] active:scale-[.95] transition-all">
+      {/* <button className="w-full gradient-bg px-10 py-3 rounded-md font-bold hover:opacity-[0.95] active:scale-[.95] transition-all">
         Join Us
-      </button>
+      </button> */}
     </div>
   );
 }
