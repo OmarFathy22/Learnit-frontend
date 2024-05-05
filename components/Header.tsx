@@ -61,7 +61,7 @@ export default function App(props: IAppProps) {
       </div>
       <ul
         className={`flex gap-[30px] items-center text-[16px] ${
-          pathname === "/" && "hidden"
+          (pathname == "/" || pathname == "/login" || pathname == "/signup") && "hidden"
         }`}
       >
         {routes.map((route, i) => (
@@ -90,18 +90,18 @@ export default function App(props: IAppProps) {
       </ul>
 
       <ul
-        className={`flex gap-[30px] items-center text-[16px] ${
-          pathname !== "/" && "hidden"
+        className={`flex flex-row-reverse  items-center text-[16px]  ${
+          (pathname !== "/" && pathname !== "/login" && pathname !== "/signup") && "hidden"
         }`}
       >
         <li>
           <Link href={"/login"}>
-            <h1 className="text-[16px] font-bold">Login</h1>
+            <h1 className="text-[16px] font-medium  bg-orange-500  bg-opacity-[0.8] hover:bg-opacity-[1] transition-all duration-300 px-5 pl-12 py-2 rounded-full    ">Log in</h1>
           </Link>
         </li>
         <li>
           <Link href={"/signup"}>
-            <h1 className="text-[16px] gradient-bg px-5 py-2 rounded-md font-bold">
+            <h1 className="text-[16px] font-medium gradient-bg px-5 py-2 rounded-full  translate-x-9">
               Sign Up
             </h1>
           </Link>
