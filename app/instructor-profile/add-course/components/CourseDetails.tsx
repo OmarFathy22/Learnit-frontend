@@ -66,10 +66,6 @@ export default function App(props: IAppProps) {
           className="min-h-[150px] w-full bg-transparent border border-[#46464C] rounded-sm p-3 mt-1 "
         />
       </div>
-
-      {/* <button className="w-full gradient-bg px-10 py-3 rounded-md font-bold hover:opacity-[0.95] active:scale-[.95] transition-all">
-        Join Us
-      </button> */}
     </div>
   );
 }
