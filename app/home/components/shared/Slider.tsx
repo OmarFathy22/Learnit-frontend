@@ -27,15 +27,16 @@ let DefualtSettings = {
     {
       breakpoint: 1300,
       settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
+        slidesToShow: 3,
+        slidesToScroll: 3,
       },
     },
     {
       breakpoint: 950,
       settings: {
-        slidesToShow: 1,
-        slidesToScroll:1,
+        slidesToShow: 2,
+        slidesToScroll:2,
+        // centerMode: true,
       },
     },
     {

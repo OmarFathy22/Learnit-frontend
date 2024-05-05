@@ -21,8 +21,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={lato.className + " global_scrollbar"}>
         <Header />
-        <main className="bg-[--bg-primary] min-h-[calc(100vh-80px)] ">{children}</main>
-        <Footer />
+        <main className="bg-[--bg-primary] min-h-[calc(100vh-80px)] mt-[80px] max-600:mt-[60px] ">{children}</main>
+        {/* <Footer /> */}
       </body>
     </html>
   );

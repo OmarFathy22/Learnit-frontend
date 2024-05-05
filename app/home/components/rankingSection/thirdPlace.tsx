@@ -5,9 +5,11 @@ export interface IAppProps {}
 export default function App(props: IAppProps) {
   return (
     <div
-      className={`h-[120px] w-[120px] relative  border-[8px]  "border-[#FFF]"  rounded-full translate-x-[20px]`}
+      className={`h-[120px] w-[120px] relative flex flex-col justify-center items-center  translate-x-[20px]
+      max-600:-translate-x-[60px] max-600:translate-y-[30px] max-400:!-translate-x-[83px] max-400:!translate-y-[50px]
+      `}
     >
-      <div>
+      <div className="h-[120px] w-[120px] border-[8px] rounded-full max-900:h-[80px] max-900:w-[80px] max-900:border-[4px] max-400:!h-[60px] max-400:!w-[60px]">
         <Image
           src={"/girl2.png"}
           alt="group1"
@@ -16,14 +18,20 @@ export default function App(props: IAppProps) {
           className="rounded-full w-full h-full"
         />
       </div>
-      <div>
+      <div className="max-900:w-[80px]  max-400:!w-[60px]">
         <Image
           src={"/rank-third.png"}
           alt="girl2"
           width={1000}
           height={1000}
-          className="rounded-full -translate-y-3 h-full w-full"
+          className=" -translate-y-3 h-full w-full"
         />
+      </div>
+      <div className="text-center -translate-y-3">
+        <h1 className="font-bold text-[20px] max-400:text-[15px]">Eleanor</h1>
+        <h2 className="text-[14px] font-medium  text-[#CD7F32]  max-400:text-[10px]">
+          1004
+        </h2>
       </div>
     </div>
   );

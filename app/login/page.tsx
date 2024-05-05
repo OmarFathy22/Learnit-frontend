@@ -50,7 +50,7 @@ export default function App (props: IAppProps) {
       <div className='flex flex-col items-center gap-3'>
         <div className='h-[1px] min-w-[350px] bg-[#46464C]'/>
         <div className='flex gap-1'>
-          <h1>New to LearnIt??</h1>
+          <h1>New to LearnIt?</h1>
            <Link href='/signup' className='gradient-text'>Signup</Link>
         </div>
       </div>

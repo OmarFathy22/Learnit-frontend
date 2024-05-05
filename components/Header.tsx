@@ -8,6 +8,8 @@ import { CiSearch } from "react-icons/ci";
 import Link from "next/link";
 import ProfileIcon from "./svgs/profileIcon";
 import Image from "next/image";
+import { RiMenu3Line } from "react-icons/ri";
+
 
 export interface IAppProps {}
 const montserrat_Alternates = Montserrat_Alternates({
@@ -34,24 +36,21 @@ export default function App(props: IAppProps) {
 
   return (
     <div
-      className={`${
-        pathname == "/"
-          ? "bg-[--bg-secondary]"
-          : "bg-[--bg-secondary] border-b-[1px] border-b-[#474747]"
-      } h-[80px] w-full   flex items-center justify-between px-[70px] ${
-        montserrat_Alternates.className
-      }`}
-    >
-      <Link href={"/"}>
-        <img
+    className={`${pathname == '/' ? "bg-[--bg-secondary]": "bg-[--bg-secondary] border-b-[1px] border-b-[#474747]"} fixed top-0 right-0 left-0 z-[10000] h-[80px] max-600:h-[60px] w-full flex items-center justify-between global-padding ${montserrat_Alternates.className} max-600:backdrop-blur max-600:bg-transparent`}
+  >
+      <Link href={'/'} >
+      <div className="w-[150px] max-600:w-[100px]">
+      <img
           src="/logo.png"
           alt="logo"
           width={150}
           height={150}
-          className="object-contain"
+          className="object-contain w-full"
         />
+      </div>
       </Link>
-      <div className="search flex items-center gap-3 bg-[#46464C1A] px-3 py-2 rounded-full">
+      <div className="search flex items-center gap-3 bg-[#46464C1A] px-3 py-2 rounded-full max-1100:hidden">
+       {/* Menu Icon */}
         <CiSearch size={20} />
         <input
           className={`bg-transparent outline-none w-[300px] `}
@@ -59,54 +58,55 @@ export default function App(props: IAppProps) {
           placeholder="Search for courses..."
         />
       </div>
-      <ul
-        className={`flex gap-[30px] items-center text-[16px] ${
-          (pathname == "/" || pathname == "/login" || pathname == "/signup") && "hidden"
-        }`}
-      >
-        {routes.map((route, i) => (
-          <li
-            key={i}
-            className={`text-[16px] ${
-              pathname === route.path ? "gradient-text" : ""
-            }`}
-          >
-            <Link
-              href={route.path}
-              className={`text-[16px] ${
-                pathname === route.path ? "gradient-text" : "!text-[white]"
-              }`}
+
+      <div className="menu-icon min-1100:hidden">
+        <RiMenu3Line size={25} />
+      </div>
+
+    <div className=" max-1100:hidden">
+        <ul
+          className={`flex gap-[30px] items-center text-[16px] ${
+            (pathname == "/" || pathname == "/login" || pathname == "/signup") && "hidden"
+          }`}
+        >        {routes.map((route, i) => (
+            <li
+              key={i}
+              className={`text-[16px] ${pathname === route.path ? "gradient-text" : ""}`}
             >
-              {route.name}
+              <Link
+                href={route.path}
+                className={`text-[16px] ${
+                  pathname === route.path  ? "gradient-text" : "!text-[white]"
+                }`}
+              >
+                {route.name}
+              </Link>
+            </li>
+          ))}
+          {/* profile Icon */}
+          <li  >
+            <Link href={"/profile"}>
+              <ProfileIcon active={pathname.startsWith("/profile")} />
             </Link>
           </li>
-        ))}
-        {/* profile Icon */}
-        <li>
-          <Link href={"/profile"}>
-            <ProfileIcon active={pathname.startsWith("/profile")} />
-          </Link>
-        </li>
-      </ul>
-
-      <ul
-        className={`flex flex-row-reverse  items-center text-[16px]  ${
-          (pathname !== "/" && pathname !== "/login" && pathname !== "/signup") && "hidden"
-        }`}
-      >
-        <li>
-          <Link href={"/login"}>
-            <h1 className="text-[16px] font-medium  bg-orange-500  bg-opacity-[0.8] hover:bg-opacity-[1] transition-all duration-300 px-5 pl-12 py-2 rounded-full    ">Log in</h1>
-          </Link>
-        </li>
-        <li>
-          <Link href={"/signup"}>
-            <h1 className="text-[16px] font-medium gradient-bg px-5 py-2 rounded-full  translate-x-9">
-              Sign Up
-            </h1>
-          </Link>
-        </li>
-      </ul>
+        </ul>
+      
+        <ul
+          className={`flex gap-[30px] items-center text-[16px]  ${
+            (pathname !== "/" && pathname !== "/login" && pathname !== "/signup") && "hidden"
+          }`}
+        >      <li>
+            <Link href={"/login"}>
+              <h1 className="text-[16px] font-bold">Login</h1>
+            </Link>
+          </li>
+          <li>
+            <Link href={"/signup"}>
+              <h1 className="text-[16px] gradient-bg px-5 py-2 rounded-md font-bold">Sign Up</h1>
+            </Link>
+          </li>
+        </ul>
+    </div>
     </div>
   );
 }

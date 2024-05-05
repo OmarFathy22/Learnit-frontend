@@ -15,15 +15,19 @@
   --links: #ADD5F2;
   --sub-text: #A0A0A0;
 }
- /* global scrollbar srtyles */
- .global_scrollbar::-webkit-scrollbar {
-  width: 0px; /* Set the width of the scrollbar */
-  border-radius: 5px; /* Set the border radius */
+body{
+  background-color: var(--bg-primary) !important;
 }
+ /* global scrollbar srtyles */
+ /* .global_scrollbar::-webkit-scrollbar {
+  width: 0px; 
+  border-radius: 5px; 
+} */
 
 /* Define a custom scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 12px; /* Set the width of the scrollbar */
+  width: 6px !important; /* Set the width of the scrollbar */
+  height: 6px !important; /* Set the height of the scrollbar */
   border-radius: 5px; /* Set the border radius */
 }
 
@@ -36,7 +40,7 @@
 /* Handle styles */
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background: var(--gradiant-orange, linear-gradient(90deg, #F4442C 0%, #F69C08 100%));
-  border-radius: 5px; /* Set the border radius */
+  border-radius: 50px; /* Set the border radius */
 }
 
 /* css for the collapisble */
@@ -145,6 +149,19 @@
 .global-padding {
   padding-right: 70px;
   padding-left: 70px;
+}
+
+@media screen and (max-width: 1200px) {
+  .global-padding {
+    padding-right: 35px ;
+    padding-left: 35px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .global-padding {
+    padding-right: 20px ;
+    padding-left: 20px;
+  }
 }
 
 
