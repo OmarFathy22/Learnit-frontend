@@ -15,7 +15,7 @@ export default function App (props: IAppProps) {
     setKey((prevKey) => prevKey + 1);
   };
   return (
-    <div className='flex'>
+    <div className='flex max-1000:flex-col'>
       <LeftSide key={key}/>
       <RightSide  refreshVideo = {refreshVideo}/>
     </div>

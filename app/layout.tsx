@@ -5,6 +5,8 @@ import "slick-carousel/slick/slick-theme.css";
 import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import ScrollToTopBtn from '@/components/ScrollToTopBtn'
+
 
 const lato = Lato({ subsets: ['latin'] , weight: ['300', '400', '700']});
 export const metadata: Metadata = {

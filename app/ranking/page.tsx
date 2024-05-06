@@ -11,8 +11,8 @@ export default function App(props: IAppProps) {
     setActive(!active);
   };
   return (
-    <div className=" mx-auto rounded-md w-[70%] py-[50px] pb-[100px] ">
-      <div className="w-full flex justify-center items-center gap-[200px] py-5">
+    <div className=" mx-auto rounded-md w-[70%] py-[40px]  ">
+      <div className="w-full flex justify-center items-center gap-[200px] pb-3">
         <h1
           onClick={onClick}
           className={`cursor-pointer text-[20px] ${active ? "gradient-text" : ""}`}

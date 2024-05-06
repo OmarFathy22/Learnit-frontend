@@ -16,7 +16,7 @@ export default function App({refreshVideo}: IAppProps) {
     setActiveTab(tab);
   };
   return (
-    <div className="w-[500px] h-[calc(100vh-80px)] !overflow-auto relative custom-scrollbar">
+    <div className="w-[500px] max-1000:w-full h-[calc(100vh-80px)] !overflow-auto relative custom-scrollbar">
       <div className="w-full relative ">
         <div className="flex items-center justify-between p-3 px-10 ">
           <button className="bg-[--bg-tertiary] py-2 px-10 rounded-md">
