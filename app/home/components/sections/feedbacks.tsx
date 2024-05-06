@@ -2,6 +2,8 @@
 import * as React from "react";
 import Slider from "../shared/Slider";
 import FeedBackCard from "../shared/FeedBackCard";
+import { MdKeyboardArrowRight } from "react-icons/md";
+import { MdKeyboardArrowLeft } from "react-icons/md";
 
 export interface IAppProps {}
 let settings = {
@@ -11,6 +13,8 @@ let settings = {
   slidesToShow: 4 ,
   slidesToScroll: 4,
   initialSlide: 0,
+  nextArrow: <div ><MdKeyboardArrowRight /></div>,
+  prevArrow: <div ><MdKeyboardArrowLeft /></div>,
   responsive: [
     {
       breakpoint: 1500,

@@ -2,7 +2,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React from "react";
 import Slider from "@ant-design/react-slick";
-import CourseCard from "./CourseCard";
+import { MdKeyboardArrowRight } from "react-icons/md";
+import { MdKeyboardArrowLeft } from "react-icons/md";
+
+
 
 export interface ISliderProps {
   settings ?: any;
@@ -16,6 +19,8 @@ let DefualtSettings = {
   slidesToShow: 4 ,
   slidesToScroll: 4,
   initialSlide: 0,
+  nextArrow: <div ><MdKeyboardArrowRight /></div>,
+  prevArrow: <div ><MdKeyboardArrowLeft /></div>,
   responsive: [
     {
       breakpoint: 1500,
@@ -53,7 +58,7 @@ let DefualtSettings = {
 function Responsive({settings = DefualtSettings , children }: ISliderProps) {
   return (
     <div className="border-[1px] border-transparent ">
-      <Slider {...settings} className="">{children}</Slider>
+      <Slider {...settings} className="px-3 Slider">{children}</Slider>
     </div>
   );
 }

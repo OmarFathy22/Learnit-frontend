@@ -198,3 +198,22 @@ body {
 .slick-active h1{
   color: white !important;
 }
+/* #arrows */
+
+
+.slick-arrow.slick-next > svg{
+  color: white !important;
+  background-color: #222 !important;
+  border-radius: 50% !important;
+  transform: translate(-14px , -29px) !important;
+  font-size: 40px !important;
+  padding:5px
+ }
+ .slick-arrow.slick-prev > svg{
+  color: white !important;
+  background-color: #222 !important;
+  border-radius: 50% !important;
+  transform: translate(-5px , -29px) !important;
+  font-size: 40px !important;
+  padding:5px
+ }

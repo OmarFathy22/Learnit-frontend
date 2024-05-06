@@ -10,15 +10,15 @@ export interface ISliderProps {
 
 function Responsive({ children }: ISliderProps) {
   const settings = {
-    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
+    // autoplay: true,
     autoplaySpeed: 5000,
     cssEase: "linear",
     arrows:false,
+    dots: true,
     customPaging: (i:number) => (
       <h1
       style={{
