@@ -11,17 +11,17 @@ export default function App(props: IAppProps) {
     setActive(!active);
   };
   return (
-    <div className=" mx-auto rounded-md w-[70%] py-[40px]  ">
-      <div className="w-full flex justify-center items-center gap-[200px] pb-3">
+    <div className=" mx-auto rounded-md w-[80%] max-900:w-full global-padding py-[40px]  ">
+      <div className="w-full flex justify-center items-center gap-[200px] max-500:gap-[100px]  max-350:!gap-[50px]  pb-3">
         <h1
           onClick={onClick}
-          className={`cursor-pointer text-[20px] ${active ? "gradient-text" : ""}`}
+          className={`cursor-pointer text-[20px] max-350:!text-[15px] ${active ? "gradient-text" : ""}`}
         >
           Monthly
         </h1>
         <h1
           onClick={onClick}
-          className={`cursor-pointer text-[20px] ${!active ? "gradient-text" : ""}`}
+          className={`cursor-pointer text-[20px] max-350:!text-[15px] ${!active ? "gradient-text" : ""}`}
         >
           All Time
         </h1>

@@ -12,36 +12,36 @@ const calculateEstimation = (index: number) => {
 export default function App(props: IAppProps) {
   return (
     <ul className=" bg-[--bg-secondary] rounded-md flex flex-col    ">
-      <li className="flex justify-between items-center bg-[--bg-tertiary] pl-[45px] pr-[30px] py-3 ">
-        <div className="flex items-center gap-[110px]">
+      <li className="flex justify-between items-center bg-[--bg-tertiary] px-[45px]  max-500:px-[20px]  py-3 ">
+        <div className="flex items-center gap-[110px] max-500:gap-[70px]">
           <h2>Rank</h2>
 
           <h1 className="">Name</h1>
         </div>
-        <div className="mr-5 ">Points</div>
+        <div className=" ">Points</div>
       </li>
       {Array(10)
         .fill(0)
         .map((_, index) => (
           <div key={index}>
             <li
-              className={`pl-[45px] pr-[30px] py-3 ${
+              className={`pl-[45px] pr-[30px] max-500:px-[20px] py-3 ${
                 index % 2 ? "bg-[--bg-tertiary]" : ""
               } `}
             >
               <div className="flex justify-between items-center ">
-                <div className="flex items-center gap-[30px]">
+                <div className="flex items-center gap-[30px] ">
                   <h2>{index + 1}</h2>
                   <Image
                     src={"/girl1.png"}
                     alt="girl"
                     width={1000}
                     height={1000}
-                    className="rounded-full w-[65px] h-[65px] border-[5px] border-[#FB6BFE] "
+                    className="rounded-full w-[65px] h-[65px] max-500:w-[45px] max-350:!h-[30px] max-350:!w-[30px] max-500:h-[45px] max-500:border-[3px] border-[5px] border-[#FB6BFE] "
                   />
-                  <h1 className="">Liam Davis</h1>
+                  <h1 className="max-500:text-[10px] max-500:-translate-x-2 max-350:!translate-x-1">Liam Davis</h1>
                 </div>
-                <div className="rounded-full p-3 py-2 bg-[#46464C]">1000xp</div>
+                <div className="rounded-full p-3 py-2 max-500:py-1 max-500:px-2 bg-[#46464C] max-500:text-[10px]">1000xp</div>
               </div>
             </li>
       
