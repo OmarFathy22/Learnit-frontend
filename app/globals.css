@@ -190,3 +190,11 @@ body {
 .borderr {
   border: 2px solid red;
 }
+
+/* slick slider styles */
+ 
+/* #dots */
+
+.slick-active h1{
+  color: white !important;
+}

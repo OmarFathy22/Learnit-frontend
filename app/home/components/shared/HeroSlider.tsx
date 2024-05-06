@@ -10,17 +10,28 @@ export interface ISliderProps {
 
 function Responsive({ children }: ISliderProps) {
   const settings = {
-    // dots: true,
+    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 5000,
-    cssEase: "linear"
+    cssEase: "linear",
+    arrows:false,
+    customPaging: (i:number) => (
+      <h1
+      style={{
+        color: 'gray',
+        fontSize: '50px',
+      }}
+    >
+      •
+    </h1>
+    ),
   };
   return (
-    <div className="border-[1px] border-transparent  ">
+    <div className="border-[1px] border-transparent   ">
       <Slider {...settings} className="">{children}</Slider>
     </div>
   );
