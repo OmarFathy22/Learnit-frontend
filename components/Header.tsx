@@ -9,6 +9,7 @@ import Link from "next/link";
 import ProfileIcon from "./svgs/profileIcon";
 import Image from "next/image";
 import { RiMenu3Line } from "react-icons/ri";
+import MenuDrawer from './MenuDrawer'
 import ScrollToTopBtn from "@/components/ScrollToTopBtn";
 
 export interface IAppProps {}
@@ -70,10 +71,11 @@ export default function App(props: IAppProps) {
       </div>
 
       <div className="menu-icon min-1100:hidden">
-        <RiMenu3Line size={25} />
+        {/* <RiMenu3Line size={25} /> */}
+        <MenuDrawer />
       </div>
 
-      <div className=" max-1100:hidden">
+      <div className="max-1100:hidden">
         <ul
           className={`flex gap-[30px] items-center text-[16px] ${
             (pathname == "/" ||
