@@ -16,6 +16,8 @@ const config: Config = {
       'min-500': {  'min': '500px' },
       'max-600': {  'max': '600px' },
       'min-600': {  'min': '600px' },
+      'max-700': {  'max': '700px' },
+      'min-700': {  'min': '700px' },
       'max-900': {  'max': '900px' },
       'min-900': {  'min': '900px' },
       'max-1000': {  'max': '1000px' },

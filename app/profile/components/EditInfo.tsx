@@ -87,25 +87,29 @@ export default function App(props: IAppProps) {
         <h1 className="text-[20px] font-bold mb-5 mt-10">Edit Links</h1>
         <ul className="flex flex-col gap-5">
           {links.map((item, index) => (
-            <li key={index + 1} className="flex items-center gap-3">
-              <label htmlFor={item.name}>Title</label>
-              <input
-                onChange={handleChangeNames(index)}
-                id={item.name}
-                value={item.name}
-                type="text"
-                placeholder={item.name}
-                className=" bg-[--bg-primary] rounded-full px-2 py-1 outline-none "
-              />
-              <label htmlFor={item.link}>Link</label>
-              <input
-                onChange={handleChangeLinks(index)}
-                id={item.link}
-                value={item.link}
-                type="text"
-                placeholder={item.link}
-                className=" bg-[--bg-primary] rounded-full px-2 py-1 outline-none"
-              />
+            <li key={index + 1} className="flex items-center gap-3 max-700:flex-col max-700:items-start">
+              <div className="flex items-center gap-3">
+                <label htmlFor={item.name}>Title</label>
+                <input
+                  onChange={handleChangeNames(index)}
+                  id={item.name}
+                  value={item.name}
+                  type="text"
+                  placeholder={item.name}
+                  className=" bg-[--bg-primary] rounded-full px-2 py-1 outline-none "
+                />
+              </div>
+              <div className="flex items-center gap-3">
+                <label htmlFor={item.link}>Link</label>
+                <input
+                  onChange={handleChangeLinks(index)}
+                  id={item.link}
+                  value={item.link}
+                  type="text"
+                  placeholder={item.link}
+                  className=" bg-[--bg-primary] rounded-full px-2 py-1 outline-none"
+                />
+            </div>
               <button onClick={() => handleRemoveLink(item)} className="font-bold text-red-500">Remove</button>
             </li>
           ))}

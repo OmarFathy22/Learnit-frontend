@@ -24,21 +24,25 @@ export default function App(props: IAppProps) {
           <button onClick={() => handleOpen()}>
           <Bell />
           </button>
-          <div className={`fixed top-0 bottom-0 right-0 left-0 w-[100vw] h-[100vw] bg-[#222] bg-opacity-[0.6] ${!open && "hidden"}`}/>
+          {/* <div className={`fixed top-0 bottom-0 right-0 left-0 w-[100vw] h-[100vw] borderr z-[1000000000000000000000] bg-[#222] bg-opacity-[0.6] ${!open && "hidden"}`}/> */}
 
-            <div className={`absolute top-[50px] left-0 w-[350px] bg-[--bg-tertiary] p-5 rounded-md h-[70vh] custom-scrollbar ${!open && "hidden"}`}>
+            <div className={`absolute top-[50px] z-[100] right-0 w-[350px] bg-[--bg-secondary] p-5 rounded-md h-[70vh] overflow-auto custom-scrollbar ${!open && "hidden"}`}>
               <div className="flex items-center justify-between">
                 <h1 className="font-bold text-[18px]">Notifications</h1>
                 <button onClick={()=>handleOpen()} className="bg-[--bg-primary] p-1 rounded-full "><IoMdClose size={17}/></button>
               </div>
-              <div className="relative flex items-center mt-3 rounded-md bg-[--bg-primary] p-3 gap-3">
-                <div className="absolute top-2 right-2 gradient-bg h-[10px] w-[10px] rounded-full"/>
-                <Image src="/guy.png" alt="profile_photo" width={1000} height={1000} className="w-[50px] h-[50px] rounded-full border-[4px] mb-1 border-[#2EDE60]"/>
-              <div>
-                  <h1 className="font-bold">Ahmed Sobhy replied to your post</h1>
-                  <p className="text-[--sub-text] text-[12px]">1 minute ago</p>
-              </div>
-              </div>
+              <ul>
+                {Array(10).fill(0).map((_,i) => (
+                  <div key={i} className="relative flex items-center mt-3 rounded-md bg-[--bg-primary] p-3 gap-3">
+                  <div className="absolute top-2 left-2 gradient-bg h-[10px] w-[10px] rounded-full"/>
+                  <Image src="/guy.png" alt="profile_photo" width={1000} height={1000} className="w-[50px] h-[50px] rounded-full border-[4px] mb-1 border-[#2EDE60]"/>
+                <div>
+                    <h1 className="font-bold">Ahmed Sobhy replied to your post</h1>
+                    <p className="text-[--sub-text] text-[12px]">1 minute ago</p>
+                </div>
+                </div>
+                ))}
+              </ul>
             </div>
       </div>
       </div>
