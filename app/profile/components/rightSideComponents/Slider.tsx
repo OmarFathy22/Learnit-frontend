@@ -12,7 +12,7 @@ function Responsive({ children }: ISliderProps) {
     dots: false,
     infinite: false,
     speed: 1000,
-    slidesToShow: 3 ,
+    slidesToShow: 3,
     slidesToScroll: 3,
     initialSlide: 0,
     responsive: [
@@ -44,14 +44,17 @@ function Responsive({ children }: ISliderProps) {
           slidesToShow: 1,
           slidesToScroll: 1,
           centerMode: true,
+          centerPadding: "50px",
           arrows: false,
         },
       },
     ],
   };
   return (
-    <div className="border-[1px] border-transparent">
-      <Slider {...settings} className="">{children}</Slider>
+    <div className="border-[1px] border-transparent ">
+      <Slider {...settings} className="">
+        {children}
+      </Slider>
     </div>
   );
 }

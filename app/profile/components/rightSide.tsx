@@ -7,6 +7,7 @@ import EnrolledIcon from "@/components/svgs/Enrolled";
 import { TbCertificate } from "react-icons/tb";
 import { HiOutlineChatAlt2 } from "react-icons/hi";
 import Communities from './rightSideComponents/communities'
+import Slider from './rightSideComponents/Slider'
 export interface IAppProps {}
 
 export default function App(props: IAppProps) {
@@ -18,19 +19,21 @@ export default function App(props: IAppProps) {
         </div>
         <h1 className="text-[22px] gradient-text ">Certificates</h1>
       </div>
-      <ul className="flex flex-wrap gap-3">
-        {["/certificate1.png", "/certificate2.png", "/certificate3.png"].map((item, index) => (
-          <li key={index}>
-            <Image
-              src={item}
-              width={200}
-              height={200}
-              alt="certificate"
-              className=""
-            />
-          </li>
-        ))}
-      </ul>
+      <div className="">
+      <ul className="flex justify-between gap-2 py-3   overflow-auto custom-scrollbar">
+          {["/certificate1.png", "/certificate2.png", "/certificate3.png","/certificate3.png","/certificate3.png"].map((item, index) => (
+            <li key={index} className="flex-shrink-0">
+              <Image
+                src={item}
+                width={1000}
+                height={1000}
+                alt="certificate"
+                className="w-[200px]  px-2 "
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
       <CoursesSection title="Enrolled Courses" Icon={EnrolledIcon} />
       <CoursesSection title="Saved Courses" Icon={SavedIcon} />
     <div className="">

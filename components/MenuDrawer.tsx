@@ -40,7 +40,7 @@ const App = () => {
                 className='!bg-[--bg-secondary] flex flex-col  items-center gap-[110px]  py-[40px] text-[16px]'
             >
               <div>
-                <Link href={"/"}>
+                <Link onClick={()=>toggleDrawer()} href={"/"}>
                   <div className="w-[150px] max-600:w-[100px]">
                     <img
                       src="/logo.png"
@@ -63,6 +63,7 @@ const App = () => {
           {" "}
           {routes.map((route, i) => (
             <li
+            onClick={()=>toggleDrawer()}
               key={i}
               className={`text-[20px] ${
                 pathname === route.path ? "gradient-text" : ""
@@ -79,7 +80,7 @@ const App = () => {
             </li>
           ))}
           {/* profile Icon */}
-          <li>
+          <li onClick={()=>toggleDrawer()}>
             <Link href={"/profile"}>
               <ProfileIcon active={pathname.startsWith("/profile")} />
             </Link>
@@ -95,12 +96,12 @@ const App = () => {
           }`}
         >
           {" "}
-          <li>
+          <li onClick={()=>toggleDrawer()}>
             <Link href={"/login"}>
               <h1 className="text-[16px] font-bold">Login</h1>
             </Link>
           </li>
-          <li>
+          <li onClick={()=>toggleDrawer()}>
             <Link href={"/signup"}>
               <h1 className="text-[16px] gradient-bg px-5 py-2 rounded-md font-bold">
                 Sign Up

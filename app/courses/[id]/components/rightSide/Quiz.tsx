@@ -1,4 +1,3 @@
-import { IoMdClose } from "react-icons/io";
 import { useState } from "react";
 import WrongAnswersScreen from "./quizComponents/WrongAnswers";
 import SuccessScreen from "./quizComponents/Success";
@@ -88,7 +87,6 @@ export default function App({ openQuiz, handleOpenQuiz }: IAppProps) {
       <div
         className={`fixed bottom-0 right-0 left-0 top-[80px] max-600:top-[60px] backdrop-blur w-full    bg-[#222] bg-opacity-[0.4] flex justify-center items-center `}
       >
-        {/* <div className="w-full  h-[30px]"></div> */}
         <div className={`w-full ${!wrongAnswers && "hidden"}`}>
           <WrongAnswersScreen
             handleLeave={handleLeave}
