@@ -1,8 +1,9 @@
 "use client";
 import { useState } from "react";
 import * as React from "react";
-import Feed from "../feed";
-import Dialog from "../joinDialog";
+import Feed from "./feed";
+import Dialog from "./joinDialog";
+import AddPostBtn from './feed/addPostBtn';
 
 export interface IAppProps {}
 
@@ -30,6 +31,7 @@ export default function App(props: IAppProps) {
         >
           Join A Dialog
         </h1>
+        <AddPostBtn />
       </div>
 
       <div className="w-[80%] max-500:w-[90%] mx-auto mt-[20px]">

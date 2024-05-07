@@ -2,16 +2,14 @@
 import * as React from "react";
 import Logo from "./svgs/logo";
 import { usePathname } from "next/navigation";
-import MobFooter from "./MobFooter";
 import ScrollToTopBtn from "@/components/ScrollToTopBtn";
-
 
 export interface IAppProps {}
 
 export default function App(props: IAppProps) {
   const pathname = usePathname();
   return (
-  <div>
+    <div>
       <div
         className={`${
           pathname.includes("/courses") && "hidden"
@@ -19,7 +17,9 @@ export default function App(props: IAppProps) {
       >
         <div className="  w-full flex max-900:flex-col max-900:items-center max-900:gap-2 max-900:justify-center justify-around  items-start p-7 max-350:px-3">
           <div>
-            <h1 className="gradient-text text-[20px] max-900:mx-auto">Quick Links</h1>
+            <h1 className="gradient-text text-[20px] max-900:mx-auto">
+              Quick Links
+            </h1>
             <div className="max-900:flex max-900:gap-5 max-350:text-[12px]">
               <h1 className="text-[--links]">Home</h1>
               <h1 className="text-[--links]">Community</h1>
@@ -28,25 +28,33 @@ export default function App(props: IAppProps) {
             </div>
           </div>
           <div>
-            <h1 className="gradient-text text-[20px] max-900:mx-auto">Contact Us</h1>
+            <h1 className="gradient-text text-[20px] max-900:mx-auto">
+              Contact Us
+            </h1>
             <h1>
               <span>Email: </span>{" "}
-              <span className="text-[--links] max-350:text-[12px]">contact@learnit.com</span>
+              <span className="text-[--links] max-350:text-[12px]">
+                contact@learnit.com
+              </span>
             </h1>
             <h1>
               <span>Phone: </span>{" "}
-              <span className="text-[--links] max-350:text-[12px]">+1 (123) 456-7890</span>
+              <span className="text-[--links] max-350:text-[12px]">
+                +1 (123) 456-7890
+              </span>
             </h1>
           </div>
           <div className="">
-            <h1 className="gradient-text text-[20px] max-900:mx-auto">Follow Us</h1>
+            <h1 className="gradient-text text-[20px] max-900:mx-auto">
+              Follow Us
+            </h1>
             <div className="max-900:flex max-900:gap-5 max-350:text-[12px]">
               <h1 className="text-[--links]">Facebook</h1>
               <h1 className="text-[--links]">Instagram</h1>
               <h1 className="text-[--links]">Tictok</h1>
             </div>
           </div>
-    
+
           <div className="">
             <h1 className="gradient-text text-[20px] max-900:mx-auto">
               Subscribe to our newsletter
@@ -66,22 +74,19 @@ export default function App(props: IAppProps) {
             </div>
           </div>
         </div>
-    
+
         <div className="flex justify-center items-center gap-2 py-10 gradient-t-border">
           <h1>
             <Logo />
           </h1>
-          <h1 className="max-350:text-[12px]">© 2024 LearnIt. All Rights Reserved.</h1>
+          <h1 className="max-350:text-[12px]">
+            © 2024 LearnIt. All Rights Reserved.
+          </h1>
         </div>
       </div>
-{/* ScrollToTopBtn */}
-<ScrollToTopBtn />
       {/* ScrollToTopBtn */}
-
-      {/* Mobile Footer */}
-      {/* <div className="min-900:hidden">
-      <MobFooter/>
-      </div> */}
-  </div>
+      <ScrollToTopBtn />
+      {/* ScrollToTopBtn */}
+    </div>
   );
 }

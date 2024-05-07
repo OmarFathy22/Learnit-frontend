@@ -1,7 +1,7 @@
 import * as React from 'react';
-import Feed from '../feed'
-import Dialog from '../joinDialog'
-import AddPost from '../addPost'
+import Feed from './feed'
+import Dialog from './joinDialog'
+import AddPost from './addPost'
 
 export interface IAppProps {
 }

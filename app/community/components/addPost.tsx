@@ -34,7 +34,7 @@ export default function App(props: IAppProps) {
     setChooseDialog(index);
   };
   return (
-    <div className="min-1300:max-w-[350px] max-1300:w-[70%] relative   ">
+    <div className="min-1300:max-w-[350px] max-1300:w-[80%] relative   ">
       <div className="min-1300:py-3 sticky left-0 top-0">
         <h1 className="font-bold gradient-text text-[25px] mb-3 max-1300:hidden">Add a Post</h1>
         <div className="bg-[--bg-secondary] rounded-lg ">
