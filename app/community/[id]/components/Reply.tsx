@@ -8,7 +8,7 @@ export interface IAppProps {
 
 export default function App ({content}: IAppProps) {
   return (
-  <div className='py-3 w-[calc(100vw-800px)] px-4 bg-[--bg-secondary] rounded-md'>
+  <div className='py-3 min-1300:w-[calc(100vw-800px)] px-4 bg-[--bg-secondary] rounded-md'>
       <div  className="flex gap-3  ">
       <div>
         <Image

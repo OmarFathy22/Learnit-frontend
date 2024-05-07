@@ -24,9 +24,9 @@ export default function App(props: IAppProps) {
     setFocus((prev) => !prev);
   };
   return (
-    <div className="flex-1 max-w-[calc(100vw-700px)]">
-      <div className="py-3">
-        <h1 className="font-bold gradient-text text-[25px] mb-3 invisible">
+    <div className="flex-1 min-1300:max-w-[calc(100vw-700px)]">
+      <div className="py-3 max-1100:py-0">
+        <h1 className="font-bold gradient-text text-[25px] mb-3 invisible max-1100:hidden">
           Feed
         </h1>
         <div className="flex flex-col gap-3">
