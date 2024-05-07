@@ -1,11 +1,13 @@
 import * as React from "react";
 import Image from "next/image";
+import { IoMdClose } from "react-icons/io";
 
 export interface IAppProps {
   handleRetry: () => void;
   handleLeave: () => void;
   wrongAnswers: number;
   numberOfQuestions: number;
+  handleOpenQuiz: () => void;
 }
 
 export default function App({
@@ -13,9 +15,13 @@ export default function App({
   handleRetry,
   wrongAnswers,
   numberOfQuestions,
+  handleOpenQuiz
 }: IAppProps) {
   return (
-    <div className="w-[90%] max-w-[700px] mx-auto  p-5 bg-[#26262C] rounded-lg">
+    <div className="w-[90%] relative  max-w-[700px] mx-auto   p-5 bg-[#26262C] rounded-lg">
+      <button onClick={() => handleOpenQuiz()} className="bg-[#333] p-1  rounded-full top-[15px] right-[15px] absolute">
+          <IoMdClose size={22} className=" " />
+        </button>
       <h1 className="gradient-text text-[25px]">it’s Result time</h1>
       <div className="w-full relative bg-white h-[2px] rounded-md  my-5">
         <div
@@ -34,7 +40,7 @@ export default function App({
           alt="wrong_answers"
           width={1000}
           height={1000}
-          className="w-[300px] h-[300px]"
+          className="w-[300px] h-[300px] object-cover"
         />
       </div>
       <div className="flex items-center justify-between mt-5">

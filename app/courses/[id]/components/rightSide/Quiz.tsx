@@ -84,19 +84,18 @@ export default function App({ openQuiz, handleOpenQuiz }: IAppProps) {
   // logic ends here
 
   return (
-    <div className={`${!openQuiz && "hidden"} z-[1000]`}>
+    <div className={`${!openQuiz && "hidden"} z-[1000] w-full`}>
       <div
-        className={`fixed bottom-0 right-0 left-0 top-[80px]  max-600:top-[60px] backdrop-blur w-full   bg-[#222] bg-opacity-[0.4] flex justify-center items-center `}
+        className={`fixed bottom-0 right-0 left-0 top-[80px] max-600:top-[60px] backdrop-blur w-full    bg-[#222] bg-opacity-[0.4] flex justify-center items-center `}
       >
-        <button onClick={() => handleOpenQuiz()} className="bg-[#333] p-2  rounded-full top-[30px] right-[30px] absolute">
-          <IoMdClose size={22} className=" " />
-        </button>
+        {/* <div className="w-full  h-[30px]"></div> */}
         <div className={`w-full ${!wrongAnswers && "hidden"}`}>
           <WrongAnswersScreen
             handleLeave={handleLeave}
             handleRetry={handleRetry}
             wrongAnswers={wrongAnswers}
             numberOfQuestions={questions.length}
+            handleOpenQuiz={handleOpenQuiz}
           />
         </div>
         <div className={`w-full ${!success && "hidden"}`}>
@@ -105,10 +104,11 @@ export default function App({ openQuiz, handleOpenQuiz }: IAppProps) {
             handleRetry={handleRetry}
             wrongAnswers={wrongAnswers}
             numberOfQuestions={questions.length}
+            handleOpenQuiz={handleOpenQuiz}
           />
         </div>
 
-        <div className={`w-full ${wrongAnswers || (success && "hidden")}`}>
+        <div className={`w-full ${(wrongAnswers || success) && "hidden"}`}>
           <QuizScreen
             handleBack={handleBack}
             handleNext={handleNext}
@@ -120,6 +120,7 @@ export default function App({ openQuiz, handleOpenQuiz }: IAppProps) {
             questions={questions}
             selectedAnswerIndex={selectedAnswerIndex}
             wrongAnswers={wrongAnswers}
+            handleOpenQuiz={handleOpenQuiz}
           />
         </div>
       </div>

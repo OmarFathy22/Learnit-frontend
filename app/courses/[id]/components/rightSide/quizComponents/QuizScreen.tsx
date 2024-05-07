@@ -2,6 +2,7 @@ import * as React from "react";
 import BackBtn from "./BackBtn";
 import NextBtn from "./NextBtn";
 import SubmitBtn from "./SubmitBtn";
+import { IoMdClose } from "react-icons/io";
 
 export interface IAppProps {
   questionIndex: number;
@@ -14,6 +15,7 @@ export interface IAppProps {
   handleSubmit: () => void;
   loading: boolean;
   handleSelectAnswer: (index: number) => void;
+  handleOpenQuiz: () => void;
 }
 
 export default function App({
@@ -27,13 +29,17 @@ export default function App({
   questions,
   selectedAnswerIndex,
   wrongAnswers,
+  handleOpenQuiz
 }: IAppProps) {
   return (
     <div
-      className={`w-[90%] max-w-[700px] mx-auto p-5 bg-[#26262C] rounded-lg ${
+      className={`w-[90%] relative max-w-[700px] mx-auto p-5 bg-[#26262C] rounded-lg ${
         wrongAnswers && "hidden"
       }`}
     >
+      <button onClick={() => handleOpenQuiz()} className="bg-[#333] p-1  rounded-full top-[15px] right-[15px] absolute">
+          <IoMdClose size={22} className=" " />
+      </button>
       <h1 className="gradient-text text-[25px]">{`It's Quiz Time`}</h1>
       <div className="w-full relative bg-white h-[2px] rounded-md  my-5">
         <div
