@@ -21,7 +21,7 @@ export interface IAppProps {}
 
 export default function App({ selectStyles }: IAppProps) {
   return (
-    <div className="bg-[--bg-secondary] rounded-md  p-[30px] mt-2  flex flex-col items-center gap-5">
+    <div className="bg-[--bg-secondary] rounded-md max-400:p-[10px]  p-[30px] mt-2  flex flex-col items-center gap-5">
       <div className="w-full">
         <label htmlFor="displayName" className="mb-1 block">
           Diplay Name

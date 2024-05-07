@@ -30,7 +30,7 @@ export default function App ({selectStyles}: IAppProps) {
     }
   }
   return (
-    <div className="bg-[--bg-secondary] rounded-md  p-[30px] w-full flex flex-col gap-3">
+    <div className="bg-[--bg-secondary] rounded-md max-400:p-[10px]  p-[30px] w-full flex flex-col gap-3">
     <div>
       <label htmlFor="instructor-fullname">Full Name</label>
       <input

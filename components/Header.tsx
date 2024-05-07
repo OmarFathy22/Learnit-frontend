@@ -90,13 +90,13 @@ export default function App(props: IAppProps) {
             <li
               key={i}
               className={`text-[16px] ${
-                pathname === route.path ? "gradient-text" : ""
+                pathname.includes(route.path) ? "gradient-text" : ""
               }`}
             >
               <Link
                 href={route.path}
                 className={`text-[16px] font-medium ${
-                  pathname === route.path ? "gradient-text" : "!text-[white]"
+                  pathname.includes(route.path)? "gradient-text" : "!text-[white]"
                 }`}
               >
                 {route.name}

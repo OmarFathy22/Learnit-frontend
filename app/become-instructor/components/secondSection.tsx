@@ -23,14 +23,14 @@ export default function App(props: IAppProps) {
     }
   };
   return (
-    <div className="bg-[--bg-secondary] rounded-md  p-[30px] mt-2  flex items-center gap-5">
+    <div className="bg-[--bg-secondary] rounded-md max-400:p-[10px]  p-[30px] mt-2  flex items-center gap-5">
       <div>
         <Image
           src={selectedImage}
           alt="avatar"
           width={1000}
           height={1000}
-          className="rounded-full w-[150px] h-[150px] object-cover"
+          className="rounded-full w-[150px] h-[150px] max-400:h-[70px] max-400:w-[70px]  object-cover"
         />
       </div>
       <div>
