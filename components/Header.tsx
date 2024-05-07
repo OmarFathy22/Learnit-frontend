@@ -10,7 +10,6 @@ import ProfileIcon from "./svgs/profileIcon";
 import Image from "next/image";
 import { RiMenu3Line } from "react-icons/ri";
 import MenuDrawer from './MenuDrawer'
-import ScrollToTopBtn from "@/components/ScrollToTopBtn";
 
 export interface IAppProps {}
 const montserrat_Alternates = Montserrat_Alternates({
@@ -33,6 +32,10 @@ export default function App(props: IAppProps) {
       name: "Ranking",
       path: "/ranking",
     },
+    {
+      name: "Profile",
+      path: "/profile",
+    },
   ];
 
   return (
@@ -45,9 +48,7 @@ export default function App(props: IAppProps) {
         montserrat_Alternates.className
       } max-600:backdrop-blur max-600:bg-transparent`}
     >
-      {/* ScrollToTopBtn */}
-      <ScrollToTopBtn />
-      {/* ScrollToTopBtn */}
+      
 
       <Link href={"/"}>
         <div className="w-[150px] max-600:w-[100px]">
@@ -94,7 +95,7 @@ export default function App(props: IAppProps) {
             >
               <Link
                 href={route.path}
-                className={`text-[16px] ${
+                className={`text-[16px] font-medium ${
                   pathname === route.path ? "gradient-text" : "!text-[white]"
                 }`}
               >
@@ -102,12 +103,7 @@ export default function App(props: IAppProps) {
               </Link>
             </li>
           ))}
-          {/* profile Icon */}
-          <li>
-            <Link href={"/profile"}>
-              <ProfileIcon active={pathname.startsWith("/profile")} />
-            </Link>
-          </li>
+          
         </ul>
 
         <ul

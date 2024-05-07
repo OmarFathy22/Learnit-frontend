@@ -13,6 +13,7 @@ const config: Config = {
       'max-350': {  'max': '350px' },
       'max-400': {  'max': '400px' },
       'max-500': {  'max': '500px' },
+      'min-500': {  'min': '500px' },
       'max-600': {  'max': '600px' },
       'min-600': {  'min': '600px' },
       'max-900': {  'max': '900px' },
