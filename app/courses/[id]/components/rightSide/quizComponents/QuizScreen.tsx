@@ -30,7 +30,7 @@ export default function App({
 }: IAppProps) {
   return (
     <div
-      className={`w-[700px] p-5 bg-[#26262C] rounded-lg ${
+      className={`w-[90%] max-w-[700px] mx-auto p-5 bg-[#26262C] rounded-lg ${
         wrongAnswers && "hidden"
       }`}
     >

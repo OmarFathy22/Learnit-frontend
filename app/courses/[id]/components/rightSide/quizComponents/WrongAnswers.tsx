@@ -15,7 +15,7 @@ export default function App({
   numberOfQuestions,
 }: IAppProps) {
   return (
-    <div className="w-[700px] p-5 bg-[#26262C] rounded-lg">
+    <div className="w-[90%] max-w-[700px] mx-auto  p-5 bg-[#26262C] rounded-lg">
       <h1 className="gradient-text text-[25px]">it’s Result time</h1>
       <div className="w-full relative bg-white h-[2px] rounded-md  my-5">
         <div

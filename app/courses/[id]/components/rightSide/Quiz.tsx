@@ -86,12 +86,12 @@ export default function App({ openQuiz, handleOpenQuiz }: IAppProps) {
   return (
     <div className={`${!openQuiz && "hidden"} z-[1000]`}>
       <div
-        className={`fixed bottom-0 right-0 left-0 top-0 w-[100vw] h-[100vh] bg-[#222] bg-opacity-[0.4] flex justify-center items-center `}
+        className={`fixed bottom-0 right-0 left-0 top-[80px]  max-600:top-[60px] backdrop-blur w-full   bg-[#222] bg-opacity-[0.4] flex justify-center items-center `}
       >
-        <button onClick={() => handleOpenQuiz()}>
-          <IoMdClose size={30} className="right-5 top-5 absolute " />
+        <button onClick={() => handleOpenQuiz()} className="bg-[#333] p-2  rounded-full top-[30px] right-[30px] absolute">
+          <IoMdClose size={22} className=" " />
         </button>
-        <div className={`${!wrongAnswers && "hidden"}`}>
+        <div className={`w-full ${!wrongAnswers && "hidden"}`}>
           <WrongAnswersScreen
             handleLeave={handleLeave}
             handleRetry={handleRetry}
@@ -99,7 +99,7 @@ export default function App({ openQuiz, handleOpenQuiz }: IAppProps) {
             numberOfQuestions={questions.length}
           />
         </div>
-        <div className={`${!success && "hidden"}`}>
+        <div className={`w-full ${!success && "hidden"}`}>
           <SuccessScreen
             handleLeave={handleLeave}
             handleRetry={handleRetry}
@@ -108,7 +108,7 @@ export default function App({ openQuiz, handleOpenQuiz }: IAppProps) {
           />
         </div>
 
-        <div className={`${wrongAnswers || (success && "hidden")}`}>
+        <div className={`w-full ${wrongAnswers || (success && "hidden")}`}>
           <QuizScreen
             handleBack={handleBack}
             handleNext={handleNext}

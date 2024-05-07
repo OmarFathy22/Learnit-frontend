@@ -34,9 +34,9 @@ export default function App(props: IAppProps) {
     setChooseDialog(index);
   };
   return (
-    <div className="max-w-[350px] relative  ">
-      <div className="py-3 sticky left-0 top-0">
-        <h1 className="font-bold gradient-text text-[25px] mb-3">Add a Post</h1>
+    <div className="min-1300:max-w-[350px] max-1300:w-[70%] relative   ">
+      <div className="min-1300:py-3 sticky left-0 top-0">
+        <h1 className="font-bold gradient-text text-[25px] mb-3 max-1300:hidden">Add a Post</h1>
         <div className="bg-[--bg-secondary] rounded-lg ">
           <h1 className="font-bold text-[20px] px-4 pb-1 py-4">Post Type</h1>
           <div className="flex items-center border-b-[2px] border-b-[#323238] px-3 gap-2 pb-2">
@@ -68,7 +68,7 @@ export default function App(props: IAppProps) {
             </div>
           </div>
           <h1 className="font-bold text-[20px] px-4 py-1">Dialog</h1>
-          <ul className="custom-scrollbar flex flex-wrap gap-1 items-center   px-4 max-h-[150px] overflow-auto">
+          <ul className="custom-scrollbar flex flex-wrap gap-1 items-center max-1300:max-h-[100px]   px-4 max-h-[150px] overflow-auto">
             {dialogs.map((dialog, i) => (
               <li
                 key={i}

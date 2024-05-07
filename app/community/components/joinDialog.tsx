@@ -19,9 +19,9 @@ export default function App(props: IAppProps) {
     setChooseDialog(index);
   };
   return (
-    <div className="max-w-[350px] relative  ">
+    <div className="min-1000:max-w-[350px] relative max-1000:w-full ">
     <div className="py-3 sticky left-0 top-0">
-        <h1 className="font-bold gradient-text text-[25px] mb-3">join a Dialog</h1>
+        <h1 className="font-bold gradient-text text-[25px] mb-3 max-1000:hidden">join a Dialog</h1>
         <div className="bg-[--bg-secondary] rounded-lg p-4">        
           <h1 className="font-bold text-[20px] ">Top Dialogs</h1>
           <ul className="custom-scrollbar  flex flex-wrap gap-1 items-center  bg-[--bg-primary] rounded-md mt-1  p-3 max-h-[150px] overflow-auto">
