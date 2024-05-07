@@ -22,7 +22,7 @@ export interface IAppProps {}
 
 export default function App(props: IAppProps) {
   return (
-    <div className="bg-[--bg-primary] rounded-md  p-[30px] mt-2  flex flex-col items-center gap-5">
+    <div className="bg-[--bg-primary] mx-[5%] rounded-md max-500:p-[15px] max-500:text-[10px]  p-[30px] mt-2  flex flex-col items-center gap-5">
       <div className="w-full">
         <label htmlFor="displayName" className="mb-1 block">
           Course Name

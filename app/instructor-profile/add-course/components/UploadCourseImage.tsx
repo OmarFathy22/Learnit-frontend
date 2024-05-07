@@ -23,7 +23,7 @@ export default function App(props: IAppProps) {
     }
   };
   return (
-    <div className="rounded-md  p-[30px] mt-2  flex flex-row-reverse items-center justify-between w-full gap-5">
+    <div className="rounded-md  p-[30px] mt-2  flex max-700:flex-col    flex-row-reverse items-center justify-between w-full gap-5">
       <div>
         <Image
           src={selectedImage}
@@ -34,7 +34,7 @@ export default function App(props: IAppProps) {
         />
       </div>
       <div>
-        <h1 className="text-[20px]">Upload Course banner</h1>
+        <h1 className="text-[20px] max-700:text-[12px]">Upload Course banner</h1>
         <div className="">
           <input
             type="file"
@@ -45,7 +45,7 @@ export default function App(props: IAppProps) {
           />
           <label
             htmlFor="file-upload"
-            className="cursor-pointer font-bold text-[14px] bg-[--bg-tertiary] text-white py-2 px-4 rounded block text-center mt-10"
+            className="cursor-pointer font-bold text-[14px] max-500:text-[10px] bg-[--bg-tertiary] text-white py-2 px-4 rounded block text-center mt-10 max-700:mt-2"
           >
             Choose Image
           </label>

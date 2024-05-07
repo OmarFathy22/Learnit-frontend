@@ -1,7 +1,7 @@
 'use client'
 import * as React from "react";
 import Slider from "@/app/home/components/shared/Slider";
-import FeedBackCard from '../../home/components/shared/FeedBackCard'
+import FeedBackCard from './FeedbackCard'
 
 export interface IAppProps {}
 let settings = {
@@ -47,17 +47,18 @@ let settings = {
 export default function App(props: IAppProps) {
   return (
     <div className="mt-5">
-      <h1 className="gradient-text text-[22px]  ">
+      <h1 className="gradient-text text-[22px] max-600:text-[15px]  ">
       See what other learners say about these courses 
       </h1>
       {/* react slider Here */}
       <div className="">
-        <Slider settings={settings}>
+      <ul className="flex justify-between gap-2 py-3   overflow-auto custom-scrollbar">
+
         {Array(10).fill(0).map((_, i) => (
     
            <FeedBackCard key={i} />  
         ))}
-        </Slider>
+        </ul>
       </div>
     </div>
   );
