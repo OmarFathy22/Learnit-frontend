@@ -17,7 +17,7 @@ export default function App(props: IAppProps) {
   return (
     <div className="col-span-1 min-1400:h-[100vh] min-1400:sticky left-0 top-0  bottom-0 right-0 z-[100]  bg-[--bg-tertiary] border-r-[1px] border-[#474747]  ">
       <div className="p-5 flex items-center justify-between">
-        <Link href={'/profile/edit-info'} className="rounded-md">
+        <Link href={'/instructor-profile/edit-info'} className="rounded-md">
           <Edit />
         </Link>
       <div className="relative">

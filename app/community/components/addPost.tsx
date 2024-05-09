@@ -25,6 +25,22 @@ const dialogs = [
   "AI",
 ];
 export default function App(props: IAppProps) {
+  // const [postData , setPostData] = useState({title:"" , content:""});
+  // const AddPostToDB = async() => {
+  //   // 'use server';
+  //   const newPost = await fetch('https://learnit-backend-woad.vercel.app/post/create', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({
+  //       title: "title",
+  //       content: "content",
+  //     })
+  //   }).then(res => res.json())
+  //   console.log(newPost);
+    
+  // }
   const [postType, setPostType] = useState(0);
   const [chooseDialog, setChooseDialog] = useState(0);
   const [options, setOptions] = useState(["" , ""]);
@@ -42,6 +58,12 @@ export default function App(props: IAppProps) {
   const handleChooseDialog = (index: number) => {
     setChooseDialog(index);
   };
+  // const handleTitle = (eo:React.ChangeEvent<HTMLInputElement>) => {
+  //   setPostData({...postData , title:eo.target.value});
+  // }
+  // const handleContent = (eo:React.ChangeEvent<HTMLTextAreaElement>) => {
+  //   setPostData({...postData , content:eo.target.value});
+  // }
   return (
     <div className="min-1300:max-w-[350px] max-1300:w-[80%] relative   ">
       <div className="min-1300:py-3 sticky left-0 top-0">
@@ -103,14 +125,14 @@ export default function App(props: IAppProps) {
             <div className="px-4 py-2">
               <h1 className="font-bold text-[15px]">Title</h1>
               <div>
-                <input className="bg-[--bg-primary] rounded-md p-2 w-full mt-1" />
+                <input  className="bg-[--bg-primary] rounded-md p-2 w-full mt-1" />
               </div>
             </div>
             {!postType ? (
               <div className="px-4">
                 <h1 className="font-bold text-[15px]">Content</h1>
                 <div>
-                  <textarea className="bg-[--bg-primary] rounded-md p-3 w-full min-h-[120px] mt-1 resize-none " />
+                  <textarea  className="bg-[--bg-primary] rounded-md p-3 w-full min-h-[120px] mt-1 resize-none " />
                 </div>
               </div>
             ) : (
@@ -128,7 +150,7 @@ export default function App(props: IAppProps) {
               </ul>
             )}
           <div className="flex justify-end">
-              <button className="gradient-bg mx-4 mt-3 mb-4 py-1  px-5 rounded-md text-[17px] font-bold text-[#222]">
+              <button  className="gradient-bg mx-4 mt-3 mb-4 py-1  px-5 rounded-md text-[17px] font-bold text-[#222]">
                 Post
               </button>
           </div>

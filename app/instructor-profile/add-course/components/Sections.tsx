@@ -60,6 +60,7 @@ export default function App(props: IAppProps) {
       value: `question${Questions.length}`,
       label: `question${Questions.length}`,
     };
+    if(Questions.length === 5) return alert("You can't add more than 4 questions");
     setQuestions([...Questions, newQuestion]);
   };
   const handleCorrectAnswer = (index: number) => {

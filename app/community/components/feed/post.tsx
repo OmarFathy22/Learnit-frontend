@@ -8,13 +8,14 @@ import { FaRegCommentAlt } from "react-icons/fa";
 
 
 export interface IAppProps {
+  id:string,
   title: string;
   content: string;
 }
 
-export default function App ({title , content}: IAppProps) {
+export default function App ({id , title , content}: IAppProps) {
   return (
-  <Link href={`/community/${title}`}>
+  <Link href={`/community/${id}`}>
       <div className="bg-[#101011] p-4 rounded-md ">
             <div className="flex items-center gap-2">
               <div>
