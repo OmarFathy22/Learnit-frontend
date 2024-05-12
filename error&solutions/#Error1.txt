@@ -1,0 +1,12 @@
+#Error:There was an error while hydrating this Suspense boundary. Switched to client rendering. Next.js 14
+#Solution: using mounting method
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }

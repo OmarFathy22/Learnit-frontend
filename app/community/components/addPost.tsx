@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import DownArrow from "../../../components/svgs/down-arrow";
+import { CreateNewPost } from "../actions";
 
 export interface IAppProps {}
 const dialogs = [
@@ -121,18 +122,18 @@ export default function App(props: IAppProps) {
               </li>
             ))}
           </ul>
-          <div className="border-t-[2px] border-t-[#323238] mt-2">
+          <form action={CreateNewPost} className="border-t-[2px] border-t-[#323238] mt-2">
             <div className="px-4 py-2">
               <h1 className="font-bold text-[15px]">Title</h1>
               <div>
-                <input  className="bg-[--bg-primary] rounded-md p-2 w-full mt-1" />
+                <input name="title"  className="bg-[--bg-primary] rounded-md p-2 w-full mt-1" />
               </div>
             </div>
             {!postType ? (
               <div className="px-4">
                 <h1 className="font-bold text-[15px]">Content</h1>
                 <div>
-                  <textarea  className="bg-[--bg-primary] rounded-md p-3 w-full min-h-[120px] mt-1 resize-none " />
+                  <textarea name="content" className="bg-[--bg-primary] rounded-md p-3 w-full min-h-[120px] mt-1 resize-none " />
                 </div>
               </div>
             ) : (
@@ -150,11 +151,11 @@ export default function App(props: IAppProps) {
               </ul>
             )}
           <div className="flex justify-end">
-              <button  className="gradient-bg mx-4 mt-3 mb-4 py-1  px-5 rounded-md text-[17px] font-bold text-[#222]">
+              <button type="submit"  className="gradient-bg mx-4 mt-3 mb-4 py-1  px-5 rounded-md text-[17px] font-bold text-[#222]">
                 Post
               </button>
           </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>

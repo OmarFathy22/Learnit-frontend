@@ -10,6 +10,9 @@ import ProfileIcon from "./svgs/profileIcon";
 import Image from "next/image";
 import { RiMenu3Line } from "react-icons/ri";
 import MenuDrawer from './MenuDrawer'
+import React, { useContext } from 'react';
+import { UserContext } from '@/hooks/useUser';
+
 
 export interface IAppProps {}
 const montserrat_Alternates = Montserrat_Alternates({
@@ -18,6 +21,8 @@ const montserrat_Alternates = Montserrat_Alternates({
 });
 
 export default function App(props: IAppProps) {
+  const { user} = useContext(UserContext);
+  // console.log("user" , user);
   const pathname = usePathname();
   const routes = [
     {
@@ -79,9 +84,7 @@ export default function App(props: IAppProps) {
       <div className="max-1100:hidden">
         <ul
           className={`flex gap-[30px] items-center text-[16px] ${
-            (pathname == "/" ||
-              pathname == "/login" ||
-              pathname == "/signup") &&
+            !user?.id &&
             "hidden"
           }`}
         >
@@ -108,10 +111,7 @@ export default function App(props: IAppProps) {
 
         <ul
           className={`flex gap-[30px] items-center text-[16px]  ${
-            pathname !== "/" &&
-            pathname !== "/login" &&
-            pathname !== "/signup" &&
-            "hidden"
+            user?.id && "hidden"
           }`}
         >
           {" "}
