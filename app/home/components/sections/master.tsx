@@ -18,7 +18,6 @@ export default function App(props: IAppProps) {
   const [active, setActive] = useState(0);
   const handleActive = (index:number) => {
     setActive(index)
-    console.log(active);
   }
   return (
     <div className="bg-[--bg-tertiary]  pt-[30px] gradient-b-border  ">

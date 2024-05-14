@@ -27,7 +27,5 @@ export const CreateNewPost = async (formData:FormData) => {
     return;
   }
   revalidatePath("/community")
-  console.log(res.status);
-  console.log("done");
 };
 

@@ -8,7 +8,6 @@ export interface IAppProps {
 }
 
 export default function App ({Posts}: Posts) {
-  console.log("Posts" , Posts);
   return (
     <div className='max-1000:hidden px-[40px] flex gap-[20px] justify-between py-10 pt-5 '>
     <div className='max-1300:hidden'>

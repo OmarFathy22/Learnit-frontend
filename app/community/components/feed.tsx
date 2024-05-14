@@ -4,6 +4,7 @@ import { Posts } from "../interfaces/post";
 
 
 export default  function App({ Posts }: Posts) {
+  Posts.reverse();
   return (
     <div className="flex-1 ">
       <div className="py-3">

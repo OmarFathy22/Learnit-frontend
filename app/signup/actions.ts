@@ -10,9 +10,7 @@ export const RequestVerificationCode = async (formData: FormData) => {
       body: JSON.stringify({ email: "of405789@gmail.com" }) as string,
     }
   );
-  console.log(res);
   if (!res.ok) {
     return;
   }
-  console.log("done");
 };

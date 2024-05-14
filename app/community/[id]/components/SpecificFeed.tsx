@@ -1,10 +1,11 @@
 import Poll from "../../components/feed/poll";
 import Post from "../../components/feed/post";
 import Reply from "./Reply";
+import AddReply from "./SpecificFeed/AddReply";
 
 export interface IAppProps {
   post: {
-    id: string;
+  _id: string;
     title: string;
     content: string;
   };
@@ -15,6 +16,9 @@ export interface IAppProps {
   }[];
 }
 export default async function App({ post, replies }: IAppProps) {
+  console.log("postId0" , post._id);
+  console.warn("replies", replies);
+  replies.reverse();
   return (
     <div className="flex-1 min-1300:max-w-[calc(100vw-700px)]">
       <div className="py-3 max-1100:py-0">
@@ -23,10 +27,12 @@ export default async function App({ post, replies }: IAppProps) {
         </h1>
         <div className="flex flex-col gap-3">
           <div>
-            <Post id={post.id} title={post.title} content={post.content} />
+            <Post id={post._id} title={post.title} content={post.content} />
             {/* <Poll title={poll.title} options={poll.options} /> */}
           </div>
-          <div className="flex items-center gap-2"></div>
+          <div className="flex items-center gap-2">
+            <AddReply postId = {post?._id}/>
+          </div>
           <h1 className="text-[25px] gradient-text">Replies</h1>
           <ul className="flex flex-col gap-5">
             {replies.map((reply, i) => (
