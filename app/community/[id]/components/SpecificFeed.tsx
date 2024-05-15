@@ -2,19 +2,13 @@ import Poll from "../../components/feed/poll";
 import Post from "../../components/feed/post";
 import Reply from "./Reply";
 import AddReply from "./SpecificFeed/AddReply";
+import { IPost , IComment } from "../../interfaces/post";
 
 export interface IAppProps {
-  post: {
-  _id: string;
-    title: string;
-    content: string;
-  };
-  replies: {
-    _id: string;
-    content: string;
-    userID: string;
-  }[];
+  post: IPost;
+  replies: IComment[];
 }
+
 export default async function App({ post, replies }: IAppProps) {
   console.log("postId0" , post._id);
   console.warn("replies", replies);
@@ -27,7 +21,7 @@ export default async function App({ post, replies }: IAppProps) {
         </h1>
         <div className="flex flex-col gap-3">
           <div>
-            <Post id={post._id} title={post.title} content={post.content} />
+            <Post {...post} />
             {/* <Poll title={poll.title} options={poll.options} /> */}
           </div>
           <div className="flex items-center gap-2">

@@ -26,22 +26,6 @@ const dialogs = [
   "AI",
 ];
 export default function App(props: IAppProps) {
-  // const [postData , setPostData] = useState({title:"" , content:""});
-  // const AddPostToDB = async() => {
-  //   // 'use server';
-  //   const newPost = await fetch('https://learnit-backend-woad.vercel.app/post/create', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //       title: "title",
-  //       content: "content",
-  //     })
-  //   }).then(res => res.json())
-  //   console.log(newPost);
-    
-  // }
   const [postType, setPostType] = useState(0);
   const [chooseDialog, setChooseDialog] = useState(0);
   const [options, setOptions] = useState(["" , ""]);
@@ -59,15 +43,10 @@ export default function App(props: IAppProps) {
   const handleChooseDialog = (index: number) => {
     setChooseDialog(index);
   };
-  // const handleTitle = (eo:React.ChangeEvent<HTMLInputElement>) => {
-  //   setPostData({...postData , title:eo.target.value});
-  // }
-  // const handleContent = (eo:React.ChangeEvent<HTMLTextAreaElement>) => {
-  //   setPostData({...postData , content:eo.target.value});
-  // }
+
   return (
-    <div className="min-1300:max-w-[350px] max-1300:w-[80%] relative   ">
-      <div className="min-1300:py-3 sticky left-0 top-0">
+    <div className="min-1300:max-w-[350px]  h-full     ">
+      <div className="min-1300:py-3 sticky left-0 top-[80px] max-600:top-[60px]">
         <h1 className="font-bold gradient-text text-[25px] mb-3 max-1300:hidden">
           Add a Post
         </h1>
@@ -102,7 +81,7 @@ export default function App(props: IAppProps) {
             </div>
           </div>
           <h1 className="font-bold text-[20px] px-4 py-1">Dialog</h1>
-          <ul className="custom-scrollbar flex flex-wrap gap-1 items-center max-1300:max-h-[100px]   px-4 max-h-[150px] overflow-auto">
+          <ul className="custom-scrollbar flex flex-wrap gap-1 items-center max-1300:max-h-[100px]   px-4 max-h-[100px] overflow-auto">
             {dialogs.map((dialog, i) => (
               <li
                 key={i}

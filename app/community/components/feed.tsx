@@ -1,9 +1,9 @@
 import Poll from "./feed/poll";
 import Post from "./feed/post";
-import { Posts } from "../interfaces/post";
+import { IPosts } from "../interfaces/post";
 
 
-export default  function App({ Posts }: Posts) {
+export default  function App({ Posts }: IPosts) {
   Posts.reverse();
   return (
     <div className="flex-1 ">
@@ -14,7 +14,7 @@ export default  function App({ Posts }: Posts) {
         <div className="flex flex-col gap-4">
           {Posts?.map((item, i) => (
             <div key={i}>
-              <Post id={item._id} title={item.title} content={item.content} />
+              <Post {...item} />
             </div>
           ))}
         </div>

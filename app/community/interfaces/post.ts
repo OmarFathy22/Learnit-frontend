@@ -1,10 +1,25 @@
-export interface Post {
+
+export interface IComment {
+  _id: string;
+  content: string;
+  postID: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}
+export interface IPost {
   _id: string;
   title: string;
   content: string;
-  // include other properties as needed
+  communityID: string;
+  comments: Comment[];
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+
 }
 
-export interface Posts {
-  Posts: Post[];
+export interface IPosts {
+  Posts: IPost[];
 }
+  

@@ -20,6 +20,7 @@ export default function App({ postId }: IAppProps) {
      await CreateNewReply(postId, formData);
      router.refresh();
     setNewReply("");
+    setFocus(false);
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
