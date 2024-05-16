@@ -4,11 +4,11 @@ import * as React from "react";
 import Feed from "./feed";
 import Dialog from "./joinDialog";
 import AddPostBtn from './feed/addPostBtn';
-import { Posts } from "../interfaces/post";
+import { IPosts } from "../interfaces/post";
 
 export interface IAppProps {}
 
-export default function App({Posts}: Posts) {
+export default function App({Posts}: IPosts) {
   const [active, setActive] = useState(true);
   const onClick = () => {
     setActive(!active);
