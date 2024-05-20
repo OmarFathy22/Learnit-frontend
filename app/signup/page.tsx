@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Ubuntu } from "next/font/google";
@@ -10,7 +10,36 @@ const ubuntu = Ubuntu({ subsets: ["latin"], weight: ["300", "400", "700"] });
 export interface IAppProps {}
 
 export default function App(props: IAppProps) {
-  const email = "of405789@gmail.com";
+  const [credentials, setCredentials] = useState({});
+
+  const handleChange = (eo: React.ChangeEvent<HTMLInputElement>) => {
+    setCredentials({
+      ...credentials,
+      [eo.target.name]: eo.target.value,
+    });
+    console.log(credentials);
+  };
+
+  const handleSubmit = async(eo: React.FormEvent<HTMLFormElement>) => {
+    eo.preventDefault();
+    try {
+      const response = await fetch(`/api/auth/register` , {
+        method: 'POST',
+        body: JSON.stringify(credentials)
+      });
+  
+      if (!response.ok) {
+        console.error('HTTP error', response.status);
+        return;
+      }
+  
+      if (response.status !== 204) { // 204 status means "No Content"
+        // handle your response here
+      }
+    } catch (error) {
+      console.error('Fetch error:', error);
+    }
+  };
   return (
     <div className="flex flex-col items-center gap-5 min-h-[calc(100vh-80px)] bg-[--bg-secondary] pt-[50px] ">
       <h1 className="gradient-text text-[20px]">
@@ -18,29 +47,35 @@ export default function App(props: IAppProps) {
       </h1>
 
       <form
-        action={RequestVerificationCode}
+        onSubmit={handleSubmit}
         className={`flex flex-col gap-3 min-w-[350px] ${ubuntu.className}`}
       >
         <div>
           <input
-            name="fullName"
+            onChange={(eo) => handleChange(eo)}
+            name="username"
             type="text"
-            placeholder="Full Name"
+            required
+            placeholder="Username"
             className=" px-2 py-3 bg-[--bg-primary] rounded-sm outline-none w-full"
           />
         </div>
         <div>
           <input
+            onChange={(eo) => handleChange(eo)}
             name="email"
             type="email"
+            required
             placeholder="Email"
             className=" px-2 py-3 bg-[--bg-primary] rounded-sm outline-none w-full"
           />
         </div>
         <div>
           <input
+            onChange={(eo) => handleChange(eo)}
             name="password"
             type="password"
+            required
             placeholder="Password"
             className=" px-2 py-3 bg-[--bg-primary] rounded-sm outline-none w-full"
           />

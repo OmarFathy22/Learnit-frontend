@@ -15,9 +15,7 @@ export default function App(props: IAppProps) {
   const { data : session } = useSession();
   const { setUser } = React.useContext(UserContext);
 
-  const handleSumbit = (
-    eo: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
+  const handleSumbit = (eo: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     eo.preventDefault();
     setUser({
       username: "John Doe",
