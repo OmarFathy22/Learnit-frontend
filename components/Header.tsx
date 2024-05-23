@@ -12,6 +12,9 @@ import { RiMenu3Line } from "react-icons/ri";
 import MenuDrawer from './MenuDrawer'
 import React, { useContext } from 'react';
 import { UserContext } from '@/hooks/useUser';
+import { useSession } from "next-auth/react";
+
+
 
 
 export interface IAppProps {}
@@ -22,6 +25,9 @@ const montserrat_Alternates = Montserrat_Alternates({
 
 export default function App(props: IAppProps) {
   const { user} = useContext(UserContext);
+  const { data: session, status } = useSession()
+
+
   // console.log("user" , user);
   const pathname = usePathname();
   const routes = [
@@ -84,7 +90,7 @@ export default function App(props: IAppProps) {
       <div className="max-1100:hidden">
         <ul
           className={`flex gap-[30px] items-center text-[16px] ${
-            !user?.id &&
+            !session &&
             "hidden"
           }`}
         >
@@ -111,7 +117,7 @@ export default function App(props: IAppProps) {
 
         <ul
           className={`flex gap-[30px] items-center text-[16px]  ${
-            user?.id && "hidden"
+            session && "hidden"
           }`}
         >
           {" "}

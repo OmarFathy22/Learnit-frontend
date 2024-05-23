@@ -6,36 +6,50 @@ import Link from "next/link";
 import { Ubuntu } from "next/font/google";
 import { UserContext } from "@/hooks/useUser";
 import { signIn, signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const ubuntu = Ubuntu({ subsets: ["latin"], weight: ["300", "400", "700"] });
 
 export interface IAppProps {}
 
 export default function App(props: IAppProps) {
-  const { data : session } = useSession();
+  const router = useRouter()
+  const { data: session } = useSession();
   const { setUser } = React.useContext(UserContext);
-
-  const handleSumbit = (eo: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const [credentials, setCredentials] = React.useState({
+    email: "",
+    password: "",
+  });
+  const handleChange = (eo:React.ChangeEvent<HTMLInputElement>) => {
+    setCredentials({
+      ...credentials,
+      [eo.target.name]: eo.target.value,
+    })
+  }
+  const handleSubmit = async (eo: React.FormEvent<HTMLFormElement>) => {
     eo.preventDefault();
-    setUser({
-      username: "John Doe",
-      email: "",
-      id: "2378947329",
-      avatar: "",
+    const response = await signIn("credentials", {
+      email: credentials.email,
+      password: credentials.password,
+      redirect: false,
     });
+
+    if(!response?.error){
+      router.push('/home')
+    }
   };
+
   return (
     <>
       {session ? (
         <div>
           <h1>{JSON.stringify(session.user)}</h1>
           <button
-              onClick={() => signOut({callbackUrl:"/login"})}
-              className="gradient-bg w-fit flex items-center cursor-pointer gap-3 px-3 py-3 bg-[--bg-primary] rounded-sm outline-none  active:scale-[.95]"
-            >
-            
-              <h1>Signout</h1>
-            </button>
+            onClick={() => signOut({ callbackUrl: "/login" })}
+            className="gradient-bg w-fit flex items-center cursor-pointer gap-3 px-3 py-3 bg-[--bg-primary] rounded-sm outline-none  active:scale-[.95]"
+          >
+            <h1>Signout</h1>
+          </button>
         </div>
       ) : (
         <div className="flex flex-col items-center gap-5 min-h-[calc(100vh-80px)] bg-[--bg-secondary] pt-[50px] ">
@@ -44,10 +58,13 @@ export default function App(props: IAppProps) {
           </h1>
 
           <form
+           onSubmit={(eo) => handleSubmit(eo)}
             className={`flex flex-col gap-3 min-w-[350px] ${ubuntu.className}`}
           >
             <div>
               <input
+              onChange={(eo)=>handleChange(eo)}
+              name="email"
                 type="email"
                 placeholder="Email"
                 className=" px-2 py-3 bg-[--bg-primary] rounded-sm outline-none w-full"
@@ -55,6 +72,8 @@ export default function App(props: IAppProps) {
             </div>
             <div>
               <input
+              onChange={(eo)=>handleChange(eo)}
+                name="password"
                 type="password"
                 placeholder="Password"
                 className=" px-2 py-3 bg-[--bg-primary] rounded-sm outline-none w-full"
@@ -62,7 +81,7 @@ export default function App(props: IAppProps) {
             </div>
             <div>
               <button
-                onClick={(eo) => handleSumbit(eo)}
+                type="submit"
                 className="gradient-bg w-full py-3 rounded-sm active:scale-[.95] font-bold"
               >
                 Log In
