@@ -1,12 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { RiMenu3Line } from "react-icons/ri";
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Drawer from 'react-modern-drawer'
 import 'react-modern-drawer/dist/index.css'
 import ProfileIcon from './svgs/profileIcon';
+import { UserContext } from '@/hooks/useUser';
+import { useSession } from 'next-auth/react';
 
 const routes = [
   {
@@ -24,6 +26,20 @@ const routes = [
 ];
 
 const App = () => {
+  const { user , setUser} = useContext(UserContext);
+  const { data: session } = useSession()
+  useEffect(() => {
+    // If there's a user in the session, use that
+    if (session?.user) {
+      setUser(session.user);
+      localStorage.setItem("user", JSON.stringify(session.user));
+    } 
+    // If there's no user in the session, try to get the user from localStorage
+    else {
+      const initialUser = JSON.parse(localStorage.getItem("user") || "{}");
+      setUser(initialUser);
+    }
+  }, [session?.user , setUser]);
     const pathname = usePathname()
     const [isOpen, setIsOpen] = React.useState(false)
     const toggleDrawer = () => {
@@ -54,9 +70,7 @@ const App = () => {
               </div>
         <ul
           className={`flex flex-col gap-[30px] items-center text-[16px] ${
-            (pathname == "/" ||
-              pathname == "/login" ||
-              pathname == "/signup") &&
+            !user || user && Object.keys(user).length == 0 &&
             "hidden"
           }`}
         >
@@ -89,10 +103,7 @@ const App = () => {
 
         <ul
           className={`flex flex-col-reverse  gap-[20px] items-center text-[16px]  ${
-            pathname !== "/" &&
-            pathname !== "/login" &&
-            pathname !== "/signup" &&
-            "hidden"
+            user && Object.keys(user).length > 0  && "hidden"
           }`}
         >
           {" "}

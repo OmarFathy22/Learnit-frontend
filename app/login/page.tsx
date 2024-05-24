@@ -13,9 +13,9 @@ const ubuntu = Ubuntu({ subsets: ["latin"], weight: ["300", "400", "700"] });
 export interface IAppProps {}
 
 export default function App(props: IAppProps) {
+  const { user , setUser} = React.useContext(UserContext);
+  console.log('user' ,user);
   const router = useRouter()
-  const { data: session } = useSession();
-  const { setUser } = React.useContext(UserContext);
   const [credentials, setCredentials] = React.useState({
     email: "",
     password: "",
@@ -34,18 +34,25 @@ export default function App(props: IAppProps) {
       redirect: false,
     });
 
-    if(!response?.error){
-      router.push('/home')
+    if(response?.error){
+      return console.error(response.error);
     }
-  };
+    if(response?.ok){
+      console.log("response", response)
+    }
 
+  };
+  const handleSignout = () => {
+    signOut({ callbackUrl: "/login" });
+    localStorage.removeItem("user");
+    setUser(null);
+  }
   return (
     <>
-      {session ? (
+      {user && Object.keys(user).length > 0 ? (
         <div>
-          <h1>{JSON.stringify(session.user)}</h1>
           <button
-            onClick={() => signOut({ callbackUrl: "/login" })}
+            onClick={() => handleSignout()}
             className="gradient-bg w-fit flex items-center cursor-pointer gap-3 px-3 py-3 bg-[--bg-primary] rounded-sm outline-none  active:scale-[.95]"
           >
             <h1>Signout</h1>

@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Montserrat_Alternates } from "next/font/google";
 import { CgProfile } from "react-icons/cg";
@@ -24,11 +24,21 @@ const montserrat_Alternates = Montserrat_Alternates({
 });
 
 export default function App(props: IAppProps) {
-  const { user} = useContext(UserContext);
-  const { data: session, status } = useSession()
+  const { user , setUser} = useContext(UserContext);
+  const { data: session } = useSession()
+  useEffect(() => {
+    // If there's a user in the session, use that
+    if (session?.user) {
+      setUser(session.user);
+      localStorage.setItem("user", JSON.stringify(session.user));
+    } 
+    // If there's no user in the session, try to get the user from localStorage
+    else {
+      const initialUser = JSON.parse(localStorage.getItem("user") || "{}");
+      setUser(initialUser);
+    }
+  }, [session?.user , setUser]);
 
-
-  // console.log("user" , user);
   const pathname = usePathname();
   const routes = [
     {
@@ -61,7 +71,7 @@ export default function App(props: IAppProps) {
     >
       
 
-      <Link href={"/"}>
+      <Link href={"/home"}>
         <div className="w-[150px] max-600:w-[100px]">
           <img
             src="/logo.png"
@@ -90,7 +100,7 @@ export default function App(props: IAppProps) {
       <div className="max-1100:hidden">
         <ul
           className={`flex gap-[30px] items-center text-[16px] ${
-            !session &&
+            !user || user && Object.keys(user).length == 0 &&
             "hidden"
           }`}
         >
@@ -117,7 +127,7 @@ export default function App(props: IAppProps) {
 
         <ul
           className={`flex gap-[30px] items-center text-[16px]  ${
-            session && "hidden"
+            user && Object.keys(user).length > 0 && "hidden"
           }`}
         >
           {" "}
