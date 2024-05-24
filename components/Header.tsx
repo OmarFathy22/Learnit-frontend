@@ -25,19 +25,13 @@ const montserrat_Alternates = Montserrat_Alternates({
 
 export default function App(props: IAppProps) {
   const { user , setUser} = useContext(UserContext);
-  const { data: session } = useSession()
+  // const { data: session } = useSession()
   useEffect(() => {
-    // If there's a user in the session, use that
-    if (session?.user) {
-      setUser(session.user);
-      localStorage.setItem("user", JSON.stringify(session.user));
-    } 
-    // If there's no user in the session, try to get the user from localStorage
-    else {
-      const initialUser = JSON.parse(localStorage.getItem("user") || "{}");
-      setUser(initialUser);
+    const localStorageValue = window.localStorage.getItem("user")
+    if (localStorageValue && localStorageValue !== 'undefined') {
+      setUser(JSON.parse(localStorageValue))
     }
-  }, [session?.user , setUser]);
+  }, [setUser]);
 
   const pathname = usePathname();
   const routes = [
@@ -65,7 +59,7 @@ export default function App(props: IAppProps) {
         pathname == "/"
           ? "bg-[--bg-secondary]"
           : "bg-[--bg-secondary] border-b-[1px] border-b-[#474747]"
-      } fixed top-0 right-0 left-0 z-[10000] h-[80px] max-600:h-[60px] w-full flex items-center justify-between global-padding ${
+      } fixed top-0 right-0 left-0 z-[9999] h-[80px] max-600:h-[60px] w-full flex items-center justify-between global-padding ${
         montserrat_Alternates.className
       } max-600:backdrop-blur max-600:bg-transparent`}
     >

@@ -4,19 +4,20 @@ import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import clientPromise from "@/lib/MongodbClient";
 
-export const authOptions : NextAuthOptions = {
+export const authOptions: NextAuthOptions = {
   session: {
-    strategy: "jwt",
+    // strategy: "jwt",
     maxAge: 30 * 24 * 60 * 60, // 30 days
   },
-  providers:[
+  providers: [
     GithubProvider({
-      clientId:"Ov23li4joO6zty4nvUVx",
-      clientSecret:"a0d31d7a26999283858683a4e432b46f5ed70d27"
+      clientId: "Ov23li4joO6zty4nvUVx",
+      clientSecret: "a0d31d7a26999283858683a4e432b46f5ed70d27",
     }),
     GoogleProvider({
-      clientId:"128149732684-virhdnndeumrb2v15epd5qq87e00uqeb.apps.googleusercontent.com",
-      clientSecret:"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"
+      clientId:
+        "128149732684-virhdnndeumrb2v15epd5qq87e00uqeb.apps.googleusercontent.com",
+      clientSecret: "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",
     }),
     CredentialsProvider({
       name: "Credentials",
@@ -50,5 +51,6 @@ export const authOptions : NextAuthOptions = {
         return null;
       },
     }),
-  ],  
-}
+  ],
+  
+};

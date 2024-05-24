@@ -7,6 +7,9 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import UserProvider from "@/context/NewUserProvider";
 import SessionWrapper from "@/components/SessionWrapper";
+// import ToasterProvider from "@/components/ToasterProvider";
+import ToasterProvider from "@/components/ToasterProvider";
+
 const lato = Lato({ subsets: ["latin"], weight: ["300", "400", "700"] });
 export const metadata: Metadata = {
   title: "Learn it",
@@ -21,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={lato.className + " global_scrollbar"}>
+        <ToasterProvider />
         <SessionWrapper>
           <UserProvider>
             <Header />

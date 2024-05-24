@@ -21,11 +21,8 @@ interface UserProviderProps {
 
 export const UserProvider = ({ children }: UserProviderProps) => {
   const [mounted, setMounted] = useState(false);
-  const [user, setUser] = useState<UserDetails>({
-    username: "",
-    email: "",
-    id: "",
-    avatar: "",
+  const [user, setUser] = useState<any>({
+
   });
   useEffect(() => {
     setMounted(true);

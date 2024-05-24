@@ -27,19 +27,13 @@ const routes = [
 
 const App = () => {
   const { user , setUser} = useContext(UserContext);
-  const { data: session } = useSession()
   useEffect(() => {
-    // If there's a user in the session, use that
-    if (session?.user) {
-      setUser(session.user);
-      localStorage.setItem("user", JSON.stringify(session.user));
-    } 
-    // If there's no user in the session, try to get the user from localStorage
-    else {
-      const initialUser = JSON.parse(localStorage.getItem("user") || "{}");
-      setUser(initialUser);
+    const localStorageValue = window.localStorage.getItem("user")
+    if (localStorageValue && localStorageValue !== 'undefined') {
+      setUser(JSON.parse(localStorageValue))
     }
-  }, [session?.user , setUser]);
+  
+  }, [setUser]);
     const pathname = usePathname()
     const [isOpen, setIsOpen] = React.useState(false)
     const toggleDrawer = () => {

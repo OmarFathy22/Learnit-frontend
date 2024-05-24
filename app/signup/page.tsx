@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Ubuntu } from "next/font/google";
 import { RequestVerificationCode } from "./actions";
+import {toast} from 'react-toastify'
 
 const ubuntu = Ubuntu({ subsets: ["latin"], weight: ["300", "400", "700"] });
 export interface IAppProps {}
@@ -23,21 +24,19 @@ export default function App(props: IAppProps) {
   const handleSubmit = async(eo: React.FormEvent<HTMLFormElement>) => {
     eo.preventDefault();
     try {
-      const response = await fetch(`/api/auth/register` , {
+      const response = await fetch(`https://learnit-backend-woad.vercel.app/auth/signup` , {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify(credentials)
       });
-  
-      if (!response.ok) {
-        console.error('HTTP error', response.status);
-        return;
-      }
-  
-      if (response.status !== 204) { // 204 status means "No Content"
-        // handle your response here
-      }
+      const data = await response.json();
+      console.log(data);
+      toast.success('User created successfully')
     } catch (error) {
       console.error('Fetch error:', error);
+      toast.error('User creation failed')
     }
   };
   return (
