@@ -22,7 +22,6 @@ interface UserProviderProps {
 }
 
 export const UserProvider = ({ children }: UserProviderProps) => {
-  const initialUser = JSON.parse(localStorage.getItem("user") || "{}");
   const [user, setUser] = useState<IUser>({});
 
   return (

@@ -2,11 +2,9 @@
 import * as React from 'react';
 import Slider from '../shared/Slider'
 import CourseCard from '../shared/CourseCard';
-export interface IAppProps {
+import { ICourses } from '@/app/community/interfaces/post';
 
-}
-
-export default function App (props: IAppProps) {
+export default function App ({Courses}: ICourses) {
   return (
     <div className='global-padding  py-[40px] pb-[50px]  min-1400:gradient-b-border'>
       <div className=' h-full'>
@@ -21,9 +19,9 @@ export default function App (props: IAppProps) {
         {/* react slider Here */}
       <div className=''>
           <Slider >
-          {Array(10).fill(0).map((_, i) => (
+          {Courses.map((course, i) => (
               <div key={i}>
-               <CourseCard id={i} />  
+               <CourseCard course = {course} />  
               </div>
             ))}
           </Slider>

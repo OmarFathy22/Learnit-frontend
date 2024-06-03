@@ -12,7 +12,6 @@ import { RiMenu3Line } from "react-icons/ri";
 import MenuDrawer from './MenuDrawer'
 import React, { useContext } from 'react';
 import { UserContext } from '@/hooks/useUser';
-import { useSession } from "next-auth/react";
 
 
 

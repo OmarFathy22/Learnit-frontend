@@ -1,16 +1,18 @@
 'use client'
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Bell from "../../../components/svgs/Bell";
 import Image from "next/image";
 import Edit from "../../../components/svgs/Edit";
 import Link from "next/link";
 import { IoMdClose } from "react-icons/io";
+import { UserContext } from "@/hooks/useUser";
 
 
 export interface IAppProps {}
 
 export default function App(props: IAppProps) {
   const [open , setOpen] = useState(false)
+  const { user, setUser } = useContext(UserContext);
   const handleOpen = () => {
     setOpen(!open)
   }
@@ -48,13 +50,13 @@ export default function App(props: IAppProps) {
       </div>
       <div className="w-full flex flex-col items-center mt-5 ">
         <Image
-          src="/guy.png"
+          src= {user?.photoUrl}
           alt="profile_photo"
           width={1000}
           height={1000}
           className="w-[100px] h-[100px] rounded-full border-[4px] mb-1 border-[#2EDE60]"
         />
-        <h1 className="text-[20px] font-bold">Ahmed Sobhy</h1>
+        <h1 className="text-[20px] font-bold">{user.username}</h1>
       </div>
       <ul className="mt-5 flex items-center justify-around text-center ">
         <li>
@@ -78,7 +80,7 @@ export default function App(props: IAppProps) {
             className="flex items-center justify-between px-[10%]  py-3 !bg-[--bg-secondary] "
           >
             <h1 className="">{item}</h1>
-            <h1 className="text-[#ADD5F2]">Connect</h1>
+            <button className="text-[#ADD5F2]">Connect</button>
           </li>
         ))}
       </ul>

@@ -4,11 +4,13 @@ import Recommended from "./components/sections/recommended";
 import Ranking from "./components/sections/Ranking";
 import Feedbacks from "./components/sections/feedbacks";
 import Instructor from "./components/sections/instructor";
-
-export default function Home() {
+import { getData } from './actions'
+export default async function Home() {
+  const Courses = await getData();
+  console.log(Courses);
   return (
     <main className="">
-      <Success />
+      <Success Courses = {Courses} />
       <Master />
       <Recommended />
       <Ranking />

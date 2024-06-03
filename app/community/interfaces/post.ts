@@ -18,8 +18,28 @@ export interface IPost {
   __v: number;
 
 }
-
 export interface IPosts {
   Posts: IPost[];
 }
+
+export interface ICourse {
+  _id: string,
+  courseName: string,
+  description: string,
+  instructorID: string,
+  subCategoryID: string,
+  totalRating: number,
+  numRatings: number,
+  averageRating: number,
+  courseSections: [],
+  numberOfLessons: number,
+  createdAt: string,
+  updatedAt: string,
+  __v: number
+}
+
+export interface ICourses {
+  Courses: ICourse[];
+}
+
   

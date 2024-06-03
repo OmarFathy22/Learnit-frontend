@@ -6,14 +6,15 @@ import { IoStarHalf } from "react-icons/io5";
 import { BsBookmarkFill } from "react-icons/bs";
 import { BsBookmark } from "react-icons/bs";
 import Link from "next/link";
+import { ICourse } from "@/app/community/interfaces/post";
 
 const lato = Lato({ subsets: ["latin"], weight: ["300", "400", "700"] });
 const stars: number = 4;
 export interface IAppProps {
-  id: number;
+  course : ICourse
 }
 
-export default function App({ id}: IAppProps) {
+export default function App({course}: IAppProps) {
   const [isBookmarked, setIsBookmarked] = useState(false);
   const handleBookmark = () => {
     setIsBookmarked(!isBookmarked);
@@ -23,12 +24,12 @@ export default function App({ id}: IAppProps) {
       <div
         className={`mx-[12px] max-600:mx-[6px] rounded-md cursor-pointer ${lato.className}`}
       >
-        <Link href={`courses/${id} h-full w-full  `}>
+        <Link href={`courses/${course?._id} h-full w-full  `}>
           {/* course Image */}
           <div className="w-full">
             <Image
               alt="course picture"
-              src={`/course${id%2==0?"":'2'}.png`}
+              src={`/course.png`}
               width={1000}
               height={1000}
               className="w-full max-h-[200px] rounded-t-md"
@@ -37,9 +38,9 @@ export default function App({ id}: IAppProps) {
         </Link>
         {/* course data */}
         <div className="p-2  py-6 max-600:py-3 rounded-b-md bg-[--bg-secondary]">
-          <Link href={`courses/${id} h-full w-full  `}>
+          <Link href={`courses/${course?._id} h-full w-full  `}>
             <h1 className="text-[20px] max-600:text-[15px] font-bold">
-              The Ultimate React Course 2024: React, Redux & More
+              {course?.courseName}
             </h1>
           </Link>
           <h1 className="text-[12px] font-medium my-[6px] mt-[8px]">Jonas Schmedtmann</h1>
