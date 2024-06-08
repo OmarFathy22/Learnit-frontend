@@ -11,7 +11,7 @@ import { ICourse } from "@/app/community/interfaces/post";
 const lato = Lato({ subsets: ["latin"], weight: ["300", "400", "700"] });
 const stars: number = 4;
 export interface IAppProps {
-  course : ICourse
+  course ?: ICourse,
 }
 
 export default function App({course}: IAppProps) {

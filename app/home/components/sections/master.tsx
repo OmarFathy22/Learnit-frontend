@@ -40,7 +40,7 @@ export default function App(props: IAppProps) {
         <Slider>
         {Array(10).fill(0).map((_, i) => (
           <div key={i}>
-           <CourseCard id={i} />  
+           <CourseCard />  
           </div>
         ))}
         </Slider>

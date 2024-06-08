@@ -2,8 +2,8 @@
 import { useState } from "react";
 import * as React from "react";
 import { TiVideo } from "react-icons/ti";
-import DownArrowGrad from "../../../../../components/svgs/down-arrow-gradient";
-import DownArrow from "../../../../../components/svgs/down-arrow";
+import { RiArrowDownSLine } from "react-icons/ri";
+
 import { Collapse } from "react-collapse";
 import { useRouter } from "next/navigation";
 import Quiz from './Quiz'
@@ -35,11 +35,10 @@ export default function App({title , refreshVideo}: IAppProps) {
               isOpened ? "rotate-180" : ""
             }`}
           >
-            {isOpened ? <DownArrowGrad /> :<DownArrow width="20" height="20" />}
-          </div>
+            {isOpened ? <RiArrowDownSLine className=" text-orange-500" /> :<RiArrowDownSLine  width="20" height="20" />}
+          </div> 
         </div>
       </div>
-
       <Collapse isOpened={isOpened} theme={{ collapse: "custom-collapse" }}>
         <ul className="bg-[--bg-tertiary]">
           {Array(5)

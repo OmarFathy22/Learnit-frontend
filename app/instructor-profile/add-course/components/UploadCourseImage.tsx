@@ -2,13 +2,18 @@
 import Image from "next/image";
 import { useState } from "react";
 
-export interface IAppProps {}
+export interface IAppProps {
+  setCourseData:any;
+}
 
-export default function App(props: IAppProps) {
+export default function App({setCourseData}: IAppProps) {
   const [selectedImage, setSelectedImage] = useState("/course-placeholder.png");
 
   const handleImageChange = (event: any) => {
     const file = event.target.files[0];
+    if(file){
+      setCourseData((prev:any)=>({...prev, image:file}))
+    }
     let reader = new FileReader();
 
     reader.onloadend = () => {
@@ -51,6 +56,7 @@ export default function App(props: IAppProps) {
           </label>
         </div>
       </div>
+    
     </div>
   );
 }

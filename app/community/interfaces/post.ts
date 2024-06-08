@@ -8,7 +8,7 @@ export interface IComment {
   __v: number;
 }
 export interface IPost {
-  _id: string;
+  _id?: string;
   title: string;
   content: string;
   communityID: string;
