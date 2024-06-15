@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import Section from './sections';
 import { useParams } from "next/navigation";
-import { getSections } from "@/app/home/actions";
+import { getSections , getLessons } from "@/app/home/actions";
 export interface IAppProps {
   refreshVideo: () => void;
 }
@@ -21,7 +21,7 @@ export default function App({refreshVideo}: IAppProps) {
         setSections(data);
       });
     }
-  }, [params]);
+  }, [params.id]);
   return (
     <ul>
       {sections.map((section, i) => (

@@ -1,15 +1,20 @@
 import { useState } from "react";
 import WrongAnswersScreen from "./quizComponents/WrongAnswers";
 import SuccessScreen from "./quizComponents/Success";
-import { Questions } from "./quizComponents/questions";
+// import { Questions } from "./quizComponents/questions";
 import QuizScreen from "./quizComponents/QuizScreen";
 
 export interface IAppProps {
   openQuiz: boolean;
   handleOpenQuiz: () => void;
+  Questions: any[];
 }
 
-export default function App({ openQuiz, handleOpenQuiz }: IAppProps) {
+export default function App({
+  openQuiz,
+  handleOpenQuiz,
+  Questions,
+}: IAppProps) {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(-1);
   const [questions] = useState(Questions);
@@ -17,6 +22,7 @@ export default function App({ openQuiz, handleOpenQuiz }: IAppProps) {
   const [loading, setLoading] = useState(false);
   const [wrongAnswers, setWrongAnswers] = useState(0);
   const [success, setSuccess] = useState(false);
+  if (!questions) return null;
 
   const handleSelectAnswer = (index: number) => {
     setSelectedAnswerIndex(index);
@@ -27,16 +33,16 @@ export default function App({ openQuiz, handleOpenQuiz }: IAppProps) {
     questions.map((question) => {
       if (question.choosenAnswer !== question.answer) {
         Wrong_Answers++;
-        setWrongAnswers(wrongAnswers + 1);
       }
     });
     if (Wrong_Answers === 0) {
       setSuccess(true);
     }
+    setWrongAnswers(Wrong_Answers);
   };
   const handleSubmit = async () => {
     setLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    // await new Promise((resolve) => setTimeout(resolve, 1000));
     handleCheckAnswers();
     setPercentage(((questionIndex + 1) / questions.length) * 100);
     setLoading(false);
@@ -48,12 +54,15 @@ export default function App({ openQuiz, handleOpenQuiz }: IAppProps) {
     setPercentage(0);
   };
   const handleNext = () => {
+    console.log("questionIndex", questionIndex);
+    console.log("choosen answer", questions[questionIndex].choosenAnswer);
+    console.log("answer", questions[questionIndex].answer);
     if (
       (questionIndex < questions.length - 1 && selectedAnswerIndex > -1) ||
       questions[questionIndex].choosenAnswer > -1
     ) {
       if (questions[questionIndex].choosenAnswer == -1) {
-        questions[questionIndex].choosenAnswer = selectedAnswerIndex;
+        questions[questionIndex].choosenAnswer = selectedAnswerIndex + 1;
       }
       setSelectedAnswerIndex(-1);
       setQuestionIndex(questionIndex + 1);
@@ -92,7 +101,7 @@ export default function App({ openQuiz, handleOpenQuiz }: IAppProps) {
             handleLeave={handleLeave}
             handleRetry={handleRetry}
             wrongAnswers={wrongAnswers}
-            numberOfQuestions={questions.length}
+            numberOfQuestions={questions?.length}
             handleOpenQuiz={handleOpenQuiz}
           />
         </div>
@@ -101,7 +110,7 @@ export default function App({ openQuiz, handleOpenQuiz }: IAppProps) {
             handleLeave={handleLeave}
             handleRetry={handleRetry}
             wrongAnswers={wrongAnswers}
-            numberOfQuestions={questions.length}
+            numberOfQuestions={questions?.length}
             handleOpenQuiz={handleOpenQuiz}
           />
         </div>

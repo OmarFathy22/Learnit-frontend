@@ -10,3 +10,8 @@ export const getSections = async (courseID:string) => {
   revalidatePath("/home")
   return res.json();
 };
+export const getLessons = async (sectionID:string) => {
+  const res = await fetch(`http://localhost:8000/course-section/all/${sectionID}`);
+  revalidatePath("/home")
+  return res.json();
+};

@@ -17,6 +17,8 @@ export default function App({
   numberOfQuestions,
   handleOpenQuiz
 }: IAppProps) {
+  console.log("number of questions" , numberOfQuestions);
+  console.log("number of wrong answers" , wrongAnswers)
   return (
     <div className="w-[90%] relative  max-w-[700px] mx-auto   p-5 bg-[#26262C] rounded-lg">
       <button onClick={() => handleOpenQuiz()} className="bg-[#333] p-1  rounded-full top-[15px] right-[15px] absolute">

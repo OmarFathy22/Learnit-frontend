@@ -53,11 +53,11 @@ export default function App({
       <ul className="flex flex-col gap-3">
         {questions[questionIndex].answers.map((answer:string, index:number) => (
           <li
-            onClick={() => handleSelectAnswer(index)}
+            onClick={() => handleSelectAnswer(index + 1)}
             key={index}
             className={`bg-[--bg-primary] p-2 rounded-md  cursor-pointer ${
-              (selectedAnswerIndex == index ||
-                questions[questionIndex].choosenAnswer == index)?
+              (selectedAnswerIndex == index + 1 ||
+                questions[questionIndex].choosenAnswer == index + 1)?
               "border-[1px] border-orange-500":"border-[1px] border-transparent"
             }`}
           >

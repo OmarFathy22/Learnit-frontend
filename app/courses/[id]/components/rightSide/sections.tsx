@@ -59,23 +59,22 @@ export default function App({ section, refreshVideo }: IAppProps) {
       </div>
       <Collapse isOpened={isOpened} theme={{ collapse: "custom-collapse" }}>
         <ul className="bg-[--bg-tertiary]">
-          {Array(5)
-            .fill(0)
-            .map((_, i) => (
+          {section.lessons
+            .map((lesson, i) => (
               <li
                 key={i}
                 className="flex items-center justify-between px-10 py-3 border-b-[1px] border-b-[#474747]"
               >
                 <div>
                   <h1 className="gradient-text-green">
-                    1. Welcome to the beginning
+                    {i + 1}. {lesson?.title}
                   </h1>
                   <div className="flex items-center gap-1">
                     <h1 className="text-gray-300 text-[12px]">
                       <TiVideo />
                     </h1>
-                    <h1 className="text-[12px] text-gray-300">2 Min</h1>
-                    <h1
+                    <h1 className="text-[12px] text-gray-300">{lesson?.time} Min</h1>
+                    {/* <h1
                       onClick={() => refreshVideo()}
                       className="text-[12px] text-gray-300 underline cursor-pointer"
                     >
@@ -83,7 +82,7 @@ export default function App({ section, refreshVideo }: IAppProps) {
                     </h1>
                     <h1 className="text-[12px] text-gray-300 underline cursor-pointer">
                       End: 3.54
-                    </h1>
+                    </h1> */}
                   </div>
                 </div>
                 <button
@@ -92,7 +91,7 @@ export default function App({ section, refreshVideo }: IAppProps) {
                 >
                   Quiz
                 </button>
-                <Quiz openQuiz={openQuiz} handleOpenQuiz={handleOpenQuiz} />
+                <Quiz Questions={lesson?.quizID?.questions} openQuiz={openQuiz} handleOpenQuiz={handleOpenQuiz} />
               </li>
             ))}
         </ul>

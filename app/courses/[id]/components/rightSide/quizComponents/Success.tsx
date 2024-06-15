@@ -16,6 +16,7 @@ export default function App({
   numberOfQuestions,
   handleOpenQuiz
 }: IAppProps) {
+
   return (
     <div className="w-[90%] relative max-w-[700px] mx-auto p-5 bg-[#26262C] rounded-lg">
       <button onClick={() => handleOpenQuiz()} className="bg-[#333] p-1  rounded-full top-[15px] right-[15px] absolute">
@@ -30,7 +31,7 @@ export default function App({
       </div>
       <div className="text-[20px] font-bold  text-center">
         <h1>
-          Your got {numberOfQuestions - wrongAnswers} out of{" "}
+          You got {numberOfQuestions - wrongAnswers} out of{" "}
           <span className="gradient-text ml-[1px]">{numberOfQuestions}</span>
         </h1>
         <h1 className="text-[16px] font-normal">
