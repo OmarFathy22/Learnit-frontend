@@ -23,7 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={lato.className + " global_scrollbar"}>
-        <Toaster />
+          <Toaster containerStyle={{
+            zIndex: 10000,
+          }} />
         <SessionWrapper>
           <UserProvider>
             <Header />

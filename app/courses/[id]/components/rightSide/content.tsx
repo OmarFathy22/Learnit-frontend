@@ -1,15 +1,32 @@
+'use client'
+import { useEffect, useState } from 'react';
 import Section from './sections';
+import { useParams } from "next/navigation";
+import { getSections } from "@/app/home/actions";
 export interface IAppProps {
   refreshVideo: () => void;
 }
 
 export default function App({refreshVideo}: IAppProps) {
- const titles = ['Overview', 'Curriculum', 'Curriculum','Curriculum','Reviews', 'Q&A', 'Projects', 'Resources', 'Announcements', 'Instructors', 'FAQs', 'Stats']
+  const [sections, setSections] = useState([]);
+  const params = useParams();
+  useEffect(() => {
+    if (params?.id && typeof params.id === "string") {
+      console.log("id", params.id);
+      getSections(params.id).then((data) => {
+        setSections(data);
+      });
+    } else if (Array.isArray(params?.id)) {
+      getSections(params.id[0]).then((data) => {
+        setSections(data);
+      });
+    }
+  }, [params]);
   return (
     <ul>
-      {titles.map((title, i) => (
+      {sections.map((section, i) => (
         <li key={i}>
-          <Section title={title} refreshVideo={refreshVideo} />
+          <Section section={section} refreshVideo={refreshVideo} />
         </li>
       ))}
     </ul>

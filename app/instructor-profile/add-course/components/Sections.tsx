@@ -1,8 +1,11 @@
 "use client";
-import { useState } from "react";
+import { SyntheticEvent, useEffect, useState } from "react";
 import Select from "react-select";
 import { selectStyles } from "@/utils/SelectStyles";
 import { FaPlus } from "react-icons/fa";
+import { CreateNewSection } from "./actions";
+import { OptionType } from "./CourseDetails";
+import toast from "react-hot-toast";
 
 export interface IAppProps {}
 const countryOptions = [
@@ -21,6 +24,37 @@ const sectionsOptions = [{ value: "section1", label: "section1" }];
 export interface IAppProps {}
 
 export default function App(props: IAppProps) {
+  const [loading, setLoading] = useState(false);
+  const [section , setSection] = useState({
+    sectionName:"",
+    courseID: "",
+  })
+  useEffect(() => {
+    const course = JSON.parse(localStorage.getItem("course") || "{}");
+    setSection((prev)=>({...prev, courseID:course._id}))
+  }, []);
+  const handleChange = (e:React.SyntheticEvent) => {
+    const target = e.target as HTMLInputElement;
+    setSection((prev)=>({...prev, [target.name]:target.value}))
+  }
+  // const handleChangeSelect = (property: string) => (
+  //   selectedOption: OptionType | null
+  // ) => {
+  //   if (selectedOption) {
+  //     setCourseData((prev) => ({ ...prev, [property]: selectedOption.value }));
+  //   }
+  // };
+  const handleSubmit = async (e: React.SyntheticEvent) => {
+    if(!section.courseID){
+      toast.error("Please create a course first");
+      return;
+    }
+    const newSection = await CreateNewSection(section);
+    toast.success("Section created successfully");
+    console.log(newSection);
+    localStorage.setItem("section", JSON.stringify(newSection));
+    setLoading(false);
+  };
   const [Sections, setSections] = useState([
     {
       value: "add New Section",

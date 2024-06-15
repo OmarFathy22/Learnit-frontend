@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Lato } from "next/font/google";
 import { IoIosStar } from "react-icons/io";
 import { IoStarHalf } from "react-icons/io5";
@@ -11,7 +11,7 @@ import { ICourse } from "@/app/community/interfaces/post";
 const lato = Lato({ subsets: ["latin"], weight: ["300", "400", "700"] });
 const stars: number = 4;
 export interface IAppProps {
-  course ?: ICourse,
+  course : ICourse,
 }
 
 export default function App({course}: IAppProps) {
@@ -24,15 +24,15 @@ export default function App({course}: IAppProps) {
       <div
         className={`mx-[12px] max-600:mx-[6px] rounded-md cursor-pointer ${lato.className}`}
       >
-        <Link href={`courses/${course?._id} h-full w-full  `}>
+        <Link href={`/courses/${course?._id}`}>
           {/* course Image */}
           <div className="w-full">
             <Image
               alt="course picture"
-              src={`/course.png`}
+              src={course?.bannerImage || `/course.png`}
               width={1000}
               height={1000}
-              className="w-full max-h-[200px] rounded-t-md"
+              className="w-full h-[200px] rounded-t-md object-cover"
             />
           </div>
         </Link>

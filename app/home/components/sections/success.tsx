@@ -2,7 +2,7 @@
 import * as React from 'react';
 import Slider from '../shared/Slider'
 import CourseCard from '../shared/CourseCard';
-import { ICourses } from '@/app/community/interfaces/post';
+import {  ICourses } from '@/app/community/interfaces/post';
 
 export default function App ({Courses}: ICourses) {
   return (

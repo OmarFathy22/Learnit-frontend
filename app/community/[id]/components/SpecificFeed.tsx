@@ -10,8 +10,6 @@ export interface IAppProps {
 }
 
 export default async function App({ post, replies }: IAppProps) {
-  console.log("postId0" , post._id);
-  console.warn("replies", replies);
   replies.reverse();
   return (
     <div className="flex-1 min-1300:max-w-[calc(100vw-700px)]">

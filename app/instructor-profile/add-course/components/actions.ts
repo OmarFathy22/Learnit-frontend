@@ -1,22 +1,26 @@
-"use server";
-import toast from "react-hot-toast";
 export interface ICourse {
+  _id?: string;
   courseName: string;
   language: string;
-  numberOfLessons: number;
-  totalVideoTime: number;
+  numberOfLessons?: number;
+  totalVideoTime?: number;
   courseLevel: string;
   pointsToUnlock: number;
   description: string;
+  imageFile?: File;
   bannerImage: string;
-  instructorID: string;
+  instructorID?: string;
   subCategoryName: string;
 }
-
+export interface ISection {
+  _id?: string;
+  sectionName:string,
+  courseID: string
+}
 export const CreateNewCourse = async (body: ICourse) => {
   try {
     const res = await fetch(
-      "https://learnit-backend-woad.vercel.app/course/create",
+      "http://localhost:8000/course/create",
       {
         method: "POST",
         headers: {
@@ -25,11 +29,45 @@ export const CreateNewCourse = async (body: ICourse) => {
         body: JSON.stringify(body),
       }
     );
-    const Response = await res.json();
-    console.log("done!!", Response);
-    toast.error("Failed to create course");
+    const data = await res.json();
+    return data;
   } catch (error) {
     console.error(error);
-    toast.error("An error occurred while creating the course");
+  }
+};
+export const CreateNewSection = async (body: ISection) => {
+  try {
+    const res = await fetch(
+      "http://localhost:8000/course-section/create",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      }
+    );
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+export const CreateNewLesson = async (body: ICourse) => {
+  try {
+    const res = await fetch(
+      "http://localhost:8000/course-section/create",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      }
+    );
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error(error);
   }
 };

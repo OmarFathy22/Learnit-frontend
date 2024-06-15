@@ -1,9 +1,9 @@
 import upload from './upload'
 import toast from 'react-hot-toast';
-export const handleUpload = async (...props:any) => {
+export const handleUpload = async (image:File) => {
   try{
-    if (props.ImageFile) {
-      const url = await upload(props.ImageFile);
+    if (image) {
+      const url = await upload(image);
       if(url){
         toast.success("Image uploaded successfully");
         return url;

@@ -23,19 +23,18 @@ export interface IPosts {
 }
 
 export interface ICourse {
-  _id: string,
-  courseName: string,
-  description: string,
-  instructorID: string,
-  subCategoryID: string,
-  totalRating: number,
-  numRatings: number,
-  averageRating: number,
-  courseSections: [],
-  numberOfLessons: number,
-  createdAt: string,
-  updatedAt: string,
-  __v: number
+  _id?: string;
+  courseName: string;
+  language: string;
+  numberOfLessons?: number;
+  totalVideoTime?: number;
+  courseLevel: string;
+  pointsToUnlock: number;
+  description: string;
+  imageFile?: File;
+  bannerImage: string;
+  instructorID?: string;
+  subCategoryName: string;
 }
 
 export interface ICourses {

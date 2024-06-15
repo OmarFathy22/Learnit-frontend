@@ -1,24 +1,24 @@
-'use client'
+"use client";
 import React, { useState } from "react";
 import { CreateNewReply } from "../../actions";
-import {useRouter} from 'next/navigation'
-import { revalidatePath } from 'next/cache'
-
+import { useRouter } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 export interface IAppProps {
-  postId: string;
+  postId?: string;
 }
 
 export default function App({ postId }: IAppProps) {
   const router = useRouter();
   const [newReply, setNewReply] = useState("");
   const [focus, setFocus] = useState(false);
+  if (!postId) return null;
 
   const handleAddReply = async () => {
     const formData = new FormData();
     formData.append("content", newReply);
-     await CreateNewReply(postId, formData);
-     router.refresh();
+    await CreateNewReply(postId, formData);
+    router.refresh();
     setNewReply("");
     setFocus(false);
   };
@@ -75,4 +75,3 @@ export default function App({ postId }: IAppProps) {
     </div>
   );
 }
-

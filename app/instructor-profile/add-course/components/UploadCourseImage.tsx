@@ -12,7 +12,7 @@ export default function App({setCourseData}: IAppProps) {
   const handleImageChange = (event: any) => {
     const file = event.target.files[0];
     if(file){
-      setCourseData((prev:any)=>({...prev, image:file}))
+      setCourseData((prev:any)=>({...prev, imageFile:file}))
     }
     let reader = new FileReader();
 
