@@ -89,35 +89,8 @@ export default function App(props: IAppProps) {
         </div>
       </form>
 
-      <div className="min-w-[350px] flex flex-col gap-3">
-        <div className="flex items-center justify-center gap-3">
-          <div className="h-[1px] flex-1 bg-[#46464C]" />
-          <h1>Or</h1>
-          <div className="h-[1px] flex-1 bg-[#46464C]" />
-        </div>
-        <button className="flex items-center cursor-pointer gap-3 px-3 py-3 bg-[--bg-primary] rounded-sm outline-none w-full active:scale-[.95]">
-          <Image
-            src="/logo_google.png"
-            alt="google"
-            width={1000}
-            height={1000}
-            className="w-[30px] h-[30px]"
-          />
-          <h1 className="font-bold">Coninue with Google</h1>
-        </button>
-        <button className="flex items-center cursor-pointer gap-3 px-3 py-3 bg-[--bg-primary] rounded-sm outline-none w-full active:scale-[.95]">
-          <Image
-            src="/logo_facebook.png"
-            alt="google"
-            width={1000}
-            height={1000}
-            className="w-[30px] h-[30px]"
-          />
-          <h1 className="font-bold">Coninue with Facebook</h1>
-        </button>
-      </div>
+      
       <div className="flex flex-col items-center gap-3">
-        <div className="h-[1px] min-w-[350px] bg-[#46464C]" />
         <div className="flex gap-1">
           <h1>Already have an account?</h1>
           <Link href="/login" className="gradient-text">

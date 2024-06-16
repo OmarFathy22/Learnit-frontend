@@ -3,6 +3,7 @@ import { useState } from "react";
 import Slider from "../shared/Slider";
 import { GoArrowRight } from "react-icons/go";
 import CourseCard from "../shared/CourseCard";
+import {  ICourses } from '@/app/community/interfaces/post';
 
 export interface IAppProps {}
 const categories = [
@@ -14,7 +15,7 @@ const categories = [
   "IT & Software",
   "Personal Development",
 ];
-export default function App(props: IAppProps) {
+export default function App({Courses}: ICourses) {
   const [active, setActive] = useState(0);
   const handleActive = (index:number) => {
     setActive(index)
@@ -38,9 +39,9 @@ export default function App(props: IAppProps) {
       {/* react slider Here */}
       <div className="global-padding py-[40px]">
         <Slider>
-        {Array(10).fill(0).map((_, i) => (
+        {Courses?.map((course, i) => (
           <div key={i}>
-           <CourseCard />  
+           <CourseCard course={course} />  
           </div>
         ))}
         </Slider>

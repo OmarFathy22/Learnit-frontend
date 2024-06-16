@@ -9,12 +9,9 @@ import Link from "next/link";
 import ProfileIcon from "./svgs/profileIcon";
 import Image from "next/image";
 import { RiMenu3Line } from "react-icons/ri";
-import MenuDrawer from './MenuDrawer'
-import React, { useContext } from 'react';
-import { UserContext } from '@/hooks/useUser';
-
-
-
+import MenuDrawer from "./MenuDrawer";
+import React, { useContext } from "react";
+import { UserContext } from "@/hooks/useUser";
 
 export interface IAppProps {}
 const montserrat_Alternates = Montserrat_Alternates({
@@ -23,12 +20,12 @@ const montserrat_Alternates = Montserrat_Alternates({
 });
 
 export default function App(props: IAppProps) {
-  const { user , setUser} = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   // const { data: session } = useSession()
   useEffect(() => {
-    const localStorageValue = window.localStorage.getItem("user")
-    if (localStorageValue && localStorageValue !== 'undefined') {
-      setUser(JSON.parse(localStorageValue))
+    const localStorageValue = window.localStorage.getItem("user");
+    if (localStorageValue && localStorageValue !== "undefined") {
+      setUser(JSON.parse(localStorageValue));
     }
   }, [setUser]);
 
@@ -51,7 +48,10 @@ export default function App(props: IAppProps) {
       path: "/profile",
     },
   ];
-
+  const handleLogOut = () => {
+    localStorage.removeItem("user");
+    location.href = "/";
+  };
   return (
     <div
       className={`${
@@ -62,8 +62,6 @@ export default function App(props: IAppProps) {
         montserrat_Alternates.className
       } max-600:backdrop-blur max-600:bg-transparent`}
     >
-      
-
       <Link href={"/home"}>
         <div className="w-[150px] max-600:w-[100px]">
           <img
@@ -93,8 +91,7 @@ export default function App(props: IAppProps) {
       <div className="max-1100:hidden">
         <ul
           className={`flex gap-[30px] items-center text-[16px] ${
-            !user || user && Object.keys(user).length == 0 &&
-            "hidden"
+            !user || (user && Object.keys(user).length == 0 && "hidden")
           }`}
         >
           {" "}
@@ -108,14 +105,20 @@ export default function App(props: IAppProps) {
               <Link
                 href={route.path}
                 className={`text-[16px] font-medium ${
-                  pathname.includes(route.path)? "gradient-text" : "!text-[white]"
+                  pathname.includes(route.path)
+                    ? "gradient-text"
+                    : "!text-[white]"
                 }`}
               >
                 {route.name}
               </Link>
             </li>
           ))}
-          
+          <button onClick={handleLogOut}>
+            <h1 className="text-[16px] gradient-bg px-5 py-2 rounded-md font-bold">
+              Log Out
+            </h1>
+          </button>
         </ul>
 
         <ul

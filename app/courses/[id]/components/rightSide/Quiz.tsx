@@ -54,9 +54,6 @@ export default function App({
     setPercentage(0);
   };
   const handleNext = () => {
-    console.log("questionIndex", questionIndex);
-    console.log("choosen answer", questions[questionIndex].choosenAnswer);
-    console.log("answer", questions[questionIndex].answer);
     if (
       (questionIndex < questions.length - 1 && selectedAnswerIndex > -1) ||
       questions[questionIndex].choosenAnswer > -1

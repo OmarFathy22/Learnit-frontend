@@ -51,7 +51,6 @@ export default function App(props: IAppProps) {
     }
     const newSection = await CreateNewSection(section);
     toast.success("Section created successfully");
-    console.log(newSection);
     localStorage.setItem("section", JSON.stringify(newSection));
     setLoading(false);
   };

@@ -82,7 +82,6 @@ export default function App(props: IAppProps) {
     }
    const newCourse = await CreateNewCourse(body);
     toast.success("Course created successfully");
-    console.log(newCourse);
     localStorage.setItem("course", JSON.stringify(newCourse));
     setLoading(false);
   };

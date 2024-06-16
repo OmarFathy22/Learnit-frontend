@@ -12,7 +12,6 @@ export default function App({refreshVideo}: IAppProps) {
   const params = useParams();
   useEffect(() => {
     if (params?.id && typeof params.id === "string") {
-      console.log("id", params.id);
       getSections(params.id).then((data) => {
         setSections(data);
       });

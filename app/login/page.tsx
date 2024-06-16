@@ -18,9 +18,6 @@ export interface IAppProps {}
 export default function App(props: IAppProps) {
   const session = useSession();
   const { user, setUser } = React.useContext(UserContext);
-
-  
-  // console.log("user", user);
   const router = useRouter();
   const [credentials, setCredentials] = React.useState({
     email: "",
@@ -47,7 +44,6 @@ export default function App(props: IAppProps) {
       );
       const data = await response.json();
       location.href = "/home";
-      console.log(data);
       toast.success("User created successfully");
       setUser(data.user);
       localStorage.setItem("user", JSON.stringify(data.user));
