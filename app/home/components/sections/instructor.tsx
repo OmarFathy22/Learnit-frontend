@@ -6,7 +6,7 @@ export interface IAppProps {}
 
 export default function App(props: IAppProps) {
   return (
-    <div className="bg-[--bg-tertiary] py-[40px]    flex flex-col items-center gradient-t-border  ">
+    <div className="bg-[--bg-tertiary] py-[40px]  min-900:py-[100px]  flex flex-col items-center gradient-t-border  ">
       {/* react slider Here */}
       <div style={{
         backgroundImage: `url('/instructor_new.png')`,

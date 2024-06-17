@@ -7,6 +7,8 @@ import { BsBookmarkFill } from "react-icons/bs";
 import { BsBookmark } from "react-icons/bs";
 import Link from "next/link";
 import { ICourse } from "@/app/community/interfaces/post";
+import { useContext } from "react";
+import { UserContext } from "@/hooks/useUser";
 
 const lato = Lato({ subsets: ["latin"], weight: ["300", "400", "700"] });
 const stars: number = 4;
@@ -15,10 +17,12 @@ export interface IAppProps {
 }
 
 export default function App({course}: IAppProps) {
+  const { user } = useContext(UserContext);
   const [isBookmarked, setIsBookmarked] = useState(false);
   const handleBookmark = () => {
     setIsBookmarked(!isBookmarked);
   };
+  console.log("bookmark user", user);
   return (
     <div className="">
       <div

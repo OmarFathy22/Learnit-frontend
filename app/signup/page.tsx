@@ -4,8 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Ubuntu } from "next/font/google";
-import { RequestVerificationCode } from "./actions";
-import {toast} from 'react-toastify'
+import toast from "react-hot-toast";
 
 const ubuntu = Ubuntu({ subsets: ["latin"], weight: ["300", "400", "700"] });
 export interface IAppProps {}
@@ -34,6 +33,9 @@ export default function App(props: IAppProps) {
       const data = await response.json();
       console.log(data);
       toast.success('User created successfully')
+      setTimeout(() => {
+        location.href = '/home'
+      }, 500);
     } catch (error) {
       console.error('Fetch error:', error);
       toast.error('User creation failed')

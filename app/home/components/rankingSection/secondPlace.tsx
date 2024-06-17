@@ -1,8 +1,9 @@
 import * as React from "react";
 import Image from "next/image";
-export interface IAppProps {}
+import { IUserProps} from '../sections/Ranking'
 
-export default function App(props: IAppProps) {
+
+export default function App({user}: IUserProps) {
   return (
     <div
       className={`h-[120px] w-[120px] relative flex flex-col justify-center items-center  -translate-x-[20px]
@@ -13,7 +14,7 @@ export default function App(props: IAppProps) {
       max-400:!h-[60px] max-400:!w-[60px]
       ">
         <Image
-          src={"/girl1.png"}
+          src={user?.userID?.photoUrl || "/avatar.png"}
           alt="girl"
           width={1000}
           height={1000}
@@ -30,8 +31,8 @@ export default function App(props: IAppProps) {
         />
       </div>
       <div className="text-center -translate-y-3">
-        <h1 className="font-bold text-[20px] max-400:text-[15px]">Sophia</h1>
-        <h2 className="text-[14px] max-400:text-[10px] font-medium  text-[#C0C0C0]">1989</h2>
+        <h1 className="font-bold text-[20px] max-400:text-[15px]">{user?.userID?.username}</h1>
+        <h2 className="text-[14px] max-400:text-[10px] font-medium  text-[#C0C0C0]">{user?.points}</h2>
       </div>
     </div>
   );
