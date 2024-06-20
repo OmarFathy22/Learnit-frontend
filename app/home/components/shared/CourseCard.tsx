@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { Lato } from "next/font/google";
 import { IoIosStar } from "react-icons/io";
 import { IoStarHalf } from "react-icons/io5";
@@ -9,6 +9,7 @@ import Link from "next/link";
 import { ICourse } from "@/app/community/interfaces/post";
 import { useContext } from "react";
 import { UserContext } from "@/hooks/useUser";
+import {addToWishlist , removeFromWishlist , getWishlist} from './actions'
 
 const lato = Lato({ subsets: ["latin"], weight: ["300", "400", "700"] });
 const stars: number = 4;
@@ -17,16 +18,42 @@ export interface IAppProps {
 }
 
 export default function App({course}: IAppProps) {
-  const { user } = useContext(UserContext);
-  const [isBookmarked, setIsBookmarked] = useState(false);
-  const handleBookmark = () => {
-    setIsBookmarked(!isBookmarked);
+  const { user , setUser } = useContext(UserContext);
+  const [isBookmarked, setIsBookmarked] = useState(user?.savedCourses?.includes(course));
+  useEffect(() => {
+    const getUserWishlist = async() => {
+      console.log('userId carc', user?._id);
+
+      const wishlist = await getWishlist(user?._id);
+      setIsBookmarked(wishlist?.courses?.includes(course._id));
+      console.log("wishlist",wishlist);
+    }
+    if(user){
+      getUserWishlist();
+    }
+  }, [course?._id , user?._id]);
+  const handleBookmark = async() => {
+    console.log(user?.savedCourses);
+    if(isBookmarked){
+      setUser({...user , savedCourses: user.savedCourses.filter((c: any) => c !== course)});
+      setIsBookmarked(false);
+      await removeFromWishlist(user?._id , course?._id);
+      
+    }
+    else{
+      setUser({...user , savedCourses: [...user.savedCourses , course]});
+      setIsBookmarked(true);
+      await addToWishlist(user?._id , course?._id);
+    }
   };
-  console.log("bookmark user", user);
+ 
+
+
+
   return (
     <div className="">
       <div
-        className={`mx-[12px] max-600:mx-[6px] rounded-md cursor-pointer ${lato.className}`}
+        className={`mx-[12px] min-w-[250px] max-600:mx-[6px]   rounded-md cursor-pointer ${lato.className}`}
       >
         <Link href={`/courses/${course?._id}`}>
           {/* course Image */}
@@ -36,7 +63,7 @@ export default function App({course}: IAppProps) {
               src={course?.bannerImage || `/course.png`}
               width={1000}
               height={1000}
-              className="w-full h-[200px] rounded-t-md object-cover"
+              className="w-full  h-[200px] rounded-t-md object-fill"
             />
           </div>
         </Link>

@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react";
+import { SyntheticEvent, useState } from "react";
 import DownArrow from "../../../components/svgs/down-arrow";
-import { CreateNewPost } from "../actions";
+import { CreateNewPost , CreateNewPoll } from "../actions";
 
 export interface IAppProps {}
 const dialogs = [
@@ -26,16 +26,17 @@ const dialogs = [
   "AI",
 ];
 export default function App(props: IAppProps) {
+  const [pollTitle, setPollTitle] = useState("");
   const [postType, setPostType] = useState(0);
   const [chooseDialog, setChooseDialog] = useState(0);
-  const [options, setOptions] = useState(["" , ""]);
+  const [options, setOptions] = useState([{ title: "" }, { title: "" }]);
   const addOption = () => {
-    if(options.length < 4)
-    setOptions([...options , ""]);
+    if (options.length < 4)
+      setOptions([...options, { title: "" }]);
   };
   const RemoveOption = () => {
-    if(options.length > 2)
-    setOptions([...options.slice(0 , options.length - 1)]);
+    if (options.length > 2)
+      setOptions(options.slice(0, options.length - 1));
   };
   const handlePostType = (index: number) => {
     setPostType(index);
@@ -44,8 +45,27 @@ export default function App(props: IAppProps) {
     setChooseDialog(index);
   };
 
+  const handleSubmit = async(e:SyntheticEvent) => {
+    console.log("before");
+    e.preventDefault();
+    await CreateNewPoll(pollTitle , options);
+    setOptions([{ title: "" }, { title: "" }]);
+    setPollTitle("");
+  }
+  const handlePollTitle = (e:SyntheticEvent) => {
+    const target = e.target as HTMLInputElement;
+    setPollTitle(target.value);
+  }
+  const handleOption = (e: SyntheticEvent, index: number) => {
+    const target = e.target as HTMLInputElement;
+    const newOptions = [...options]; 
+    newOptions[index] = { title: target.value }; 
+    setOptions(newOptions);
+    console.log("options", newOptions); 
+};
+
   return (
-    <div className="min-1300:max-w-[350px]  h-full     ">
+    <div className="max-w-[350px]  h-full ">
       <div className="min-1300:py-3 sticky left-0 top-[80px] max-600:top-[60px]">
         <h1 className="font-bold gradient-text text-[25px] mb-3 max-1300:hidden">
           Add a Post
@@ -81,7 +101,7 @@ export default function App(props: IAppProps) {
             </div>
           </div>
           <h1 className="font-bold text-[20px] px-4 py-1">Dialog</h1>
-          <ul className="custom-scrollbar flex flex-wrap gap-1 items-center max-1300:max-h-[100px]   px-4 max-h-[100px] overflow-auto">
+          <ul className="custom-scrollbar flex flex-wrap gap-1 items-center max-1300:max-h-[100px]   px-4 max-h-[70px] overflow-auto">
             {dialogs.map((dialog, i) => (
               <li
                 key={i}
@@ -101,40 +121,59 @@ export default function App(props: IAppProps) {
               </li>
             ))}
           </ul>
-          <form action={CreateNewPost} className="border-t-[2px] border-t-[#323238] mt-2">
+        {!postType ?   <form action={CreateNewPost} className="border-t-[2px] border-t-[#323238] mt-2">
             <div className="px-4 py-2">
               <h1 className="font-bold text-[15px]">Title</h1>
               <div>
                 <input name="title"  className="bg-[--bg-primary] rounded-md p-2 w-full mt-1" />
               </div>
             </div>
-            {!postType ? (
+            
               <div className="px-4">
                 <h1 className="font-bold text-[15px]">Content</h1>
                 <div>
                   <textarea name="content" className="bg-[--bg-primary] rounded-md p-3 w-full min-h-[120px] mt-1 resize-none " />
                 </div>
               </div>
-            ) : (
-              <ul className="max-h-[200px] overflow-auto custom-scrollbar">
+        
+              
+            
+          <div className="flex justify-end">
+              <button type="submit"  className="gradient-bg mx-4 mt-3 mb-4 py-1  px-5 rounded-md text-[17px] font-bold text-[#222]">
+                Create
+              </button>
+          </div>
+          </form>:
+
+          <form onSubmit={handleSubmit} className="border-t-[2px] border-t-[#323238] mt-2">
+            <div className="px-4 py-2">
+              <h1 className="font-bold text-[15px]">Title</h1>
+              <div>
+                <input onChange={handlePollTitle} name="title" value={pollTitle}  className="bg-[--bg-primary] rounded-md p-2 w-full mt-1" />
+              </div>
+            </div>
+          
+              <ul className=" max-h-[150px] overflow-auto custom-scrollbar">
                 {options.map((option, i) => (
-                  <li key={i} className="px-4 py-2">
+                  <li key={i} className="px-4 py-1">
                   <h1 className="font-bold text-[15px]">option {i + 1}</h1>
                   <div>
-                    <input className="bg-[--bg-primary] rounded-md p-2 w-full mt-1" />
+                    <input value={options[i].title} onChange={(e) => {
+                      handleOption(e , i);
+                    }} className="bg-[--bg-primary] rounded-md p-2 w-full mt-1 " />
                   </div>
                 </li>
                 ))}
                 <button onClick={() => addOption()} className="px-4 text-[--links]">Add Option</button>
                 <button onClick={() => RemoveOption()} className="px-4 text-red-500">Remove Option</button>
               </ul>
-            )}
+            
           <div className="flex justify-end">
               <button type="submit"  className="gradient-bg mx-4 mt-3 mb-4 py-1  px-5 rounded-md text-[17px] font-bold text-[#222]">
-                Post
+                Create
               </button>
           </div>
-          </form>
+          </form>}
         </div>
       </div>
     </div>

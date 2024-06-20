@@ -3,6 +3,8 @@ import {useState} from 'react';
 import { FaPlus } from "react-icons/fa";
 import AddPost from "../addPost";
 import Modal from "@/components/Modal";
+import { IoMdClose } from "react-icons/io";
+
 
 export interface IAppProps {
 }
@@ -23,7 +25,9 @@ export default function App (props: IAppProps) {
           add post <span className=' translate-y-[1px] gradient-bg rounded-full p-1'><FaPlus size={12}/></span>
         </button>
         <Modal isOpen={isOpen} handleClose={handleClose}>
-          <AddPost />
+          <div>
+            <AddPost />
+          </div>
         </Modal>
       </div>
   );

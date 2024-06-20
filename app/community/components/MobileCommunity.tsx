@@ -5,11 +5,22 @@ import Feed from "./feed";
 import Dialog from "./joinDialog";
 import AddPostBtn from './feed/addPostBtn';
 import { IPosts } from "../interfaces/post";
+import { getPolls } from '../actions';
+
 
 export interface IAppProps {}
 
 export default function App({Posts}: IPosts) {
+  const [Polls, setPolls] = React.useState([]);
   const [active, setActive] = useState(true);
+  React.useEffect(() => {
+    const fetchData = async () => {
+      const Polls = await getPolls();
+      Polls.reverse();
+      setPolls(Polls);
+    };
+    fetchData();
+  }, []);
   const onClick = () => {
     setActive(!active);
   };
@@ -36,7 +47,7 @@ export default function App({Posts}: IPosts) {
       </div>
 
       <div className="w-[80%] max-500:w-[90%] mx-auto mt-[20px]">
-        {active ? <Feed Posts={Posts} /> : <Dialog />}
+        {active ? <Feed Posts={Posts} Polls={Polls}/> : <Dialog />}
       </div>
     </div>
   );

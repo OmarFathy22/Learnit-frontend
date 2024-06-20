@@ -33,7 +33,7 @@ export default function App(props: IAppProps) {
     eo.preventDefault();
     try {
       const response = await fetch(
-        `https://learnit-backend-woad.vercel.app/auth/signin`,
+        `http://localhost:8000/auth/signin`,
         {
           method: "POST",
           headers: {
@@ -43,10 +43,12 @@ export default function App(props: IAppProps) {
         }
       );
       const data = await response.json();
-      location.href = "/home";
-      toast.success("User created successfully");
-      setUser(data.user);
-      localStorage.setItem("user", JSON.stringify(data.user));
+      toast.success("User Signed in successfully");
+      setUser({...data.user , ...data.userProgress, _id : data.user._id});
+      localStorage.setItem("user", JSON.stringify({...data.user , ...data.userProgress , _id : data.user._id}));
+      setTimeout(() => {
+        router.push("/home");
+      }, 500);
     } catch (error) {
       console.error("Fetch error:", error);
       toast.error("User creation failed");
@@ -91,11 +93,7 @@ export default function App(props: IAppProps) {
     localStorage.removeItem("user");
     setUser(null);
   };
-   React.useLayoutEffect(() => {
-    if(session.data){
-      handleSigninWithProvider()
-    }
-  } ,[session.data])
+  
   return (
     <>
       <div className="flex flex-col items-center gap-5 min-h-[calc(100vh-80px)] bg-[--bg-secondary] pt-[50px] ">

@@ -18,8 +18,29 @@ export interface IPost {
   __v: number;
 
 }
+
+export interface Option {
+	title: string;
+	count: number;
+	_id: string;
+}
+
+export interface IPoll {
+	_id: string;
+	title: string;
+	options: Option[];
+	communityID: string;
+	comments: any[];
+	createdAt: string;
+	updatedAt: string;
+	__v: number;
+}
+
 export interface IPosts {
   Posts: IPost[];
+}
+export interface IPolls {
+  polls: IPoll[];
 }
 
 export interface ICourse {

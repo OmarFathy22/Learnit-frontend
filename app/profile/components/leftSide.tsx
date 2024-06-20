@@ -8,9 +8,27 @@ import { IoMdClose } from "react-icons/io";
 import { UserContext } from "@/hooks/useUser";
 
 
-export interface IAppProps {}
+export interface RootObject {
+  savedCourses: any[];
+  _id: string;
+  userID: string;
+  points: number;
+  rank: string;
+  certificates: any[];
+  coursesInProgress: any[];
+  allTimeRanking: number;
+  monthlyRanking: number;
+  lastRankingUpdate: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}
+export interface IAppProps {
+  userProgress: any;
 
-export default function App(props: IAppProps) {
+}
+export default function App({userProgress}: IAppProps) {
+  console.log('userProbre' , userProgress);
   const [open , setOpen] = useState(false)
   const { user, setUser } = useContext(UserContext);
   const handleOpen = () => {
@@ -60,15 +78,15 @@ export default function App(props: IAppProps) {
       </div>
       <ul className="mt-5 flex items-center justify-around text-center ">
         <li>
-          <h1 className="font-bold">1387</h1>
+          <h1 className="font-bold">{userProgress?.points}</h1>
           <h1 className="text-[--sub-text]">Total Points</h1>
         </li>
         <li>
-          <h1 className="font-bold text-[#2EDE60]">Emerald</h1>
+          <h1 className="font-bold text-[#2EDE60]">{userProgress?.rank}</h1>
           <h1 className="text-[--sub-text]">Rank</h1>
         </li>
         <li>
-          <h1 className="font-bold">4</h1>
+          <h1 className="font-bold">{userProgress?.certificates.length}</h1>
           <h1 className="text-[--sub-text]">Certificates</h1>
         </li>
       </ul>

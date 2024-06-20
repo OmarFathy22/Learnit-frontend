@@ -3,19 +3,19 @@ import { useState } from "react";
 import * as React from "react";
 import Image from "next/image";
 import AnimatedBar from "./AnimatedBar";
+import { IPoll } from "../../interfaces/post";
 
 export interface IAppProps {
-  title: string;
-  options: { title: string; count: number }[];
+  Poll: IPoll;
 }
 
-export default function App({ title, options }: IAppProps) {
+export default function App({ Poll }: IAppProps) {
   const MaxPercent = () => {
     let maxi = 0,
       idx = 0;
-    for (let i = 0; i < options.length; i++) {
-      if (options[i].count > maxi) {
-        maxi = options[i].count;
+    for (let i = 0; i < Poll?.options.length; i++) {
+      if (Poll?.options[i].count > maxi) {
+        maxi = Poll?.options[i].count;
         idx = i;
       }
     }
@@ -36,7 +36,7 @@ export default function App({ title, options }: IAppProps) {
     };
   };
   return (
-    <div className="bg-[#101011] p-4 rounded-md mt-4">
+    <div className="bg-[#101011] p-4 rounded-md ">
       <div className="flex items-center gap-2">
         <div>
           <Image
@@ -51,10 +51,10 @@ export default function App({ title, options }: IAppProps) {
       </div>
       <div className="py-2">
         <h1 className="text-[#ADD5F2] text-[22px] font-bold pb-2">
-          Which front-end framework do you prefer for web development?
+          {Poll?.title}
         </h1>
         <ul>
-          {options.map((item, index) => (
+          {Poll?.options.map((item, index) => (
             <li
               onClick={() => handleOption(index)}
               key={index}

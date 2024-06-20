@@ -1,14 +1,14 @@
 import DesktopCommunity from "./components/DesktopCommunity";
 import MobileCommunity from "./components/MobileCommunity";
-import { getData } from './actions'
+import { getPosts } from './actions'
 
 export interface IAppProps {}
 
 export default async function App(props: IAppProps) {
-  const Posts = await getData();
+  const Posts = await getPosts();
   return (
     <div>
-      <DesktopCommunity Posts={Posts}  />
+      <DesktopCommunity Posts={Posts} />
       <MobileCommunity Posts={Posts} />
     </div>
   );
