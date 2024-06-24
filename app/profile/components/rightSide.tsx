@@ -46,7 +46,7 @@ export default function App({userProgress}: IAppProps) {
         <h1 className="text-[22px] gradient-text ">Certificates</h1>
       </div>
       <div className="">
-    { userProgress?.certificates.length > 0 ?  <ul className="flex justify-between gap-2 py-3   overflow-auto custom-scrollbar">
+    { userProgress?.certificates?.length > 0 ?  <ul className="flex justify-between gap-2 py-3   overflow-auto custom-scrollbar">
           {userProgress?.certificates.map((item:any, index:number) => (
             <li key={index} className="flex-shrink-0">
               <Image
@@ -60,8 +60,8 @@ export default function App({userProgress}: IAppProps) {
           ))}
         </ul> : <h1 className="text-[18px] font-bold text-center">No Certificates yet</h1>}
       </div>
-      <CoursesSection courses={userProgress?.inProgressCoursess} title="Enrolled Courses" Icon={EnrolledIcon} />
-      <CoursesSection courses={userProgress?.wishlist?.courses} title="Saved Courses" Icon={SavedIcon} />
+      <CoursesSection courses={userProgress?.coursesInProgress} title="Enrolled Courses" Icon={EnrolledIcon} />
+      <CoursesSection courses={userProgress?.savedCourses} title="Saved Courses" Icon={SavedIcon} />
     <div className="">
         <div className="flex items-center gap-2  mt-5 mb-2">
           <div className=" -translate-y-[1px]">

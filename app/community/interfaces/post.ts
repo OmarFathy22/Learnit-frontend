@@ -26,6 +26,7 @@ export interface Option {
 }
 
 export interface IPoll {
+  totalVotes: any[];
 	_id: string;
 	title: string;
 	options: Option[];

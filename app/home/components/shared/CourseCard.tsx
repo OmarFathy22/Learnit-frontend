@@ -9,46 +9,39 @@ import Link from "next/link";
 import { ICourse } from "@/app/community/interfaces/post";
 import { useContext } from "react";
 import { UserContext } from "@/hooks/useUser";
-import {addToWishlist , removeFromWishlist , getWishlist} from './actions'
+import { addToWishlist, removeFromWishlist, getWishlist } from "./actions";
+import { usePathname } from "next/navigation";
 
 const lato = Lato({ subsets: ["latin"], weight: ["300", "400", "700"] });
 const stars: number = 4;
 export interface IAppProps {
-  course : ICourse,
+  course: ICourse;
 }
 
-export default function App({course}: IAppProps) {
-  const { user , setUser } = useContext(UserContext);
-  const [isBookmarked, setIsBookmarked] = useState(user?.savedCourses?.includes(course));
+export default function App({ course }: IAppProps) {
+  const { user, setUser } = useContext(UserContext);
+  const [isBookmarked, setIsBookmarked] = useState(false);
+  const pathname = usePathname();
   useEffect(() => {
-    const getUserWishlist = async() => {
-      console.log('userId carc', user?._id);
-
+    const getUserWishlist = async () => {
       const wishlist = await getWishlist(user?._id);
-      setIsBookmarked(wishlist?.courses?.includes(course._id));
-      console.log("wishlist",wishlist);
-    }
-    if(user){
+      setIsBookmarked(
+        wishlist?.savedCourses?.some((item: any) => item?._id === course?._id)
+      );
+    };
+    if (user) {
       getUserWishlist();
     }
-  }, [course?._id , user?._id]);
-  const handleBookmark = async() => {
-    console.log(user?.savedCourses);
-    if(isBookmarked){
-      setUser({...user , savedCourses: user.savedCourses.filter((c: any) => c !== course)});
+  }, [course?._id, user, pathname]);
+  const handleBookmark = async () => {
+    if (isBookmarked) {
       setIsBookmarked(false);
-      await removeFromWishlist(user?._id , course?._id);
-      
-    }
-    else{
-      setUser({...user , savedCourses: [...user.savedCourses , course]});
+      await removeFromWishlist(user?._id, course?._id);
+    } else {
       setIsBookmarked(true);
-      await addToWishlist(user?._id , course?._id);
+      await addToWishlist(user?._id, course?._id);
     }
   };
- 
-
-
 
   return (
     <div className="">
@@ -74,7 +67,9 @@ export default function App({course}: IAppProps) {
               {course?.courseName}
             </h1>
           </Link>
-          <h1 className="text-[12px] font-medium my-[6px] mt-[8px]">Jonas Schmedtmann</h1>
+          <h1 className="text-[12px] font-medium my-[6px] mt-[8px]">
+            Jonas Schmedtmann
+          </h1>
           {/* <h2 className="text-[--sub-text]  font-bold my-1  ">19h 45m - 150 lessons</h2> */}
           <div className="flex justify-between items-center gap-3">
             <div className="text-[#FFCA28] flex items-center gap-1">
@@ -98,7 +93,11 @@ export default function App({course}: IAppProps) {
               <h4 className="text-[--sub-text]">(133)</h4>
             </div>
             <button onClick={() => handleBookmark()} className="  ">
-              {isBookmarked ? <BsBookmarkFill className="text-[20px] max-600:text-[16px]" /> : <BsBookmark className="text-[20px] max-600:text-[16px]" />}
+              {isBookmarked ? (
+                <BsBookmarkFill className="text-[20px] max-600:text-[16px]" />
+              ) : (
+                <BsBookmark className="text-[20px] max-600:text-[16px]" />
+              )}
             </button>
           </div>
         </div>

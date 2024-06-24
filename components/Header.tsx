@@ -12,6 +12,8 @@ import { RiMenu3Line } from "react-icons/ri";
 import MenuDrawer from "./MenuDrawer";
 import React, { useContext } from "react";
 import { UserContext } from "@/hooks/useUser";
+import {signOut } from "next-auth/react";
+
 
 export interface IAppProps {}
 const montserrat_Alternates = Montserrat_Alternates({
@@ -49,8 +51,9 @@ export default function App(props: IAppProps) {
     },
   ];
   const handleLogOut = () => {
+    signOut({ callbackUrl: "/login" });
     localStorage.removeItem("user");
-    location.href = "/";
+    // location.href = "/";
   };
   return (
     <div

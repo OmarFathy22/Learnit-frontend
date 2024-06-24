@@ -1,4 +1,5 @@
 import * as React from "react";
+import Link from "next/link";
 import Slider from "./Slider";
 import Image from "next/image";
 import { ICourse } from "@/app/community/interfaces/post";
@@ -10,7 +11,6 @@ export interface IAppProps {
 }
 
 export default function App({ courses, title, Icon }: IAppProps) {
-  console.log("courses", courses);
   return (
     <div>
       <div className="flex items-center gap-2  mt-5 mb-2">
@@ -22,7 +22,7 @@ export default function App({ courses, title, Icon }: IAppProps) {
         {courses?.length > 0 ? (
           <ul className="flex justify-between gap-2 py-3   overflow-auto custom-scrollbar">
             {courses.map((item, index) => (
-                <div key={index} className="">
+                <Link href={`/courses/${item?._id}`} key={index} className="">
                   <li className="flex mx-2 gap-3 w-[400px]  h-[130px] bg-[--bg-primary] p-2 rounded-md">
                     <div className="w-[200px]">
                       <Image
@@ -42,7 +42,7 @@ export default function App({ courses, title, Icon }: IAppProps) {
                       </h2>
                     </div>
                   </li>
-                </div>
+                </Link>
               ))}
           </ul>
         ) : (

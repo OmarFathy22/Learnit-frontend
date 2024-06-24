@@ -16,7 +16,7 @@ export default function App ({handleSubmit , questions , questionIndex , loading
       <button
         onClick={() => handleSubmit()}
         className={`${
-          questions[questionIndex].choosenAnswer > -1 ||
+          questions[questionIndex]?.choosenAnswer > -1 ||
           selectedAnswerIndex > -1
             ? "gradient-bg"
             : "bg-[#222] bg-opacity-[0.7]"

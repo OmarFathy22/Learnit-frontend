@@ -48,16 +48,16 @@ export default function App({
         />
       </div>
       <h1 className="text-[20px] font-bold mb-5">
-        {questionIndex + 1}: {questions[questionIndex].question}
+        {questionIndex + 1}: {questions[questionIndex]?.question}
       </h1>
       <ul className="flex flex-col gap-3">
-        {questions[questionIndex].answers.map((answer:string, index:number) => (
+        {questions[questionIndex]?.answers.map((answer:string, index:number) => (
           <li
             onClick={() => handleSelectAnswer(index + 1)}
             key={index}
             className={`bg-[--bg-primary] p-2 rounded-md  cursor-pointer ${
               (selectedAnswerIndex == index + 1 ||
-                questions[questionIndex].choosenAnswer == index + 1)?
+                questions[questionIndex]?.choosenAnswer == index + 1)?
               "border-[1px] border-orange-500":"border-[1px] border-transparent"
             }`}
           >

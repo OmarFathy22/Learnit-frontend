@@ -1,10 +1,9 @@
-"use server";
-import { revalidatePath } from "next/cache";
+// "use server";
+// import { revalidatePath } from "next/cache";
 export const getWishlist = async (userID: string) => {
-  console.log('userid' , userID);
   if (!userID) return;
   try {
-    const res = await fetch(`http://localhost:8000/wishlist/${userID}`);
+    const res = await fetch(`http://localhost:8000/user-progress/${userID}`);
     // revalidatePath("/home")
     return res.json();
   } catch (err) {

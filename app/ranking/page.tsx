@@ -6,10 +6,9 @@ import Monthly from "./components/monthly";
 import {IUserProps} from '@/app/home/components/sections/Ranking'
 import { getMonthlyUsers , getAllTimeUsers } from "./actions";
 export interface IAppProps {
-  users: IUserProps[]
 }
 
-export default function App({users}: IAppProps) {
+export default function App(props: IAppProps) {
   const [active, setActive] = useState(true);
   const [monthlyUsers, setMonthlyUsers] = useState([]);
   const [allTimeUsers, setAllTimeUsers] = useState([]);

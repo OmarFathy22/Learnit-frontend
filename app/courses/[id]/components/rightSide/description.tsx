@@ -2,9 +2,10 @@ import * as React from 'react';
 import Image from 'next/image';
 
 export interface IAppProps {
+  course: any;
 }
 
-export default function App (props: IAppProps) {
+export default function App ({course}: IAppProps) {
   return (
     <div className='p-5 flex flex-col gap-3'>
       {/* instructor data */}
@@ -19,31 +20,31 @@ export default function App (props: IAppProps) {
           />
         </div>
         <div className="truncate">
-          <h1>Jonas Schmedtmann</h1>
+          <h1>Omar Fathy</h1>
           <h2 className="truncate text-[--sub-text]">
-            Web Developer, Designer, And course instructor
+            Web Developer @LearnIt
           </h2>
         </div>
       </div>
        {/* about this course */}
       <div>
         <h1 className='gradient-text text-[20px]'>About this course</h1>
-        <h1>Use React Native and your React knowledge to build native iOS and Android Apps - incl. Push Notifications, Hooks, Redux</h1>
+        <h1>{course?.description}</h1>
       </div>
       <div>
         <h1 className='gradient-text text-[20px]'>By the numbers</h1>
         <ul className='border border-[#ffffffc2] overflow-hidden rounded-sm mt-2'>
           <li className="flex items-center  justify-between gap-1 bg-[--bg-secondary] px-3 py-2">
             <h1 className='font-bold '>Skill level </h1>
-            <h1 className='text-[#ffffffc2]'>All levels</h1>
+            <h1 className='text-[#ffffffc2]'>{course?.courseLevel}</h1>
           </li>
           <li className="flex items-center justify-between gap-1 bg-[--bg-tertiary] px-3 py-2">
             <h1 className='font-bold'>Students </h1>
-            <h1 className='text-[#ffffffc2]'>126</h1>
+            <h1 className='text-[#ffffffc2]'>{course?.students}</h1>
           </li>
           <li className="flex items-center justify-between gap-1 bg-[--bg-secondary] px-3 py-2">
             <h1 className='font-bold'>Language </h1>
-            <h1 className='text-[#ffffffc2]'>English</h1>
+            <h1 className='text-[#ffffffc2]'>{course?.language}</h1>
           </li>
           <li className="flex items-center justify-between gap-1 bg-[--bg-tertiary] px-3 py-2">
             <h1 className='font-bold'>Captions </h1>
@@ -51,11 +52,11 @@ export default function App (props: IAppProps) {
           </li>
           <li className="flex items-center justify-between gap-1 bg-[--bg-secondary] px-3 py-2">
             <h1 className='font-bold'>Lectures </h1>
-            <h1 className='text-[#ffffffc2]'>150</h1>
+            <h1 className='text-[#ffffffc2]'>{course?.numberOfLessons}</h1>
           </li>
           <li className="flex items-center justify-between gap-1 bg-[--bg-tertiary] px-3 py-2">
             <h1 className='font-bold'>Video </h1>
-            <h1 className='text-[#ffffffc2]'>19.5 total hours  </h1>
+            <h1 className='text-[#ffffffc2]'>{course?.totalVideoTime} total hours  </h1>
           </li>
         </ul>
       </div>

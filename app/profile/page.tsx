@@ -4,7 +4,7 @@ import LeftSide from './components/leftSide';
 import RightSide from './components/rightSide';
 import { useEffect } from 'react';
 import { UserContext } from '@/hooks/useUser';
-import {getUserProgress} from './actions'
+import { getUserProgress} from './actions'
 
 export interface IAppProps {
 }
@@ -15,11 +15,9 @@ export default function App (props: IAppProps) {
 
   useEffect(() => {
     const getData = async() => {
-     console.log("userId" , user?._id);
       if(user?._id){
         const data = await getUserProgress(user._id);
         setProgress(data)
-        console.log("data" , data);
       }
     }
     getData();

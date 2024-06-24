@@ -25,10 +25,8 @@ export interface RootObject {
 }
 export interface IAppProps {
   userProgress: any;
-
 }
 export default function App({userProgress}: IAppProps) {
-  console.log('userProbre' , userProgress);
   const [open , setOpen] = useState(false)
   const { user, setUser } = useContext(UserContext);
   const handleOpen = () => {
@@ -86,7 +84,7 @@ export default function App({userProgress}: IAppProps) {
           <h1 className="text-[--sub-text]">Rank</h1>
         </li>
         <li>
-          <h1 className="font-bold">{userProgress?.certificates.length}</h1>
+          <h1 className="font-bold">{userProgress?.certificates?.length}</h1>
           <h1 className="text-[--sub-text]">Certificates</h1>
         </li>
       </ul>

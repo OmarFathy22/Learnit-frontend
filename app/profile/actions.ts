@@ -6,6 +6,7 @@ export const getData = async () => {
   return res.json();
 };
 
+
 export const getUserProgress = async (userID: string) => {
   try {
     const res = await fetch(`http://localhost:8000/user-progress/${userID}`);

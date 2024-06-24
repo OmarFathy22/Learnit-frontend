@@ -60,4 +60,30 @@ export const CreateNewPoll = async (title:string , options:any[]) => {
     console.log(e);
   }
 };
+export const UpdatePoll = async (pollID:string , options:any[] , totalVotes: any []) => {
+ try{
+  const res = await fetch(
+    `http://localhost:8000/poll/${pollID}`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        totalVotes: totalVotes,
+        options: options,
+      }),
+    }
+  );
+  if (!res.ok) {
+    const errorResponse = await res.json(); // Wait for the response to be resolved
+    console.error(errorResponse);
+    return;
+  }
+  console.log("Updated successfully");
+  revalidatePath("/community")
+ }catch(e){
+    console.log(e);
+  }
+};
 

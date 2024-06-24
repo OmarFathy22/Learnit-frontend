@@ -5,27 +5,17 @@ import { useParams } from "next/navigation";
 import { getSections , getLessons } from "@/app/home/actions";
 export interface IAppProps {
   refreshVideo: () => void;
+  changeLesson: (lesson: any) => void;
+  sections: any;
 }
 
-export default function App({refreshVideo}: IAppProps) {
-  const [sections, setSections] = useState([]);
-  const params = useParams();
-  useEffect(() => {
-    if (params?.id && typeof params.id === "string") {
-      getSections(params.id).then((data) => {
-        setSections(data);
-      });
-    } else if (Array.isArray(params?.id)) {
-      getSections(params.id[0]).then((data) => {
-        setSections(data);
-      });
-    }
-  }, [params.id]);
+export default function App({refreshVideo , changeLesson, sections}: IAppProps) {
+  
   return (
     <ul>
-      {sections.map((section, i) => (
+      {sections?.map((section:any, i:number) => (
         <li key={i}>
-          <Section section={section} refreshVideo={refreshVideo} />
+          <Section section={section} refreshVideo={refreshVideo} changeLesson = {changeLesson} />
         </li>
       ))}
     </ul>
