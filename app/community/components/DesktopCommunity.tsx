@@ -11,7 +11,7 @@ export interface IAppProps {
 
 export default async function App ({Posts }: IAppProps) {
   const Polls = await getPolls();
-  Polls.reverse()
+  // Polls.reverse()
 
   return (
     <div className='max-1000:hidden px-[40px] flex gap-[20px] justify-between py-5 pb-10  '>

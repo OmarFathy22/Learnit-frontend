@@ -16,7 +16,7 @@ export default function App({Posts}: IPosts) {
   React.useEffect(() => {
     const fetchData = async () => {
       const Polls = await getPolls();
-      Polls.reverse();
+      // Polls.reverse();
       setPolls(Polls);
     };
     fetchData();

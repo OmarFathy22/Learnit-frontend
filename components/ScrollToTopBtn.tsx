@@ -3,11 +3,13 @@
 import * as React from "react";
 import { MdKeyboardArrowUp } from "react-icons/md";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation"
 
 export interface IAppProps {}
 
 export default function App(props: IAppProps) {
   const [isVisible, setIsVisible] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -38,7 +40,7 @@ export default function App(props: IAppProps) {
     <button
       className={`gradient-bg rounded-md p-1 fixed bottom-10 right-10 z-[10000] ${
         isVisible ? "visible" : "invisible"
-      }`}
+      } ${(pathname.includes("/courses") || pathname.includes('/chatbot')) && "hidden"}`}
       onClick={scrollToTop}
     >
       <MdKeyboardArrowUp size={30} />

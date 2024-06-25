@@ -9,6 +9,7 @@ import "react-modern-drawer/dist/index.css";
 import ProfileIcon from "./svgs/profileIcon";
 import { UserContext } from "@/hooks/useUser";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 
 const routes = [
   {
@@ -96,6 +97,9 @@ const App = () => {
               <ProfileIcon active={pathname.startsWith("/profile")} />
             </Link>
           </li>
+          <Link href={'/chatbot'}>
+           <Image src="/hero-1.png" alt="profile" width={40} height={40} className='object-contain' />
+          </Link>
           <button onClick={handleLogOut}>
             <h1 className="text-[16px] gradient-bg px-5 py-2 rounded-md font-bold">
               Log Out

@@ -34,7 +34,7 @@ export default function App(props: IAppProps) {
       console.log(data);
       toast.success('User created successfully')
       setTimeout(() => {
-        location.href = '/home'
+        location.href = '/login'
       }, 500);
     } catch (error) {
       console.error('Fetch error:', error);

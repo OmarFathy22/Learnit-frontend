@@ -76,15 +76,14 @@ export default function App(props: IAppProps) {
           />
         </div>
       </Link>
-      <div className="search flex items-center gap-3 bg-[#46464C1A] px-3 py-2 rounded-full max-1100:hidden">
-        {/* Menu Icon */}
+      {/* <div className="search flex items-center gap-3 bg-[#46464C1A] px-3 py-2 rounded-full max-1100:hidden">
         <CiSearch size={20} />
         <input
           className={`bg-transparent outline-none w-[300px] `}
           type="text"
           placeholder="Search for courses..."
         />
-      </div>
+      </div> */}
 
       <div className="menu-icon min-1100:hidden">
         {/* <RiMenu3Line size={25} /> */}
@@ -117,6 +116,9 @@ export default function App(props: IAppProps) {
               </Link>
             </li>
           ))}
+          <Link href={'/chatbot'}>
+           <Image src="/hero-1.png" alt="profile" width={40} height={40} className='object-contain' />
+          </Link>
           <button onClick={handleLogOut}>
             <h1 className="text-[16px] gradient-bg px-5 py-2 rounded-md font-bold">
               Log Out

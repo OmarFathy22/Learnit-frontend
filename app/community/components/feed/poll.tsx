@@ -62,7 +62,7 @@ export default function App({ Poll }: IAppProps) {
             height={50}
           />
         </div>
-        <h1 className="gradient-text text-[18px]">D/python</h1>
+        <h1 className="gradient-text text-[18px]">D/Learnit</h1>
       </div>
       <div className="py-2">
         <h1 className="text-[#ADD5F2] text-[22px] font-bold pb-2">
@@ -89,9 +89,7 @@ export default function App({ Poll }: IAppProps) {
                 </h1>
                 <h1 className={`z-[2] ${votedOption < 0 && "hidden"}`}>
                   {Poll.totalVotes.length > 0
-                    ? `${((item.count / Poll.totalVotes.length) * 100).toFixed(
-                        2
-                      )}%`
+                    ? `${((item.count / Poll.totalVotes.length) * 100)}%`
                     : "0%"}
                 </h1>
               </div>
@@ -100,6 +98,7 @@ export default function App({ Poll }: IAppProps) {
                 index={index}
                 votedOption={votedOption}
                 item={item}
+                Poll={Poll}
               />
             </li>
           ))}

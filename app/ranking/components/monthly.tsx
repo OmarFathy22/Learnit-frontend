@@ -8,12 +8,15 @@ import {RootObject} from '@/app/home/components/sections/Ranking'
 export interface IAppProps {
   users: RootObject[]
 }
-const calculateEstimation = (index: number) => {
-  if (index >= 0 && index < 5) return "green";
-  if (index >= 5 && index < 8) return "blue";
-  return "red";
-};
 export default function App({users}: IAppProps) {
+  const calculateEstimation = (index: number) => {
+    const fiftyPercentIndex = Math.floor(users?.length * 0.5);
+    const eightyPercentIndex = Math.floor(users?.length * 0.8);
+  
+    if (index >= 0 && index < fiftyPercentIndex) return "green";
+    if (index >= fiftyPercentIndex && index < eightyPercentIndex) return "blue";
+    return "red";
+  };
   return (
     <ul className=" bg-[--bg-secondary] rounded-md flex flex-col    ">
       <li className="flex justify-between items-center bg-[--bg-tertiary] px-[45px]  max-500:px-[25px] py-3 ">
@@ -47,13 +50,13 @@ export default function App({users}: IAppProps) {
               </div>
             </li>
           <div className="bg-[--bg-primary]">
-              {index === 4 ? (
+              {index == Math.floor(users?.length * 0.5) - 1? (
                 <div className="py-2 flex justify-around items-center   mx-auto ">
                   <h1 ><PromotionIcon/></h1>
                   <h1 className=" font-bold gradient-text-green text-[20px] max-400:text-[15px]">Promotion Zone</h1>
                   <h1><PromotionIcon/></h1>
                 </div>
-              ) : index == 7 ? (
+              ) : index == Math.floor(users?.length * 0.8) - 1 ? (
                 <div className="py-2 flex justify-around items-center   mx-auto ">
                   <h1><RelegationIcon/></h1>
                   <h1 className="font-bold gradient-text-red text-[20px] max-400:text-[15px]">Relegation Zone</h1>

@@ -12,7 +12,7 @@ export default function App(props: IAppProps) {
     <div>
       <div
         className={`${
-          pathname.includes("/courses") && "hidden"
+          (pathname.includes("/courses") || pathname.includes('/chatbot')) && "hidden"
         } bg-[--bg-secondary]  min-h-[120px] border-t-[1px] border-t-[#474747] `}
       >
         <div className="  w-full flex max-900:flex-col max-900:items-center max-900:gap-2 max-900:justify-center justify-around  items-start p-7 max-350:px-3">

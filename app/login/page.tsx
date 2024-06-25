@@ -95,9 +95,7 @@ export default function App(props: IAppProps) {
         "user",
         JSON.stringify({ ...data.user, ...data.userProgress })
       );
-      // setTimeout(() => {
-      //   location.href = "/home";
-      // }, 500);
+      location.href = "/home";
     } catch (error) {
       console.error("Fetch error:", error);
       toast.error("User sign in failed");
