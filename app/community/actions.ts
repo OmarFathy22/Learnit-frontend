@@ -2,7 +2,7 @@
 import {revalidatePath} from 'next/cache'
 export const getPosts = async () => {
   const res = await fetch("http://localhost:8000/post/all");
-  revalidatePath("/community")
+  // revalidatePath("/community")
   return res.json();
 };
 export const getPolls = async () => {
@@ -31,7 +31,7 @@ export const CreateNewPost = async (formData:FormData) => {
     console.error(errorResponse);
     return;
   }
-  revalidatePath("/community")
+  // revalidatePath("/community")
 };
 export const CreateNewPoll = async (title:string , options:any[]) => {
  try{
