@@ -2,10 +2,9 @@ import * as React from 'react';
 import LeftSide from '../components/leftSide';
 import EditInfo from '../components/EditInfo';
 
-export interface IAppProps {
-}
 
-export default function App (props: IAppProps) {
+
+export default function App () {
   return (
     <div className='relative  min-1300:grid grid-cols-4  '>
     <div className='max-1300:hidden'>
