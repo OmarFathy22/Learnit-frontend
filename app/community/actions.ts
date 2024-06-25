@@ -7,7 +7,7 @@ export const getPosts = async () => {
 };
 export const getPolls = async () => {
   const res = await fetch("http://localhost:8000/poll/all");
-  revalidatePath("/community")
+  // revalidatePath("/community")
   return res.json();
 };
 
@@ -55,7 +55,7 @@ export const CreateNewPoll = async (title:string , options:any[]) => {
     return;
   }
   console.log("created successfully");
-  revalidatePath("/community")
+  // revalidatePath("/community")
  }catch(e){
     console.log(e);
   }
@@ -81,7 +81,7 @@ export const UpdatePoll = async (pollID:string , options:any[] , totalVotes: any
     return;
   }
   console.log("Updated successfully");
-  revalidatePath("/community")
+  // revalidatePath("/community")
  }catch(e){
     console.log(e);
   }
