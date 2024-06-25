@@ -1,8 +1,23 @@
 "use client"
 
-
+export interface RootObject {
+	_id: string;
+	userID: string;
+	points: number;
+	rank: string;
+	certificates: any[];
+	coursesInProgress: any[];
+	allTimeRanking: number;
+	monthlyRanking: number;
+	lastRankingUpdate: string;
+	createdAt: string;
+	updatedAt: string;
+	__v: number;
+}
+export interface UserDetails {
+  user: RootObject
+}
 import { createContext, useContext, useEffect, useState } from "react";
-import { UserDetails } from "@/types";
 type UserContextType = {
   userDetails: UserDetails | null;
 };
