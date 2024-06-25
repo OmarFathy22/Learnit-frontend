@@ -42,8 +42,6 @@ export default function App({userProgress}: IAppProps) {
           <button onClick={() => handleOpen()}>
           <Bell />
           </button>
-          {/* <div className={`fixed top-0 bottom-0 right-0 left-0 w-[100vw] h-[100vw] borderr z-[1000000000000000000000] bg-[#222] bg-opacity-[0.6] ${!open && "hidden"}`}/> */}
-
             <div className={`absolute top-[50px] z-[100] right-0 w-[350px] bg-[--bg-secondary] p-5 rounded-md h-[70vh] overflow-auto custom-scrollbar ${!open && "hidden"}`}>
               <div className="flex items-center justify-between">
                 <h1 className="font-bold text-[18px]">Notifications</h1>
