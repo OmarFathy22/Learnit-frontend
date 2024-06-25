@@ -7,9 +7,8 @@ import Link from "next/link";
 import { IoMdClose } from "react-icons/io";
 
 
-export interface IAppProps {}
 
-export default function App(props: IAppProps) {
+export default function App() {
   const [open , setOpen] = useState(false)
   const handleOpen = () => {
     setOpen(!open)
