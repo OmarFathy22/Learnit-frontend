@@ -1,7 +1,7 @@
 
 export const getCourse = async (courseID: string) => {
   try {
-    const res = await fetch(`http://localhost:8000/course/${courseID}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/course/${courseID}`);
     return res.json();
   } catch (e) {
     console.log(e);
@@ -11,7 +11,7 @@ export const getCourse = async (courseID: string) => {
 export const EnrollInCourse = async (userID: string, courseID: string) => {
   try {
     const res = await fetch(
-      "http://localhost:8000/in-progress-courses/addNewCourseToInProgress",
+      `${process.env.NEXT_PUBLIC_API_URL}/in-progress-courses/addNewCourseToInProgress`,
       {
         method: "PUT",
         headers: {
@@ -32,7 +32,7 @@ export const EnrollInCourse = async (userID: string, courseID: string) => {
 export const passQuiz = async (addedPoints:Number , userID:string , quizID:string) => {
   try {
     const res = await fetch(
-      "http://localhost:8000/user-progress/updateUserPoints",
+      `${process.env.NEXT_PUBLIC_API_URL}/user-progress/updateUserPoints`,
       {
         method: "PUT",
         headers: {

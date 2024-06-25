@@ -1,19 +1,19 @@
 "use server";
 import {revalidatePath} from 'next/cache'
 export const getPosts = async () => {
-  const res = await fetch("http://localhost:8000/post/all");
-  // revalidatePath("/community")
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/post/all`);
+  revalidatePath("/community")
   return res.json();
 };
 export const getPolls = async () => {
-  const res = await fetch("http://localhost:8000/poll/all");
-  // revalidatePath("/community")
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/poll/all`);
+  revalidatePath("/community")
   return res.json();
 };
 
 export const CreateNewPost = async (formData:FormData) => {
   const res = await fetch(
-    "http://localhost:8000/post/create",
+    `${process.env.NEXT_PUBLIC_API_URL}/post/create`,
     {
       method: "POST",
       headers: {
@@ -31,12 +31,12 @@ export const CreateNewPost = async (formData:FormData) => {
     console.error(errorResponse);
     return;
   }
-  // revalidatePath("/community")
+  revalidatePath("/community")
 };
 export const CreateNewPoll = async (title:string , options:any[]) => {
  try{
   const res = await fetch(
-    "http://localhost:8000/poll/create",
+    `${process.env.NEXT_PUBLIC_API_URL}/poll/create`,
     {
       method: "POST",
       headers: {
@@ -55,7 +55,7 @@ export const CreateNewPoll = async (title:string , options:any[]) => {
     return;
   }
   console.log("created successfully");
-  // revalidatePath("/community")
+  revalidatePath("/community")
  }catch(e){
     console.log(e);
   }
@@ -63,7 +63,7 @@ export const CreateNewPoll = async (title:string , options:any[]) => {
 export const UpdatePoll = async (pollID:string , options:any[] , totalVotes: any []) => {
  try{
   const res = await fetch(
-    `http://localhost:8000/poll/${pollID}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/poll/${pollID}`,
     {
       method: "PUT",
       headers: {
@@ -81,7 +81,7 @@ export const UpdatePoll = async (pollID:string , options:any[] , totalVotes: any
     return;
   }
   console.log("Updated successfully");
-  // revalidatePath("/community")
+  revalidatePath("/community")
  }catch(e){
     console.log(e);
   }

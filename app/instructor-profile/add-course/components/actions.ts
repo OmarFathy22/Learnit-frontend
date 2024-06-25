@@ -20,7 +20,7 @@ export interface ISection {
 export const CreateNewCourse = async (body: ICourse) => {
   try {
     const res = await fetch(
-      "http://localhost:8000/course/create",
+      `${process.env.NEXT_PUBLIC_API_URL}/course/create`,
       {
         method: "POST",
         headers: {
@@ -38,7 +38,7 @@ export const CreateNewCourse = async (body: ICourse) => {
 export const CreateNewSection = async (body: ISection) => {
   try {
     const res = await fetch(
-      "http://localhost:8000/course-section/create",
+      `${process.env.NEXT_PUBLIC_API_URL}/course-section/create`,
       {
         method: "POST",
         headers: {
@@ -56,7 +56,7 @@ export const CreateNewSection = async (body: ISection) => {
 export const CreateNewLesson = async (body: ICourse) => {
   try {
     const res = await fetch(
-      "http://localhost:8000/course-section/create",
+      `${process.env.NEXT_PUBLIC_API_URL}/course-section/create`,
       {
         method: "POST",
         headers: {

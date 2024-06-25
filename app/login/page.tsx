@@ -36,7 +36,7 @@ export default function App(props: IAppProps) {
       };
       try {
         const response = await fetch(
-          "http://localhost:8000/auth/signin-provider",
+          `${process.env.NEXT_PUBLIC_API_URL}/auth/signin-provider`,
           {
             method: "POST",
             headers: {
@@ -76,7 +76,7 @@ export default function App(props: IAppProps) {
   const handleSubmit = async (eo: React.FormEvent<HTMLFormElement>) => {
     eo.preventDefault();
     try {
-      const response = await fetch(`http://localhost:8000/auth/signin`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/signin`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -3,7 +3,7 @@
 export const getWishlist = async (userID: string) => {
   if (!userID) return;
   try {
-    const res = await fetch(`http://localhost:8000/user-progress/${userID}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user-progress/${userID}`);
     // revalidatePath("/home")
     return res.json();
   } catch (err) {
@@ -14,7 +14,7 @@ export const addToWishlist = async (userID: string, courseID: any) => {
   if (!courseID) return;
   try {
     const res = await fetch(
-      `http://localhost:8000/wishlist/addNewCourseToWishlist`,
+      `${process.env.NEXT_PUBLIC_API_URL}/wishlist/addNewCourseToWishlist`,
       {
         method: "PUT",
         headers: {
@@ -32,7 +32,7 @@ export const removeFromWishlist = async (userID: string, courseID: any) => {
   if (!courseID) return;
   try {
     const res = await fetch(
-      `http://localhost:8000/wishlist/removeCourseFromWishlist`,
+      `${process.env.NEXT_PUBLIC_API_URL}/wishlist/removeCourseFromWishlist`,
       {
         method: "PUT",
         headers: {
