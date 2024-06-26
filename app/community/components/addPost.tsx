@@ -2,6 +2,7 @@
 import { SyntheticEvent, useState } from "react";
 import DownArrow from "../../../components/svgs/down-arrow";
 import { CreateNewPost, CreateNewPoll } from "../actions";
+import toast from "react-hot-toast";
 
 export interface IAppProps {}
 const dialogs = [
@@ -19,6 +20,19 @@ export default function App(props: IAppProps) {
   const [chooseDialog, setChooseDialog] = useState(0);
   const [options, setOptions] = useState([{ title: "" }, { title: "" }]);
 
+  const handleAddPost = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    try {
+      await CreateNewPost(formData);
+      toast.success("Post created successfully");
+      setTimeout(() => {
+        window.location.reload();
+      }, 500);
+    } catch (error) {
+      console.error("Error creating post:", error);
+    }
+  };
   const addOption = () => {
     if (options.length < 4) setOptions([...options, { title: "" }]);
   };
@@ -37,14 +51,20 @@ export default function App(props: IAppProps) {
 
   const handleSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
-    if (pollTitle.trim() === "" || options.some(option => option.title.trim() === "")) {
+    if (
+      pollTitle.trim() === "" ||
+      options.some((option) => option.title.trim() === "")
+    ) {
       console.log("Title and all options are required.");
       return;
     }
     await CreateNewPoll(pollTitle, options);
     setOptions([{ title: "" }, { title: "" }]);
     setPollTitle("");
-    location.reload();
+    toast.success("Poll created successfully");
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
   };
 
   const handlePollTitle = (e: SyntheticEvent) => {
@@ -117,12 +137,14 @@ export default function App(props: IAppProps) {
             ))}
           </ul>
           {!postType ? (
-            <form action={CreateNewPost} className="border-t-[2px] border-t-[#323238] mt-2">
+            <form
+              onSubmit={handleAddPost}
+              className="border-t-[2px] border-t-[#323238] mt-2"
+            >
               <div className="px-4 py-2">
                 <h1 className="font-bold text-[15px]">Title</h1>
                 <div>
                   <input
-                    
                     name="title"
                     className="bg-[--bg-primary] rounded-md p-2 w-full mt-1"
                   />
@@ -149,7 +171,10 @@ export default function App(props: IAppProps) {
               </div>
             </form>
           ) : (
-            <form onSubmit={handleSubmit} className="border-t-[2px] border-t-[#323238] mt-2">
+            <form
+              onSubmit={handleSubmit}
+              className="border-t-[2px] border-t-[#323238] mt-2"
+            >
               <div className="px-4 py-2">
                 <h1 className="font-bold text-[15px]">Title</h1>
                 <div>
