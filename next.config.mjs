@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-import nextPWA from 'next-pwa';
+import nextPWA from '@ducanh2912/next-pwa';
 
 const nextConfig = {
   images: {
@@ -20,8 +20,6 @@ const nextConfig = {
 
 const withPWA = nextPWA({
   dest: 'public',
-  register: true,
-  skipWaiting: true,
 });
 
 export default withPWA(nextConfig);
