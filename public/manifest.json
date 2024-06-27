@@ -1,27 +1,29 @@
 {
   "name": "LearnIt",
   "short_name": "LearnIt",
-  "theme_color": "#00ff00",
-  "background_color": "#ffffff",
+  "theme_color": "#333",
+  "background_color": "#333",
   "display": "standalone",
   "orientation": "any",
   "scope": "/",
   "start_url": "/",
   "icons": [
     {
-      "src": "/icons-192.png",
+      "src": "/hero-1-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/icons-256.png",
+      "src": "/hero-1-256.png",
       "type": "image/png",
       "sizes": "256x256"
     },
     {
-      "src": "/icons-512.png",
+      "src": "/hero-1-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ]
 }
+
+

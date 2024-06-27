@@ -42,7 +42,7 @@ export default function App({user}: IUserProps) {
         />
       </div>
       <div className="text-center -translate-y-3">
-        <h1 className="font-bold text-[24px] max-400:text-[19px]">{user?.userID?.username}</h1>
+        <h1 className="font-bold text-[24px] max-400:text-[15px]">{user?.userID?.username}</h1>
         <h2 className="text-[14px] font-medium  text-[#FFCA28] max-400:text-[12px]">{user?.points}</h2>
       </div>
     </div>
