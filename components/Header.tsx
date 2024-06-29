@@ -57,7 +57,7 @@ export default function App(props: IAppProps) {
   };
   return (
     <div
-      className={`${
+      className={`text-white ${
         pathname == "/"
           ? "bg-[--bg-secondary]"
           : "bg-[--bg-secondary] border-b-[1px] border-b-[#474747]"

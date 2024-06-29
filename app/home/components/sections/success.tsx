@@ -9,7 +9,7 @@ import { UserContext } from '@/hooks/useUser';
 export default function App ({Courses}: ICourses) {
   const {user} = useContext(UserContext)
   return (
-    <div className='global-padding  py-[40px] pb-[50px]  min-1400:gradient-b-border'>
+    <div className='global-padding  py-[40px] pb-[50px] min-1400:gradient-b-border'>
       <div className=' h-full'>
         <div>
           <span>Welcome to </span>

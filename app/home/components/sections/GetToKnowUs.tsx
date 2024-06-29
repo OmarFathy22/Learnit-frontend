@@ -20,7 +20,7 @@ export default function App(props: IAppProps) {
           <div className="flex justify-between items-center  gap-10   h-full ">
             <div className=" min-900:max-w-[50%] max-900:w-full   flex flex-col items-start gap-2">
               <h1 className="text-[48px] max-400:text-[34px] font-bold">Learn Without Limits</h1>
-              <p className="text-[20px] max-400:text-[15px] mb-4">
+              <p className="text-[20px] max-400:text-[15px] mb-4 text-white">
                 Explore limitless learning with our diverse courses. From
                 programming to photography and more, there&apos;s something for
                 everyone. Unleash your potential today!
