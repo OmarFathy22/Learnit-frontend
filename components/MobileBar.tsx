@@ -13,28 +13,32 @@ export interface IAppProps {}
 const arr = [
   {
     icon: <FiHome />,
+    name: "Home",
     to: "/home",
   },
   {
     icon: <TfiCup />,
+    name: "Leaderboard",
     to: "/ranking",
   },
   {
     icon: <GrChatOption />,
+    name: "Community",
     to: "/community",
   },
   {
     icon: <CgProfile />,
+    name: "Profile",
     to: "/profile",
   },
 ];
 
 export default function App(props: IAppProps) {
-  const { user, setUser } = React.useContext(UserContext);
+  const { user } = React.useContext(UserContext);
   const pathname = usePathname();
   return (
     <ul
-      className={`fixed bottom-0 right-0 left-0 w-full h-[50px] text-white  bg-[#1B1B1E] shadow-md flex justify-around items-center  px-4 min-600:hidden
+      className={`fixed bottom-0 right-0 left-0 w-full h-[60px] border-t-[#474747] border-t-[1px] backdrop-blur bg-transparent text-white  bg-[#1B1B1E] shadow-md flex justify-around items-center  px-4 min-600:hidden
     ${(!user || (user && Object.keys(user).length == 0 )) && "hidden"}`}
     >
       {arr.map((item, index) => (
@@ -45,11 +49,17 @@ export default function App(props: IAppProps) {
             pathname == item.to && "!text-orange-500"
           }`}
         >
-          {item.icon}
+          <div className="flex flex-col justify-center gap-[2px]">
+            <h1 className="self-center">{item.icon}</h1>
+            <h1 className="text-[7px]">{item.name}</h1>
+          </div>
         </Link>
       ))}
-        <Link href={'/chatbot'}>
-           <Image src="/hero-1.png" alt="profile" width={25} height={25} className='object-contain' />
+        <Link href={'/chatbot'} className="flex flex-col justify-center gap-[2px]">
+           <Image src="/hero-1.png" alt="profile" width={20} height={20} className='object-contain self-center ' />
+           <h1 className={`text-[7px] ${
+            pathname == '/chatbot' && "!text-orange-500"
+          }`}>LearnItBuddy</h1>
           </Link>
     </ul>
   );
