@@ -62,7 +62,7 @@ const AiChatbot = () => {
           </div>
         )}
       </div>
-      <div className={`bg-[--bg-primary] fixed bottom-0 ${pathname == '/chatbot' && "max-600:!bottom-[50px]"} right-0 left-0`}>
+      <div className={`fixed bottom-0 ${pathname == '/chatbot' && "max-600:!bottom-[70px]"} right-0 left-0`}>
         <form onSubmit={handleSubmit} className=' flex px-4 gap-4 bg-[--bg-tertiary] p-2 mx-4 mb-2 rounded-full'>
           <input
             type="text"

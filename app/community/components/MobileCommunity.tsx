@@ -25,7 +25,7 @@ export default function App({Posts}: IPosts) {
     setActive(!active);
   };
   return (
-    <div className="py-[40px] min-1000:hidden">
+    <div className="py-[40px] pt-[20px] min-1000:hidden">
       <div className=" w-full flex justify-around">
         <h1
           onClick={onClick}
