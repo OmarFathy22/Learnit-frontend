@@ -8,7 +8,7 @@ import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import ProfileIcon from "./svgs/profileIcon";
 import { UserContext } from "@/hooks/useUser";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 
 const routes = [
@@ -40,8 +40,8 @@ const App = () => {
     setIsOpen((prevState) => !prevState);
   };
   const handleLogOut = () => {
+    signOut({ callbackUrl: "/login" });
     localStorage.removeItem("user");
-    location.href = "/";
   };
   return (
     <>
@@ -52,7 +52,7 @@ const App = () => {
         open={isOpen}
         onClose={toggleDrawer}
         direction="right"
-        className="!bg-[--bg-secondary] flex flex-col  items-center gap-[110px]  py-[40px] text-[16px]"
+        className="!bg-[--bg-secondary] flex flex-col  items-center gap-[5px]  py-[40px] text-[16px]"
       >
         <div>
           <Link onClick={() => toggleDrawer()} href={"/"}>
@@ -67,13 +67,16 @@ const App = () => {
             </div>
           </Link>
         </div>
+        <h1 className="text-[8px] mb-[20px]">
+            © 2024 LearnIt. All Rights Reserved.
+          </h1>
         <ul
           className={`flex flex-col gap-[30px] items-center text-[16px] ${
             !user || (user && Object.keys(user).length == 0 && "hidden")
           }`}
         >
           {" "}
-          {routes.map((route, i) => (
+          {/* {routes.map((route, i) => (
             <li
               onClick={() => toggleDrawer()}
               key={i}
@@ -90,16 +93,16 @@ const App = () => {
                 {route.name}
               </Link>
             </li>
-          ))}
+          ))} */}
           {/* profile Icon */}
-          <li onClick={() => toggleDrawer()}>
+          {/* <li onClick={() => toggleDrawer()}>
             <Link href={"/profile"}>
               <ProfileIcon active={pathname.startsWith("/profile")} />
             </Link>
-          </li>
-          <Link href={'/chatbot'}>
+          </li> */}
+          {/* <Link href={'/chatbot'}>
            <Image src="/hero-1.png" alt="profile" width={40} height={40} className='object-contain' />
-          </Link>
+          </Link> */}
           <button onClick={handleLogOut}>
             <h1 className="text-[16px] gradient-bg px-5 py-2 rounded-md font-bold">
               Log Out

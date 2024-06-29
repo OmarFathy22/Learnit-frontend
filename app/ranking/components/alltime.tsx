@@ -38,7 +38,7 @@ export default function App({users}: IAppProps) {
                     alt="girl"
                     width={1000}
                     height={1000}
-                    className="rounded-full w-[65px] h-[65px] max-500:w-[45px] max-350:!h-[30px] max-350:!w-[30px] max-500:h-[45px] max-500:border-[3px] border-[5px] border-[#FB6BFE] "
+                    className="rounded-full w-[65px] h-[65px] max-500:w-[45px] max-350:!h-[30px] max-350:!w-[30px] max-500:h-[45px] max-500:border-[3px] border-[5px] border-gray-300 "
                   />
                   <h1 className="max-500:text-[10px] max-500:-translate-x-2 max-350:!translate-x-1">{user?.userID?.username}</h1>
                 </div>

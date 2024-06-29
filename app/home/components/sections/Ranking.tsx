@@ -77,7 +77,7 @@ export default async function App() {
                     alt="girl"
                     width={1000}
                     height={1000}
-                    className="rounded-full w-[65px] h-[65px] max-500:w-[45px] max-500:h-[45px] border-[5px] border-[#FB6BFE]  max-500:border-[3px] "
+                    className="rounded-full w-[65px] h-[65px] max-500:w-[45px] max-500:h-[45px] border-[5px] border-gray-300  max-500:border-[3px] "
                   />
                   <h1 className="max-500:text-[10px]">{user?.userID?.username}</h1>
                 </div>
