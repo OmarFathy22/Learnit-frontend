@@ -12,14 +12,15 @@ export interface IAppProps {
 export default function App ({MaxPercent,index,item,votedOption , Poll}: IAppProps) {
   return (
     <div
-    ref={(el) => {
-      if (el && votedOption >= 0) {
-        el.animate([{ width: "0%" }, { width: `${(item.count / Poll.totalVotes.length)*100}%` }], {
-          duration: 500,
-          fill: "forwards",
-        });
-      }
-    }}
+    // ref={(el) => {
+    //   if (el && votedOption >= 0) {
+    //     el.animate([{ width: "0%" }, { width: `${(item.count / Poll.totalVotes.length)*100}%` }], {
+    //       duration: 500,
+    //       fill: "forwards",
+    //     });
+    //   }
+    // }}
+    style={{ width: `${Math.min(100 , (item.count / Poll.totalVotes.length)*100)}%` }}
     className={`rounded-md ${votedOption < 0 && "hidden"}  ${
       MaxPercent() === index ? "gradient-bg" : "gradient-bg-opacity"
     } z-[1] w-full h-full absolute top-0 bottom-0 left-0`}

@@ -38,7 +38,7 @@ export default function App(props: IAppProps) {
   const pathname = usePathname();
   return (
     <ul
-      className={`fixed bottom-0 right-0 left-0 w-full h-[60px] border-t-[#474747] border-t-[1px] backdrop-blur bg-transparent text-white  bg-[#1B1B1E] shadow-md flex justify-around items-center  px-4 min-600:hidden
+      className={`z-[10000] fixed bottom-0 right-0 left-0 w-full h-[60px] border-t-[#474747] border-t-[1px] backdrop-blur bg-transparent text-white  bg-[#1B1B1E] shadow-md flex justify-around items-center  px-4 min-600:hidden
     ${(!user || (user && Object.keys(user).length == 0 )) && "hidden"}`}
     >
       {arr.map((item, index) => (

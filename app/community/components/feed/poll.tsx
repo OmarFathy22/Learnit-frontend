@@ -50,6 +50,7 @@ export default function App({ Poll }: IAppProps) {
       setVotedOption(option);
     };
   };
+  
   return (
     <div className="bg-[#101011] p-4 rounded-md ">
       <div className="flex items-center gap-2">
@@ -89,7 +90,7 @@ export default function App({ Poll }: IAppProps) {
                 </h1>
                 <h1 className={`z-[2] ${votedOption < 0 && "hidden"}`}>
                   {Poll.totalVotes.length > 0
-                    ? `${((item.count / Poll.totalVotes.length) * 100)}%`
+                    ? `${((item.count / Poll.totalVotes.length) * 100).toFixed(0)}%`
                     : "0%"}
                 </h1>
               </div>
