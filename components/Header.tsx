@@ -13,7 +13,7 @@ import MenuDrawer from "./MenuDrawer";
 import React, { useContext } from "react";
 import { UserContext } from "@/hooks/useUser";
 import {signOut } from "next-auth/react";
-
+import MobileBar from './MobileBar'
 
 export interface IAppProps {}
 const montserrat_Alternates = Montserrat_Alternates({
@@ -88,6 +88,7 @@ export default function App(props: IAppProps) {
       <div className="menu-icon min-1100:hidden">
         {/* <RiMenu3Line size={25} /> */}
         <MenuDrawer />
+        
       </div>
 
       <div className="max-1100:hidden">

@@ -9,7 +9,7 @@ export interface IAppProps {}
 export default function App(props: IAppProps) {
   const pathname = usePathname();
   return (
-    <div>
+    <div className="max-600:hidden">
       <div
         className={`${
           (pathname.includes("/courses") || pathname.includes('/chatbot')) && "hidden"

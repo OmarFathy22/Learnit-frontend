@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import UserProvider from "@/context/NewUserProvider";
 import SessionWrapper from "@/components/SessionWrapper";
 import { Toaster } from "react-hot-toast";
+import MobileBar from "@/components/MobileBar";
 
 const lato = Lato({ subsets: ["latin"], weight: ["300", "400", "700"] });
 export const metadata: Metadata = {
@@ -33,10 +34,11 @@ export default function RootLayout({
         <SessionWrapper>
           <UserProvider>
             <Header />
-            <main className="bg-[--bg-primary] min-h-[calc(100vh-80px)] mt-[80px] max-600:mt-[60px] ">
+            <main className="bg-[--bg-primary] pb-[50px] min-h-[calc(100vh-80px)] mt-[80px] max-600:mt-[60px] ">
               {children}
             </main>
             <Footer />
+            <MobileBar />
           </UserProvider>
         </SessionWrapper>
       </body>

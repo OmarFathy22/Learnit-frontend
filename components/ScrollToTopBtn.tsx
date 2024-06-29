@@ -38,7 +38,7 @@ export default function App(props: IAppProps) {
   };
   return (
     <button
-      className={`gradient-bg rounded-md p-1 fixed bottom-10 right-10 z-[10000] ${
+      className={`gradient-bg rounded-md p-1 max-600:hidden fixed bottom-10 right-10 z-[10000] ${
         isVisible ? "visible" : "invisible"
       } ${(pathname.includes("/courses") || pathname.includes('/chatbot')) && "hidden"}`}
       onClick={scrollToTop}

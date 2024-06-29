@@ -3,8 +3,10 @@ import React, { SyntheticEvent, useState } from 'react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { RiSendPlaneFill } from "react-icons/ri";
 import Loader from './components/loader';
+import { usePathname } from 'next/navigation';
 
 const AiChatbot = () => {
+  const pathname = usePathname();
   const [userInput, setUserInput] = useState('');
   const [response, setResponse] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -60,7 +62,7 @@ const AiChatbot = () => {
           </div>
         )}
       </div>
-      <div className='bg-[--bg-primary] fixed bottom-0 right-0 left-0'>
+      <div className={`bg-[--bg-primary] fixed bottom-0 ${pathname == '/chatbot' && "max-600:!bottom-[50px]"} right-0 left-0`}>
         <form onSubmit={handleSubmit} className=' flex px-4 gap-4 bg-[--bg-tertiary] p-2 mx-4 mb-2 rounded-full'>
           <input
             type="text"

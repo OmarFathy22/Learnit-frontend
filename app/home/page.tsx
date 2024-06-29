@@ -7,6 +7,7 @@ import Instructor from "./components/sections/instructor";
 import { getData } from './actions'
 export default async function Home() {
   const Courses = await getData();
+  if(!Courses) return <h1>Something Went Wrong!</h1>
   return (
     <main className="">
       <Success Courses = {Courses} />
