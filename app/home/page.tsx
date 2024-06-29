@@ -7,12 +7,13 @@ import Instructor from "./components/sections/instructor";
 import { getData } from './actions'
 export default async function Home() {
   const Courses = await getData();
+  const repeatedCourses = Courses.concat(Courses).concat(Courses).concat(Courses).concat(Courses).concat(Courses);
   if(!Courses) return <h1>Something Went Wrong!</h1>
   return (
     <main className="">
-      <Success Courses = {Courses} />
-      <Master Courses = {Courses}/>
-      <Recommended Courses = {Courses} />
+      <Success Courses = {repeatedCourses} />
+      <Master Courses = {repeatedCourses}/>
+      <Recommended Courses = {repeatedCourses} />
       <Ranking />
       <Feedbacks />
       <Instructor />

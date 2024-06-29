@@ -5,18 +5,19 @@ import { IoStarHalf } from "react-icons/io5";
 import Stars from '../../../../../components/stars';
 export interface IAppProps {
 }
- const stars = 4;
+ const stars = 0;
 export default function App (props: IAppProps) {
   return (
     <div className=' flex flex-col '>
       <div className="text-[#FFCA28] py-3 px-4 text-[20px] flex items-center gap-1 bg-[--bg-tertiary] border-b-[1px]  border-b-[#474747]">
-            <h3>4.7</h3>
-            <Stars stars={4}/>
-            <h4 className="text-[--sub-text]">(133)</h4>
+            <h3>0</h3>
+            <Stars stars={stars}/>
+            <h4 className="text-[--sub-text]">(0)</h4>
           </div>
           {/* review */}
+          
         {
-          Array(3).fill(0).map((_, i) => (
+          Array(0).fill(0).map((_, i) => (
             <div key={i} className="flex gap-3 py-3 px-4 bg-[--bg-secondary] border-b-[1px] border-b-[#474747] ">
             <div>
               <Image
@@ -40,7 +41,11 @@ export default function App (props: IAppProps) {
           </div>
           ))
         }
-      
+    <div className='flex justify-center items-center h-full'>
+        <h1 className='pt-5'>
+              No reviews yet
+        </h1>
+    </div>
     </div>
   );
 }

@@ -11,14 +11,15 @@ import {  ICourses } from '@/app/community/interfaces/post';
 
 export default async function Home() {
   const Courses = await getData();
+  const repeatedCourses = Courses.concat(Courses).concat(Courses).concat(Courses).concat(Courses).concat(Courses);
 
   return (
     <main className="">
       <GetToKnowUs />
-      <LearnersAreViewing Courses = {Courses} />
+      <LearnersAreViewing Courses = {repeatedCourses} />
       <Feedbacks />
       <Ranking />
-      <Master Courses={Courses} />
+      <Master Courses={repeatedCourses} />
       <Instructor />
     </main>
   );

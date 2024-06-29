@@ -9,10 +9,10 @@ export default function App ({course}: IAppProps) {
   return (
     <div className='p-5 flex flex-col gap-3'>
       {/* instructor data */}
-        <div className="flex items-center  gap-3  ">
+        {/* <div className="flex items-center  gap-3  ">
         <div>
           <Image
-            src="/instructor.png"
+            src="/course.png"
             alt="course instructor"
             width={50}
             height={50}
@@ -25,7 +25,7 @@ export default function App ({course}: IAppProps) {
             Web Developer @LearnIt
           </h2>
         </div>
-      </div>
+      </div> */}
        {/* about this course */}
       <div>
         <h1 className='gradient-text text-[20px]'>About this course</h1>

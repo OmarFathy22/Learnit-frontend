@@ -34,7 +34,7 @@ export default function RootLayout({
         <SessionWrapper>
           <UserProvider>
             <Header />
-            <main className="text-white bg-[--bg-primary] pb-[50px] min-h-[calc(100vh-80px)] mt-[80px] max-600:mt-[60px] ">
+            <main className="text-white bg-[--bg-primary] max-600:pb-[50px] min-h-[calc(100vh-80px)] mt-[80px] max-600:mt-[60px] ">
               {children}
             </main>
             <Footer />

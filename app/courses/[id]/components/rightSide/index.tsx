@@ -66,7 +66,7 @@ export default function App({ refreshVideo,changeLesson, course }: IAppProps) {
                   progressCourse?._id == course?._id
               )
             }
-            className=" disabled:bg-[--bg-tertiary] disabled:z-[0] bg-orange-500 text-white z-[10000]  py-2 px-10 rounded-md"
+            className=" disabled:bg-[--bg-tertiary] disabled:z-[0] bg-orange-500 text-white z-[100]  py-2 px-10 rounded-md"
           >
             {progress?.coursesInProgress?.some(
               (progressCourse: { _id: any }) =>

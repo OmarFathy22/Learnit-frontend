@@ -3,6 +3,7 @@ import { useEffect, useLayoutEffect, useState } from "react";
 import { Lato } from "next/font/google";
 import { IoIosStar } from "react-icons/io";
 import { IoStarHalf } from "react-icons/io5";
+import { IoStarOutline } from "react-icons/io5";
 import { BsBookmarkFill } from "react-icons/bs";
 import { BsBookmark } from "react-icons/bs";
 import Link from "next/link";
@@ -13,7 +14,7 @@ import { addToWishlist, removeFromWishlist, getWishlist } from "./actions";
 import { usePathname } from "next/navigation";
 
 const lato = Lato({ subsets: ["latin"], weight: ["300", "400", "700"] });
-const stars: number = 4;
+const stars: number = 0;
 export interface IAppProps {
   course: ICourse;
 }
@@ -53,7 +54,7 @@ export default function App({ course }: IAppProps) {
           <div className="w-full">
             <Image
               alt="course picture"
-              src={course?.bannerImage || `/course.png`}
+              src={`/course.png`}
               width={1000}
               height={1000}
               className="w-full  h-[200px] rounded-t-md object-fill"
@@ -68,14 +69,14 @@ export default function App({ course }: IAppProps) {
             </h1>
           </Link>
           <h1 className="text-[12px] font-medium my-[6px] mt-[8px]">
-            Jonas Schmedtmann
+            LearnIt Team
           </h1>
           {/* <h2 className="text-[--sub-text]  font-bold my-1  ">19h 45m - 150 lessons</h2> */}
           <div className="flex justify-between items-center gap-3">
             <div className="text-[#FFCA28] flex items-center gap-1">
-              <h3>4.7</h3>
+              <h3>0</h3>
               <ul className="flex">
-                {Array(4)
+                {Array(0)
                   .fill(0)
                   .map((_, i) => (
                     <li key={i}>
@@ -86,11 +87,11 @@ export default function App({ course }: IAppProps) {
                   .fill(0)
                   .map((_, i) => (
                     <li key={i} className="">
-                      <IoStarHalf size={15} />
+                      <IoStarOutline size={15} />
                     </li>
                   ))}
               </ul>
-              <h4 className="text-[--sub-text]">(133)</h4>
+              <h4 className="text-[--sub-text]">(0)</h4>
             </div>
             <button onClick={() => handleBookmark()} className="  ">
               {isBookmarked ? (
