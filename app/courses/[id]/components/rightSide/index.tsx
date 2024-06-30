@@ -56,7 +56,7 @@ export default function App({ refreshVideo,changeLesson, course }: IAppProps) {
   return (
     <div className="w-[500px] max-1000:w-full h-[calc(100vh-80px)] !overflow-auto relative custom-scrollbar">
       <div className="w-full relative ">
-        <div className="flex items-center justify-between p-3 px-10 ">
+        <div className="flex items-center justify-between p-3  ">
           <button
             onClick={handleEnroll}
             disabled={
@@ -66,7 +66,7 @@ export default function App({ refreshVideo,changeLesson, course }: IAppProps) {
                   progressCourse?._id == course?._id
               )
             }
-            className=" disabled:bg-[--bg-tertiary] disabled:z-[0] bg-orange-500 text-white z-[100]  py-2 px-10 rounded-md"
+            className=" disabled:bg-[--bg-tertiary] disabled:z-[0] bg-orange-500 text-white z-[100]  py-2 px-10 max-400:px-5 max-400:py-[6px] max-400:text-[12px] rounded-md"
           >
             {progress?.coursesInProgress?.some(
               (progressCourse: { _id: any }) =>
@@ -76,7 +76,7 @@ export default function App({ refreshVideo,changeLesson, course }: IAppProps) {
               : "Enroll"}
           </button>
           <div className="flex gap-3 items-center">
-            <h1 className="text-[15px] font-bold ">points to unlock</h1>
+            <h1 className="text-[15px] font-bold max-400:text-[12px] ">points to unlock</h1>
             <div className="bg-[--bg-tertiary] py-2 px-2 rounded-md flex gap-1">
               <h1>{progress?.points || '0'}</h1>
               <h1>/</h1>
@@ -124,6 +124,9 @@ export default function App({ refreshVideo,changeLesson, course }: IAppProps) {
           sections={course?.courseSections}
           refreshVideo={refreshVideo}
           changeLesson={changeLesson}
+          isEnrolled={progress?.coursesInProgress?.some(
+            (progressCourse: { _id: any }) => progressCourse?._id == course?._id
+          )}
         />
       )}
     </div>

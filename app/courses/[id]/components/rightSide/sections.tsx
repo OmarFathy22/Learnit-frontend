@@ -75,10 +75,10 @@ export default function App({
           {section.lessons.map((lesson, i) => (
             <li
               key={i}
-              className=" cursor-pointer flex items-center justify-between px-10 py-3 border-b-[1px] border-b-[#474747]"
+              className="gap-5 cursor-pointer flex  items-center justify-between px-10 py-3 border-b-[1px] border-b-[#474747]"
             >
               <div onClick={() => changeLesson(lesson)}>
-                <h1 className="gradient-text-green">
+                <h1 className="text-green-500 ">
                   {i + 1}. {lesson?.title}
                 </h1>
                 <div className="flex items-center gap-1">
@@ -103,9 +103,11 @@ export default function App({
                 onClick={() => handleOpenQuiz(lesson?._id)}
                 disabled={
                   i !== 0 &&
-                  !section?.lessons[i - 1]?.quizID.solvedBy?.includes(user?._id)
+                  !section?.lessons[i - 1]?.quizID?.solvedBy?.includes(
+                    user?._id
+                  )
                 }
-                className=" disabled:border-gray-400 disabled:text-gray-400 px-3 py-[2px] rounded-md border-[1px] cursor-pointer"
+                className=" disabled:border-gray-400 whitespace-nowrap max-400:text-[11px]  disabled:text-gray-400 px-3 py-[2px] rounded-md border-[1px] cursor-pointer"
               >
                 {lesson?.quizID?.solvedBy?.includes(user?._id)
                   ? "Solved"

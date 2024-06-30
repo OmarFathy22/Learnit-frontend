@@ -41,11 +41,11 @@ export default function App (props: IAppProps) {
           </div>
           ))
         }
-    <div className='flex justify-center items-center h-full'>
-        <h1 className='pt-5'>
-              No reviews yet
-        </h1>
-    </div>
+  <div className=" flex justify-center items-center">
+          <h1 className="text-center pt-5 gradient-text font-bold h-full">
+            No reviews yet!
+          </h1>
+      </div>
     </div>
   );
 }

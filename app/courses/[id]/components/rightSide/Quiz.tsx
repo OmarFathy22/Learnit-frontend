@@ -21,7 +21,7 @@ export default function App({
   const { user } = useContext(UserContext);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(-1);
-  const [questions] = useState(quiz.questions);
+  const [questions] = useState(quiz?.questions);
   const [percentage, setPercentage] = useState(0);
   const [loading, setLoading] = useState(false);
   const [wrongAnswers, setWrongAnswers] = useState(0);
