@@ -49,12 +49,12 @@ export default function App({ course }: IAppProps) {
       <div
         className={`mx-[12px] min-w-[250px] max-600:mx-[6px]   rounded-md cursor-pointer ${lato.className}`}
       >
-        <Link href={`/courses/${course?._id}`}>
+        <Link href={`/courses/6669e0ef251adad68e94d84d`}>
           {/* course Image */}
           <div className="w-full">
             <Image
               alt="course picture"
-              src={`/course.png`}
+              src={course?.bannerImage || `/course.png`}
               width={1000}
               height={1000}
               className="w-full  h-[200px] rounded-t-md object-fill"

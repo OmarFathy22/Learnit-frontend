@@ -6,20 +6,19 @@ import Ranking from "../home/components/sections/Ranking";
 import Feedbacks from "../home/components/sections/feedbacks";
 import Instructor from "../home/components/sections/instructor";
 import ScrollToTopBtn from "@/components/ScrollToTopBtn";
-import { getData } from '@/app/home/actions'
-import {  ICourses } from '@/app/community/interfaces/post';
+import { getData } from "@/app/home/actions";
+import { ICourses } from "@/app/community/interfaces/post";
 
 export default async function Home() {
   const Courses = await getData();
-  const repeatedCourses = Courses.concat(Courses).concat(Courses).concat(Courses).concat(Courses).concat(Courses);
 
   return (
     <main className="">
       <GetToKnowUs />
-      <LearnersAreViewing Courses = {repeatedCourses} />
+      <LearnersAreViewing Courses={Courses} />
       <Feedbacks />
       <Ranking />
-      <Master Courses={repeatedCourses} />
+      <Master Courses={Courses} />
       <Instructor />
     </main>
   );
