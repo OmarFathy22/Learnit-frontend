@@ -30,10 +30,10 @@ export default function App({ Poll }: IAppProps) {
   const [chooseOption, setChooseOption] = useState(-1);
   const [votedOption, setVotedOption] = useState(-1);
   React.useEffect(() => {
-    if(Poll.totalVotes.includes(user._id)){
-      setVotedOption(1)
+    if (Poll.totalVotes.includes(user._id)) {
+      setVotedOption(1);
     }
-  }, [Poll.totalVotes,user._id]);
+  }, [Poll.totalVotes, user._id]);
 
   const handleOption = (option: number) => {
     if (votedOption >= 0) {
@@ -50,20 +50,23 @@ export default function App({ Poll }: IAppProps) {
       setVotedOption(option);
     };
   };
-  
+
   return (
     <div className="bg-[#101011] p-4 rounded-md ">
       <div className="flex items-center gap-2">
         <div>
           <Image
             className="rounded-full"
-            src="/girl1.png"
+            src={Poll?.userID?.photoUrl || "/girl1.png"}
             alt="Picture of the author"
             width={50}
             height={50}
           />
         </div>
-        <h1 className="gradient-text text-[18px]">D/Learnit</h1>
+        <div>
+          <h1 className="gradient-text text-[18px]">D/LearnIt</h1>
+          <h1 className="text-white text-[13px]">{Poll?.userID?.username}</h1>
+        </div>
       </div>
       <div className="py-2">
         <h1 className="text-[#ADD5F2] text-[22px] font-bold pb-2">
@@ -90,7 +93,9 @@ export default function App({ Poll }: IAppProps) {
                 </h1>
                 <h1 className={`z-[2] ${votedOption < 0 && "hidden"}`}>
                   {Poll.totalVotes.length > 0
-                    ? `${((item.count / Poll.totalVotes.length) * 100).toFixed(0)}%`
+                    ? `${((item.count / Poll.totalVotes.length) * 100).toFixed(
+                        0
+                      )}%`
                     : "0%"}
                 </h1>
               </div>

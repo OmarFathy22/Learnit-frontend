@@ -33,7 +33,7 @@ export const CreateNewPost = async (formData:FormData , userID:string) => {
     console.log(e);
   }
 };
-export const CreateNewPoll = async (title:string , options:any[]) => {
+export const CreateNewPoll = async (title:string , options:any[] , userID:string) => {
  try{
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/poll/create`,
@@ -45,6 +45,7 @@ export const CreateNewPoll = async (title:string , options:any[]) => {
       body: JSON.stringify({
         title: title,
         options: options,
+        userID,
         communityID: "661b6426c57eea7217130260",
       }),
     }

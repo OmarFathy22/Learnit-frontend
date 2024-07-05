@@ -60,7 +60,7 @@ export default function App(props: IAppProps) {
       console.log("Title and all options are required.");
       return;
     }
-    await CreateNewPoll(pollTitle, options);
+    await CreateNewPoll(pollTitle, options , user?._id);
     setOptions([{ title: "" }, { title: "" }]);
     setPollTitle("");
     toast.success("Poll created successfully");

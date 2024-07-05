@@ -44,6 +44,7 @@ export interface IPoll {
 	_id: string;
 	title: string;
 	options: Option[];
+  userID: UserID;
 	communityID: string;
 	comments: any[];
 	createdAt: string;
