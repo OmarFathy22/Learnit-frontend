@@ -47,7 +47,7 @@ export default function App({ course }: IAppProps) {
   return (
     <div className="">
       <div
-        className={`mx-[12px] min-w-[250px] max-600:mx-[6px]   rounded-md cursor-pointer ${lato.className}`}
+        className={`mx-[12px]  max-600:mx-[6px] rounded-md cursor-pointer ${lato.className}`}
       >
         <Link href={`/courses/6669e0ef251adad68e94d84d`}>
           {/* course Image */}
