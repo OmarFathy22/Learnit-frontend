@@ -11,6 +11,7 @@ export interface IAppProps {
 
 export default async function App({ post, replies }: IAppProps) {
   replies.reverse();
+
   return (
     <div className="flex-1 min-1300:max-w-[calc(100vw-700px)]">
       <div className="py-3 max-1100:py-0">

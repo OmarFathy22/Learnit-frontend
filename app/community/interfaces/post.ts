@@ -7,10 +7,24 @@ export interface IComment {
   updatedAt: string;
   __v: number;
 }
+export interface UserID {
+  _id: string;
+  username: string;
+  password: string;
+  email: string;
+  photoUrl: string;
+  isInstructor: boolean;
+  lastAccessToken?: any;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}
 export interface IPost {
   _id?: string;
+  photo?: string;
   title: string;
   content: string;
+  userID: UserID;
   communityID: string;
   comments: Comment[];
   createdAt: string;
@@ -62,5 +76,3 @@ export interface ICourse {
 export interface ICourses {
   Courses: ICourse[];
 }
-
-  

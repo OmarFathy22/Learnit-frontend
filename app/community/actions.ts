@@ -11,7 +11,7 @@ export const getPolls = async () => {
   return res.json();
 };
 
-export const CreateNewPost = async (formData:FormData) => {
+export const CreateNewPost = async (formData:FormData , userID:string) => {
   try{
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/post/create`,
@@ -23,6 +23,7 @@ export const CreateNewPost = async (formData:FormData) => {
         body: JSON.stringify({
           title: formData.get("title"),
           content: formData.get("content"),
+          userID,
           communityID: "661b6426c57eea7217130260",
         }),
       }

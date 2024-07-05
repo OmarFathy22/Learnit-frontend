@@ -9,7 +9,7 @@ export interface IAppProps {
   Posts: IPost[];
 }
 
-export default async function App ({Posts }: IAppProps) {
+export default async function App ({Posts}: IAppProps) {
   const Polls = await getPolls();
   if(!Polls) return <h1>Something Went Wrong!</h1>
 

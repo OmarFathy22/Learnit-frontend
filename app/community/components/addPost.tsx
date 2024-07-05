@@ -1,8 +1,9 @@
 "use client";
-import { SyntheticEvent, useState } from "react";
+import { SyntheticEvent, useContext, useState } from "react";
 import DownArrow from "../../../components/svgs/down-arrow";
 import { CreateNewPost, CreateNewPoll } from "../actions";
 import toast from "react-hot-toast";
+import { UserContext } from "@/hooks/useUser";
 
 export interface IAppProps {}
 const dialogs = [
@@ -15,6 +16,7 @@ const dialogs = [
 ];
 
 export default function App(props: IAppProps) {
+  const { user } = useContext(UserContext);
   const [pollTitle, setPollTitle] = useState("");
   const [postType, setPostType] = useState(0);
   const [chooseDialog, setChooseDialog] = useState(0);
@@ -24,7 +26,7 @@ export default function App(props: IAppProps) {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     try {
-      await CreateNewPost(formData);
+      await CreateNewPost(formData , user?._id);
       toast.success("Post created successfully");
       setTimeout(() => {
         window.location.reload();

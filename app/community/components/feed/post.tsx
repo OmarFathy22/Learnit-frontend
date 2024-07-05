@@ -11,6 +11,7 @@ import { IPost } from "../../interfaces/post";
 
 
 export default function App (post: IPost) {
+  console.log("post" , post);
   return (
   <Link href={`/community/${post._id}`}>
       <div className="bg-[#101011] p-4 rounded-md ">
@@ -18,13 +19,16 @@ export default function App (post: IPost) {
               <div>
                 <Image
                   className="rounded-full"
-                  src="/girl1.png"
+                  src={post?.userID?.photoUrl || "/girl1.png"}
                   alt="Picture of the author"
                   width={50}
                   height={50}
                 />
               </div>
-              <h1 className="gradient-text text-[18px]">D/python</h1>
+              <div>
+                <h1 className="gradient-text text-[18px]">D/LearnIt</h1>
+                <h1 className="text-white text-[13px]">{post?.userID?.username}</h1>
+              </div>
             </div>
             <div className="py-2">
               <h1 className="text-[#ADD5F2] text-[22px] max-500:text-[15px] font-bold pb-2">
