@@ -7,6 +7,7 @@ import { UserContext } from "@/hooks/useUser";
 
 export interface IAppProps {}
 const dialogs = [
+  "LearnIt",
   "React",
   "Node js",
   ".Net",

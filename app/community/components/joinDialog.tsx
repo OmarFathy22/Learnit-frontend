@@ -5,6 +5,7 @@ import Categories from "./dialog/Categories";
 
 export interface IAppProps {}
 const dialogs = [
+  "LearnIt",
   "React",
   "Node js",
   ".Net",
