@@ -64,7 +64,7 @@ export default function App({ course }: IAppProps) {
         {/* course data */}
         <div className="p-2  py-6 max-600:py-3 rounded-b-md bg-[--bg-secondary]">
           <Link href={`courses/${course?._id} h-full w-full  `}>
-            <h1 className="text-[20px] max-600:text-[15px] font-bold">
+            <h1 className="text-[20px] max-600:text-[15px] font-bold truncate">
               {course?.courseName}
             </h1>
           </Link>
