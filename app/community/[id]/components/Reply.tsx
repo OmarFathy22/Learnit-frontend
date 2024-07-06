@@ -12,7 +12,7 @@ export default function App ({content}: IAppProps) {
       <div  className="flex gap-3  ">
       <div>
         <Image
-          src="/girl2.png"
+          src="https://res.cloudinary.com/dqhdokahr/image/upload/v1708426944/no_avatar_1_tjgnin.png"
           alt="comment author"
           width={50}
           height={50}
@@ -20,10 +20,10 @@ export default function App ({content}: IAppProps) {
         />
       </div>
       <div className="">
-        <h1>Jonas Schmedtmann</h1>
+        <h1>Ahmed Sobhy</h1>
         <div className='flex items-center gap-2'>
           <h2 className="text-[--sub-text] text-[12px]">
-            3 months ago
+            Just now
           </h2>
         </div>
       </div>

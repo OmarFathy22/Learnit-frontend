@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { CreateNewReply } from "../../actions";
 import { useRouter } from "next/navigation";
 import { revalidatePath } from "next/cache";
+import toast from "react-hot-toast";
 
 export interface IAppProps {
   postId?: string;
@@ -18,9 +19,11 @@ export default function App({ postId }: IAppProps) {
     const formData = new FormData();
     formData.append("content", newReply);
     await CreateNewReply(postId, formData);
-    router.refresh();
     setNewReply("");
     setFocus(false);
+    toast.success("Reply added successfully");
+    location.reload();
+    
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
